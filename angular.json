@@ -60,6 +60,14 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "my-angular-project:build:production"
+            },
+            "development": {
+              "buildTarget": "my-angular-project:build:development"
+            }
+          },
           "defaultConfiguration": "development",
           "options": {
             "host": "0.0.0.0",
