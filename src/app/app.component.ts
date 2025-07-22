@@ -37,39 +37,39 @@ interface TeamMember {
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  title = 'Faculty of Science - Kasetsart University';
+  title = 'Thai Liquid Crystal in Space - TLCS Research Platform';
   isScrolled = false;
   isVisible = false;
   isMobileMenuOpen = false;
 
   researchProjects: ResearchProject[] = [
     {
-      title: 'Liquid Crystal Space Research',
-      description: 'Investigating liquid crystal behavior in microgravity environments aboard the International Space Station to advance materials science.',
-      impact: '9.2',
-      publications: 45,
+      title: 'Microgravity Liquid Crystal Physics',
+      description: 'Investigating liquid crystal phase transitions and molecular self-organization in the unique microgravity environment of the ISS to unlock new material properties.',
+      impact: '9.8',
+      publications: 23,
       icon: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'
     },
     {
-      title: 'Advanced Nanomaterials',
-      description: 'Developing next-generation nanomaterials with enhanced properties for energy storage, electronics, and biomedical applications.',
-      impact: '8.7',
-      publications: 32,
-      icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'
+      title: 'Space-Based Materials Science',
+      description: 'Studying crystallization processes and phase behavior of liquid crystals without gravitational interference to advance fundamental physics understanding.',
+      impact: '9.4',
+      publications: 18,
+      icon: 'M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'
     },
     {
-      title: 'Quantum Materials Research',
-      description: 'Exploring quantum properties of materials to unlock new possibilities in computing, sensing, and communication technologies.',
-      impact: '9.5',
-      publications: 28,
+      title: 'Advanced Optoelectronics',
+      description: 'Developing next-generation liquid crystal displays and optical devices through microgravity-enhanced crystal formation and alignment studies.',
+      impact: '8.9',
+      publications: 15,
       icon: 'M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z'
     },
     {
-      title: 'Aerospace Materials',
-      description: 'Developing lightweight, high-strength materials for aerospace applications with focus on sustainability and performance.',
-      impact: '8.9',
-      publications: 38,
-      icon: 'M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'
+      title: 'International Space Collaboration',
+      description: 'Building partnerships with global space agencies and research institutions to expand liquid crystal research capabilities in space environments.',
+      impact: '9.1',
+      publications: 12,
+      icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'
     }
   ];
 
@@ -109,43 +109,43 @@ export class AppComponent implements OnInit {
   teamMembers: TeamMember[] = [
     {
       name: 'Prof. Dr. Nathaporn Chattham',
-      title: 'Principal Investigator',
-      expertise: 'Liquid Crystal Physics, Space Science',
+      title: 'Principal Investigator & Project Director',
+      expertise: 'Liquid Crystal Physics, Microgravity Science, Space Research',
       photo: 'https://via.placeholder.com/300x300/1e40af/ffffff?text=NC',
-      email: 'mailto:nathaporn@science.ku.ac.th',
+      email: 'mailto:nathaporn.c@ku.ac.th',
       linkedin: 'https://linkedin.com/in/nathaporn-chattham',
       publications: 87,
       citations: 2340
     },
     {
-      name: 'Dr. Siriporn Pancharoen',
-      title: 'Senior Research Scientist',
-      expertise: 'Materials Science, Nanotechnology',
-      photo: 'https://via.placeholder.com/300x300/1e40af/ffffff?text=SP',
-      email: 'mailto:siriporn@science.ku.ac.th',
-      linkedin: 'https://linkedin.com/in/siriporn-pancharoen',
+      name: 'Dr. Waraporn Suvanvej',
+      title: 'Lead Space Systems Engineer',
+      expertise: 'Spacecraft Integration, Microgravity Experiments, ISS Operations',
+      photo: 'https://via.placeholder.com/300x300/1e40af/ffffff?text=WS',
+      email: 'mailto:waraporn.s@ku.ac.th',
+      linkedin: 'https://linkedin.com/in/waraporn-suvanvej',
+      publications: 45,
+      citations: 1567
+    },
+    {
+      name: 'Dr. Siriporn Kiatkirakajorn',
+      title: 'Liquid Crystal Specialist',
+      expertise: 'Molecular Physics, Phase Transitions, Optical Materials',
+      photo: 'https://via.placeholder.com/300x300/1e40af/ffffff?text=SK',
+      email: 'mailto:siriporn.k@ku.ac.th',
+      linkedin: 'https://linkedin.com/in/siriporn-kiatkirakajorn',
       publications: 64,
       citations: 1890
     },
     {
-      name: 'Dr. Thanawat Srisawat',
-      title: 'Quantum Materials Researcher',
-      expertise: 'Quantum Physics, Condensed Matter',
-      photo: 'https://via.placeholder.com/300x300/1e40af/ffffff?text=TS',
-      email: 'mailto:thanawat@science.ku.ac.th',
-      linkedin: 'https://linkedin.com/in/thanawat-srisawat',
-      publications: 52,
-      citations: 1456
-    },
-    {
-      name: 'Dr. Apinya Boonrak',
-      title: 'Aerospace Materials Specialist',
-      expertise: 'Composite Materials, Aerospace Engineering',
-      photo: 'https://via.placeholder.com/300x300/1e40af/ffffff?text=AB',
-      email: 'mailto:apinya@science.ku.ac.th',
-      linkedin: 'https://linkedin.com/in/apinya-boonrak',
-      publications: 41,
-      citations: 1123
+      name: 'Dr. Thana Chotpantarat',
+      title: 'Data Analysis & Modeling Lead',
+      expertise: 'Computational Physics, Data Science, Space Environment Modeling',
+      photo: 'https://via.placeholder.com/300x300/1e40af/ffffff?text=TC',
+      email: 'mailto:thana.c@ku.ac.th',
+      linkedin: 'https://linkedin.com/in/thana-chotpantarat',
+      publications: 38,
+      citations: 1245
     }
   ];
 
@@ -159,7 +159,9 @@ export class AppComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(): void {
-    this.isScrolled = window.pageYOffset > 50;
+    if (typeof window !== 'undefined') {
+      this.isScrolled = window.pageYOffset > 50;
+    }
   }
 
   toggleMobileMenu(): void {
@@ -183,6 +185,11 @@ export class AppComponent implements OnInit {
   }
 
   private observeElements(): void {
+    // Check if we're in the browser environment
+    if (typeof window === 'undefined' || !window.IntersectionObserver) {
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -203,6 +210,11 @@ export class AppComponent implements OnInit {
   }
 
   private initScrollAnimations(): void {
+    // Check if we're in the browser environment
+    if (typeof window === 'undefined') {
+      return;
+    }
+
     // Initialize additional scroll-based animations
     const parallaxElements = document.querySelectorAll('.hero-background, .orbital-system');
     

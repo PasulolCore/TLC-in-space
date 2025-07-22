@@ -4,12 +4,14 @@
 
 /* CSS Variables for Design System */
 :root {
-  /* Colors - Academic Blue Palette */
-  --primary-blue: #1e40af;
-  --primary-blue-dark: #1e3a8a;
-  --primary-blue-light: #3b82f6;
-  --accent-cyan: #06b6d4;
-  --accent-cyan-light: #67e8f9;
+  /* Colors - TLCS Academic & Aerospace Palette */
+  --primary-blue: #1e3a8a;
+  --primary-blue-dark: #1e2847;
+  --primary-blue-light: #2563eb;
+  --accent-cyan: #0891b2;
+  --accent-cyan-light: #22d3ee;
+  --kasetsart-green: #2d5c4a;
+  --aerospace-silver: #8b9dc3;
   
   /* Aerospace Grays */
   --gray-50: #f8fafc;
