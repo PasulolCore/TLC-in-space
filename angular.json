@@ -72,7 +72,10 @@
           "options": {
             "host": "0.0.0.0",
             "port": 4200,
-            "disableHostCheck": true
+            "disableHostCheck": true,
+            "hmr": false,
+            "liveReload": false,
+            "watch": true
           }
         },
         "extract-i18n": {

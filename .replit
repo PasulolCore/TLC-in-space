@@ -23,4 +23,4 @@ args = "npm install"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "ng serve --host 0.0.0.0 --port 4200 --disable-host-check --poll=2000 --live-reload=false"
+args = "ng serve --host 0.0.0.0 --port 4200 --disable-host-check --no-hmr --no-live-reload"
