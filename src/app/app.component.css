@@ -1,4 +1,3 @@
-
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
@@ -8,7 +7,7 @@
   --ku-blue: #1e3a8a;
   --ku-blue-light: #3b82f6;
   --ku-blue-dark: #1e293b;
-  
+
   /* Space Technology Colors */
   --space-white: #ffffff;
   --space-gray-50: #f8fafc;
@@ -21,27 +20,27 @@
   --space-gray-700: #334155;
   --space-gray-800: #1e293b;
   --space-gray-900: #0f172a;
-  
+
   /* Partner Institution Colors */
   --nasa-red: #dc2626;
   --gistda-green: #059669;
   --mhesi-purple: #7c3aed;
-  
+
   /* Accent Colors */
   --accent-cyan: #06b6d4;
   --accent-blue: #0ea5e9;
   --accent-gold: #f59e0b;
-  
+
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   --gradient-space: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   --gradient-hero: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
   --gradient-institutional: linear-gradient(90deg, #1e3a8a 0%, #dc2626 25%, #059669 50%, #7c3aed 75%, #1e3a8a 100%);
-  
+
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
-  
+
   /* Spacing */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -51,14 +50,14 @@
   --space-2xl: 3rem;
   --space-3xl: 4rem;
   --space-4xl: 6rem;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
-  
+
   /* Transitions */
   --transition-fast: 0.15s ease-in-out;
   --transition-normal: 0.3s ease-in-out;
@@ -163,6 +162,9 @@ h1, h2, h3, h4, h5, h6 {
   height: 60px;
   border-radius: 8px;
   box-shadow: var(--shadow-md);
+  object-fit: contain;
+  background: white;
+  padding: 4px;
 }
 
 .project-identity {
@@ -197,6 +199,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 6px;
   opacity: 0.8;
   transition: all var(--transition-normal);
+  object-fit: contain;
+  background: white;
+  padding: 2px;
 }
 
 .partner-logo:hover {
@@ -1057,6 +1062,9 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto var(--space-lg);
   border-radius: 12px;
   box-shadow: var(--shadow-md);
+  object-fit: contain;
+  background: white;
+  padding: 8px;
 }
 
 .partner-card.primary h3 {
@@ -1141,6 +1149,9 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto var(--space-md);
   border-radius: 8px;
   box-shadow: var(--shadow-sm);
+  object-fit: contain;
+  background: white;
+  padding: 4px;
 }
 
 .partner-card.supporting h4 {
@@ -1410,44 +1421,44 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     gap: var(--space-md);
   }
-  
+
   .partner-logos {
     order: -1;
   }
-  
+
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
     gap: var(--space-2xl);
   }
-  
+
   .hero-title {
     font-size: 3.5rem;
   }
-  
+
   .science-intro {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .primary-partners {
     flex-direction: column;
     gap: var(--space-xl);
   }
-  
+
   .partnership-connector {
     transform: rotate(90deg);
   }
-  
+
   .contact-content {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
   }
-  
+
   .institutional-footer {
     grid-template-columns: 1fr;
   }
-  
+
   .leader-card {
     flex-direction: column;
     text-align: center;
@@ -1458,32 +1469,32 @@ h1, h2, h3, h4, h5, h6 {
   .nav-links {
     display: none;
   }
-  
+
   .mobile-menu-toggle {
     display: flex;
   }
-  
+
   .hero-title {
     font-size: 3rem;
   }
-  
+
   .section-title {
     font-size: 2.5rem;
   }
-  
+
   .hero-stats {
     justify-content: center;
   }
-  
+
   .application-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .supporting-partners {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .footer-bottom {
     flex-direction: column;
     gap: var(--space-md);
@@ -1495,41 +1506,41 @@ h1, h2, h3, h4, h5, h6 {
   .container {
     padding: 0 var(--space-md);
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hero-actions {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .cta-primary,
   .cta-secondary {
     width: 100%;
     justify-content: center;
   }
-  
+
   .mission-grid,
   .research-grid,
   .team-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .application-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .crystal-animation {
     width: 300px;
     height: 300px;
   }
-  
+
   .institutional-logos {
     align-items: center;
   }
-  
+
   .project-name {
     font-size: 1.25rem;
   }
@@ -1565,7 +1576,7 @@ a:focus {
   .footer {
     display: none !important;
   }
-  
+
   * {
     background: white !important;
     color: black !important;
