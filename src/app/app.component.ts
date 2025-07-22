@@ -17,6 +17,20 @@ interface TeamMember {
   photo: string;
 }
 
+interface NewsItem {
+  id: string;
+  title: string;
+  summary: string;
+  content: string;
+  image: string;
+  author: string;
+  date: Date;
+  readTime: number;
+  category: string;
+  tags: string[];
+  facebookPostId?: string;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -61,6 +75,88 @@ export class AppComponent implements OnInit {
     }
   ];
 
+  // News properties
+  currentNewsIndex = 0;
+  maxNewsIndex = 0;
+  selectedNews: NewsItem | null = null;
+  newsGroups: NewsItem[][] = [];
+
+  newsItems: NewsItem[] = [
+    {
+      id: '1',
+      title: 'TLCS ทีมไทยเตรียมความพร้อมสำหรับการทดลองบนสถานีอวกาศ ISS',
+      summary: 'ทีมนักวิจัยจากมหาวิทยาลัยเกษตรศาสตร์เตรียมส่งการทดลองผลึกเหลวไปยังสถานีอวกาศนานาชาติในปี 2024',
+      content: `
+        <p>โครงการ Thai Liquid Crystal in Space (TLCS) กำลังเข้าสู่ช่วงเวลาสำคัญ เมื่อทีมนักวิจัยจากคณะวิทยาศาสตร์ มหาวิทยาลัยเกษตรศาสตร์ ภายใต้การนำของ รศ.ดร.ณัฐพร ฉัตรธรรม เตรียมความพร้อมสำหรับการส่งการทดลองไปยังสถานีอวกาศนานาชาติ (ISS)</p>
+        
+        <p>การทดลองนี้จะศึกษาพฤติกรรมของผลึกเหลวในสภาวะไร้น้ำหนัก ซึ่งจะช่วยให้เราเข้าใจคุณสมบัติพื้นฐานของวัสดุนี้ได้ดียิ่งขึ้น และนำไปสู่การพัฒนาเทคโนโลยีใหม่ๆ ในอนาคต</p>
+        
+        <h3>ความสำคัญของการทดลอง</h3>
+        <p>• ศึกษาการจัดตัวของโมเลกุลในสภาวะไร้แรงโน้มถ่วง</p>
+        <p>• พัฒนาวัสดุใหม่สำหรับเทคโนโลジีการแสดงผล</p>
+        <p>• เปิดโอกาสความร่วมมือระหว่างประเทศด้านการวิจัยอวกาศ</p>
+      `,
+      image: '/assets/NASA logo_1753195321475.png',
+      author: 'ทีมข่าว TLCS',
+      date: new Date('2024-01-15'),
+      readTime: 5,
+      category: 'การวิจัย',
+      tags: ['ISS', 'ผลึกเหลว', 'อวกาศ', 'NASA'],
+      facebookPostId: 'sample_post_1'
+    },
+    {
+      id: '2',
+      title: 'ความร่วมมือไทย-NASA: ก้าวสำคัญสู่การวิจัยอวกาศระดับโลก',
+      summary: 'บันทึกข้อตกลง MOU ระหว่างมหาวิทยาลัยเกษตรศาสตร์และ NASA เพื่อพัฒนาการวิจัยวิทยาศาสตร์อวกาศ',
+      content: `
+        <p>การลงนามในบันทึกข้อตกลงความร่วมมือ (MOU) ระหว่างมหาวิทยาลัยเกษตรศาสตร์และองค์การนาซ่า (NASA) ถือเป็นก้าวสำคัญในการพัฒนาศักยภาพด้านการวิจัยวิทยาศาสตร์อวกาศของประเทศไทย</p>
+        
+        <p>ความร่วมมือนี้จะเปิดโอกาสให้นักศึกษาและนักวิจัยไทยได้เข้าถึงเทคโนโลยีและองค์ความรูร้ะดับโลก พร้อมทั้งสร้างเครือข่ายการวิจัยระหว่างประเทศที่แข็งแกร่ง</p>
+      `,
+      image: '/assets/Kasetsart_University_Logo_1753195321474.png',
+      author: 'สำนักข่าวมหาวิทยาลัย',
+      date: new Date('2024-01-10'),
+      readTime: 3,
+      category: 'ความร่วมมือ',
+      tags: ['NASA', 'MOU', 'ความร่วมมือ', 'การวิจัย'],
+      facebookPostId: 'sample_post_2'
+    },
+    {
+      id: '3',
+      title: 'GISTDA สนับสนุนโครงการ TLCS ด้วยเทคโนโลยีขั้นสูง',
+      summary: 'สำนักงานพัฒนาเทคโนโลยีอวกาศและภูมิสารสนเทศ (GISTDA) เข้าร่วมสนับสนุนโครงการวิจัยผลึกเหลวในอวกาศ',
+      content: `
+        <p>สำนักงานพัฒนาเทคโนโลยีอวกาศและภูมิสารสนเทศ (GISTDA) ได้เข้าร่วมเป็นพาร์ทเนอร์สำคัญในโครงการ TLCS โดยให้การสนับสนุนด้านเทคโนโลยีและความเชี่ยวชาญด้านการวิจัยอวกาศ</p>
+        
+        <p>การสนับสนุนจาก GISTDA จะช่วยเสริมความแข็งแกร่งให้กับโครงการในด้านการวิเคราะห์ข้อมูลและการพัฒนาเครื่องมือวิจัย</p>
+      `,
+      image: '/assets/gistda emblem_1753195321473.png',
+      author: 'GISTDA Communications',
+      date: new Date('2024-01-08'),
+      readTime: 4,
+      category: 'พาร์ทเนอร์',
+      tags: ['GISTDA', 'เทคโนโลยี', 'อวกาศ', 'สนับสนุน'],
+      facebookPostId: 'sample_post_3'
+    },
+    {
+      id: '4',
+      title: 'กระทรวงอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม หนุน TLCS',
+      summary: 'กระทรวงอุดมศึกษาฯ ให้การสนับสนุนงบประมาณและนโยบายสำหรับโครงการวิจัยผลึกเหลวในอวกาศ',
+      content: `
+        <p>กระทรวงอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม (อว.) ได้ให้การสนับสนุนโครงการ TLCS ในด้านงบประมาณและการกำหนดนโยบายเพื่อส่งเสริมการวิจัยวิทยาศาสตร์และเทคโนโลยีอวกาศของประเทศ</p>
+        
+        <p>การสนับสนุนนี้แสดงให้เห็นถึงความมุ่งมั่นของรัฐบาลในการพัฒนาศักยภาพด้านวิทยาศาสตร์และเทคโนโลยีของประเทศไทย</p>
+      `,
+      image: '/assets/MHESI emblem_1753195321474.png',
+      author: 'กระทรวง อว.',
+      date: new Date('2024-01-05'),
+      readTime: 3,
+      category: 'นโยบาย',
+      tags: ['กระทรวง', 'งบประมาณ', 'นโยบาย', 'สนับสนุน'],
+      facebookPostId: 'sample_post_4'
+    }
+  ];
+
   teamMembers: TeamMember[] = [
     {
       name: 'Dr. Siriporn Kiatkirakajorn',
@@ -91,6 +187,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.observeElements();
     this.initScrollAnimations();
+    this.initializeNews();
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -117,6 +214,92 @@ export class AppComponent implements OnInit {
 
   onSubmit(): void {
     console.log('Research collaboration form submitted');
+  }
+
+  // News functionality
+  initializeNews(): void {
+    // Group news items into slides (3 items per slide for desktop)
+    const itemsPerSlide = 3;
+    this.newsGroups = [];
+    
+    for (let i = 0; i < this.newsItems.length; i += itemsPerSlide) {
+      this.newsGroups.push(this.newsItems.slice(i, i + itemsPerSlide));
+    }
+    
+    this.maxNewsIndex = this.newsGroups.length - 1;
+    
+    // Auto-slide news every 8 seconds
+    setInterval(() => {
+      this.nextNews();
+    }, 8000);
+  }
+
+  previousNews(): void {
+    if (this.currentNewsIndex > 0) {
+      this.currentNewsIndex--;
+    } else {
+      this.currentNewsIndex = this.maxNewsIndex;
+    }
+  }
+
+  nextNews(): void {
+    if (this.currentNewsIndex < this.maxNewsIndex) {
+      this.currentNewsIndex++;
+    } else {
+      this.currentNewsIndex = 0;
+    }
+  }
+
+  goToNewsSlide(index: number): void {
+    this.currentNewsIndex = index;
+  }
+
+  openNewsDetail(news: NewsItem): void {
+    this.selectedNews = news;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeNewsModal(): void {
+    this.selectedNews = null;
+    document.body.style.overflow = 'auto';
+  }
+
+  formatDate(date: Date): { day: string, month: string } {
+    const day = date.getDate().toString().padStart(2, '0');
+    const months = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+    const month = months[date.getMonth()];
+    return { day, month };
+  }
+
+  formatFullDate(date: Date): string {
+    const day = date.getDate();
+    const months = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 
+                   'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
+    const month = months[date.getMonth()];
+    const year = date.getFullYear() + 543; // Convert to Buddhist year
+    return `${day} ${month} ${year}`;
+  }
+
+  // Social sharing methods
+  shareToFacebook(news: NewsItem): void {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(news.title)}`;
+    this.openShareWindow(url);
+  }
+
+  shareToTwitter(news: NewsItem): void {
+    const text = `${news.title} - TLCS Project`;
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
+    this.openShareWindow(url);
+  }
+
+  shareToLine(news: NewsItem): void {
+    const text = `${news.title} - TLCS Project ${window.location.href}`;
+    const url = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(text)}`;
+    this.openShareWindow(url);
+  }
+
+  private openShareWindow(url: string): void {
+    window.open(url, 'share', 'width=600,height=400,scrollbars=no,resizable=no');
   }
 
   private observeElements(): void {

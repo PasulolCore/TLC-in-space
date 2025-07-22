@@ -30,6 +30,7 @@
       
       <div class="nav-links">
         <a href="#home" class="nav-link" (click)="scrollToSection('home')">Home</a>
+        <a href="#news" class="nav-link" (click)="scrollToSection('news')">ข่าวสาร</a>
         <a href="#project" class="nav-link" (click)="scrollToSection('project')">Project</a>
         <a href="#science" class="nav-link" (click)="scrollToSection('science')">Science</a>
         <a href="#research" class="nav-link" (click)="scrollToSection('research')">Research</a>
@@ -99,6 +100,121 @@
       </div>
     </div>
   </section>
+
+  <!-- News Section -->
+  <section id="news" class="news-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">ข่าวและกิจกรรม</h2>
+        <p class="section-subtitle">อัพเดทข่าวสารและความคืบหน้าของโครงการ TLCS</p>
+      </div>
+      
+      <div class="news-slider-container">
+        <button class="news-nav-btn prev-btn" (click)="previousNews()" [disabled]="currentNewsIndex === 0">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+        </button>
+        
+        <div class="news-slider" #newsSlider>
+          <div class="news-grid" [style.transform]="'translateX(-' + (currentNewsIndex * 100) + '%)'">
+            <div class="news-slide" *ngFor="let newsGroup of newsGroups; let i = index">
+              <div class="news-item" *ngFor="let news of newsGroup" (click)="openNewsDetail(news)">
+                <div class="news-image">
+                  <img [src]="news.image" [alt]="news.title" loading="lazy">
+                  <div class="news-date-badge">
+                    <span class="day">{{ formatDate(news.date).day }}</span>
+                    <span class="month">{{ formatDate(news.date).month }}</span>
+                  </div>
+                </div>
+                <div class="news-content">
+                  <div class="news-category">{{ news.category }}</div>
+                  <h3 class="news-title">{{ news.title }}</h3>
+                  <p class="news-summary">{{ news.summary }}</p>
+                  <div class="news-meta">
+                    <span class="news-author">{{ news.author }}</span>
+                    <span class="news-read-time">{{ news.readTime }} นาที</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button class="news-nav-btn next-btn" (click)="nextNews()" [disabled]="currentNewsIndex === maxNewsIndex">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="news-indicators">
+        <button 
+          *ngFor="let group of newsGroups; let i = index" 
+          class="indicator" 
+          [class.active]="i === currentNewsIndex"
+          (click)="goToNewsSlide(i)">
+        </button>
+      </div>
+      
+      <div class="news-actions">
+        <button class="view-all-news" (click)="scrollToSection('news-archive')">
+          ดูข่าวทั้งหมด
+          <svg class="button-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Detail Modal -->
+  <div class="news-modal" [class.active]="selectedNews" (click)="closeNewsModal()">
+    <div class="news-modal-content" (click)="$event.stopPropagation()" *ngIf="selectedNews">
+      <button class="modal-close" (click)="closeNewsModal()">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </button>
+      
+      <div class="modal-header">
+        <img [src]="selectedNews.image" [alt]="selectedNews.title" class="modal-image">
+        <div class="modal-overlay">
+          <div class="modal-category">{{ selectedNews.category }}</div>
+          <h2 class="modal-title">{{ selectedNews.title }}</h2>
+          <div class="modal-meta">
+            <span>{{ selectedNews.author }}</span>
+            <span>{{ formatFullDate(selectedNews.date) }}</span>
+            <span>{{ selectedNews.readTime }} นาที</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-summary">{{ selectedNews.summary }}</div>
+        <div class="modal-content-text" [innerHTML]="selectedNews.content"></div>
+        
+        <div class="modal-tags">
+          <span class="tag" *ngFor="let tag of selectedNews.tags">#{{ tag }}</span>
+        </div>
+        
+        <div class="modal-social">
+          <h4>แชร์ข่าวนี้</h4>
+          <div class="social-buttons">
+            <button class="social-btn facebook" (click)="shareToFacebook(selectedNews)">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </button>
+            <button class="social-btn twitter" (click)="shareToTwitter(selectedNews)">
+              <i class="fab fa-twitter"></i> Twitter
+            </button>
+            <button class="social-btn line" (click)="shareToLine(selectedNews)">
+              <i class="fab fa-line"></i> Line
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Project Overview Section -->
   <section id="project" class="project-section">
