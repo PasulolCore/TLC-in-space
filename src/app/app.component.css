@@ -1,98 +1,3 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
-
-/* CSS Variables - TLCS Design System */
-:root {
-  /* Primary Colors - Kasetsart University Inspired */
-  --ku-blue: #1e3a8a;
-  --ku-blue-light: #3b82f6;
-  --ku-blue-dark: #1e293b;
-
-  /* Space Technology Colors */
-  --space-white: #ffffff;
-  --space-gray-50: #f8fafc;
-  --space-gray-100: #f1f5f9;
-  --space-gray-200: #e2e8f0;
-  --space-gray-300: #cbd5e1;
-  --space-gray-400: #94a3b8;
-  --space-gray-500: #64748b;
-  --space-gray-600: #475569;
-  --space-gray-700: #334155;
-  --space-gray-800: #1e293b;
-  --space-gray-900: #0f172a;
-
-  /* Partner Institution Colors */
-  --nasa-red: #dc2626;
-  --gistda-green: #059669;
-  --mhesi-purple: #7c3aed;
-
-  /* Accent Colors */
-  --accent-cyan: #06b6d4;
-  --accent-blue: #0ea5e9;
-  --accent-gold: #f59e0b;
-
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-  --gradient-space: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-  --gradient-hero: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
-  --gradient-institutional: linear-gradient(90deg, #1e3a8a 0%, #dc2626 25%, #059669 50%, #7c3aed 75%, #1e3a8a 100%);
-
-  /* Typography */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
-
-  /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
-  --space-4xl: 6rem;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
-
-  /* Transitions */
-  --transition-fast: 0.15s ease-in-out;
-  --transition-normal: 0.3s ease-in-out;
-  --transition-slow: 0.6s ease-in-out;
-}
-
-/* Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
-body {
-  font-family: var(--font-primary);
-  line-height: 1.6;
-  color: var(--space-gray-800);
-  background-color: var(--space-white);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--space-gray-900);
-}
-
 .section-title {
   font-size: 3rem;
   font-weight: 900;
@@ -264,6 +169,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero-section {
+  padding-top: 120px;
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -285,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     radial-gradient(circle at 20% 30%, rgba(30, 58, 138, 0.1) 2px, transparent 2px),
     radial-gradient(circle at 80% 20%, rgba(220, 38, 38, 0.1) 1px, transparent 1px),
     radial-gradient(circle at 60% 80%, rgba(5, 150, 105, 0.1) 1.5px, transparent 1.5px),
@@ -298,7 +204,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     linear-gradient(rgba(30, 58, 138, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(30, 58, 138, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
@@ -373,6 +279,20 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--ku-blue);
+  animation: typing 2.5s steps(30, end), blink-caret 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: var(--ku-blue); }
 }
 
 .hero-description {
@@ -926,7 +846,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(30, 58, 138, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+  /* background: linear-gradient(135deg, rgba(30, 58, 138, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%); */
   border-radius: 20px;
 }
 
@@ -1447,6 +1367,42 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-xl);
 }
 
+.team-member {
+  /* background-color: #eaf2fb; */
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgb(1 74 148 / 0.15);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover,
+.team-member:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgb(1 74 148 / 0.3);
+}
+
+.team-member img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.team-member h3 {
+  color: #014a94;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.team-member p {
+  color: #556e7a;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
 .member-photo {
   height: 200px;
   overflow: hidden;
@@ -1945,6 +1901,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    padding-top: 160px;
+  }
+
   .nav-links {
     display: none;
   }
@@ -2064,7 +2024,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Accessibility */
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
@@ -2072,7 +2032,7 @@ h1, h2, h3, h4, h5, h6 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
+} */
 
 /* Focus styles */
 button:focus,
@@ -2098,4 +2058,63 @@ a:focus {
     background: white !important;
     color: black !important;
   }
+}
+
+.news-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+.news-controls input[type="text"] {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.news-controls select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.news-carousel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.news-group {
+  display: flex;
+  gap: 1rem;
+}
+.news-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1rem;
+  width: 250px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.news-item:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.news-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+.carousel-dots {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.carousel-dots span {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #bbb;
+  margin: 0 0.2rem;
+}
+.carousel-dots .active {
+  color: #3b82f6;
 }
