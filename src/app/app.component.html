@@ -18,7 +18,7 @@
     </div>
     <div class="nav-links">
       <a href="#home" class="nav-link" (click)="scrollToSection('home')">Home</a>
-      <a href="#news" class="nav-link" (click)="scrollToSection('news')">ข่าวสาร</a>
+      <a href="#news" class="nav-link" (click)="scrollToSection('news')">News</a>
       <a href="#project" class="nav-link" (click)="scrollToSection('project')">Project</a>
       <a href="#science" class="nav-link" (click)="scrollToSection('science')">Science</a>
       <a href="#research" class="nav-link" (click)="scrollToSection('research')">Research</a>
@@ -92,20 +92,20 @@
 <section id="news" class="news-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">ข่าวและกิจกรรม</h2>
-      <p class="section-subtitle">อัพเดทข่าวสารและความคืบหน้าของโครงการ TLCS</p>
+      <h2 class="section-title">News & Events</h2>
+      <p class="section-subtitle">Updates and progress of the TLCS project</p>
     </div>
     <div class="news-controls">
       <input type="text"
               [(ngModel)]="searchQuery"
               (ngModelChange)="onSearchChange()"
-              placeholder="ค้นหาข่าว..."
-              aria-label="ค้นหาข่าว"/>
-      <label for="categorySelect" class="visually-hidden">เลือกหมวดหมู่ข่าว</label>
+              placeholder="News Search..."
+              aria-label="NewsSearch"/>
+      <label for="categorySelect" class="visually-hidden">News Categories</label>
       <select id="categorySelect"
               [(ngModel)]="selectedCategory"
               (ngModelChange)="onCategoryChange()"
-              aria-label="เลือกหมวดหมู่ข่าว">
+              aria-label="NewsCategories">
         <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
       </select>
     </div>
