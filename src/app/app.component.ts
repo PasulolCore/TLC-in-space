@@ -1,7 +1,9 @@
-
-import { Component, OnInit, HostListener } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
+
 
 interface ResearchProject {
   title: string;
@@ -34,16 +36,30 @@ interface NewsItem {
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterOutlet]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'TLCS - Thai Liquid Crystal in Space Research Platform';
   isScrolled = false;
   isVisible = false;
   isMobileMenuOpen = false;
+  searchQuery = '';
+  selectedCategory = 'All';
+  categories: string[] = ['All', 'การวิจัย', 'ความร่วมมือ', 'พาร์ทเนอร์', 'นโยบาย'];
+  newsGroups: NewsItem[][] = [];
+  filteredNewsGroups: NewsItem[][] = [];
+  currentNewsIndex = 0;
+  maxNewsIndex = 0;
+  selectedNews: NewsItem | null = null;
+  formData = {
+    name: '',
+    email: '',
+    areaOfInterest: '',
+    message: ''
+  };
 
   researchProjects: ResearchProject[] = [
     {
@@ -76,11 +92,32 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  // News properties
-  currentNewsIndex = 0;
-  maxNewsIndex = 0;
-  selectedNews: NewsItem | null = null;
-  newsGroups: NewsItem[][] = [];
+  teamMembers: TeamMember[] = [
+    {
+      name: 'Dr. Siriporn Kiatkirakajorn',
+      title: 'Senior Research Scientist',
+      expertise: 'Liquid Crystal Physics, Molecular Dynamics',
+      photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=SK'
+    },
+    {
+      name: 'Dr. Waraporn Suvanvej',
+      title: 'Space Systems Engineer',
+      expertise: 'Microgravity Experiments, ISS Operations',
+      photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=WS'
+    },
+    {
+      name: 'Dr. Thana Chotpantarat',
+      title: 'Data Analysis Lead',
+      expertise: 'Computational Physics, Space Environment Modeling',
+      photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=TC'
+    },
+    {
+      name: 'Dr. Piyapong Janphuang',
+      title: 'Materials Specialist',
+      expertise: 'Advanced Materials, Crystallography',
+      photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=PJ'
+    }
+  ];
 
   newsItems: NewsItem[] = [
     {
@@ -158,37 +195,17 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  teamMembers: TeamMember[] = [
-    {
-      name: 'Dr. Siriporn Kiatkirakajorn',
-      title: 'Senior Research Scientist',
-      expertise: 'Liquid Crystal Physics, Molecular Dynamics',
-      photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=SK'
-    },
-    {
-      name: 'Dr. Waraporn Suvanvej',
-      title: 'Space Systems Engineer',
-      expertise: 'Microgravity Experiments, ISS Operations',
-      photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=WS'
-    },
-    {
-      name: 'Dr. Thana Chotpantarat',
-      title: 'Data Analysis Lead',
-      expertise: 'Computational Physics, Space Environment Modeling',
-      photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=TC'
-    },
-    {
-      name: 'Dr. Piyapong Janphuang',
-      title: 'Materials Specialist',
-      expertise: 'Advanced Materials, Crystallography',
-      photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=PJ'
-    }
-  ];
+  @ViewChild('newsSlider') newsSlider!: ElementRef;
+
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    this.observeElements();
-    this.initScrollAnimations();
     this.initializeNews();
+    this.initScrollAnimations();
+  }
+
+  ngAfterViewInit(): void {
+    this.observeElements();
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -214,7 +231,9 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Research collaboration form submitted');
+    console.log('Form submitted:', this.formData);
+    // Reset form after submission
+    this.formData = { name: '', email: '', areaOfInterest: '', message: '' };
   }
 
   // News functionality
@@ -226,13 +245,34 @@ export class AppComponent implements OnInit {
     for (let i = 0; i < this.newsItems.length; i += itemsPerSlide) {
       this.newsGroups.push(this.newsItems.slice(i, i + itemsPerSlide));
     }
-
-    this.maxNewsIndex = this.newsGroups.length - 1;
+    this.filteredNewsGroups = [...this.newsGroups];
+    this.maxNewsIndex = this.filteredNewsGroups.length - 1;
 
     // Auto-slide news every 8 seconds
-    setInterval(() => {
-      this.nextNews();
-    }, 8000);
+    if (typeof window !== 'undefined') {
+      setInterval(() => {
+        this.nextNews();
+      }, 8000);
+    }
+  }
+
+  onSearchChange(): void {
+    this.filterNews();
+  }
+
+  onCategoryChange(): void {
+    this.filterNews();
+  }
+
+  filterNews(): void {
+    this.filteredNewsGroups = this.newsGroups.map(group =>
+      group.filter(news =>
+        (!this.searchQuery || news.title.toLowerCase().includes(this.searchQuery.toLowerCase())) &&
+        (this.selectedCategory === 'All' || news.category === this.selectedCategory)
+      )
+    ).filter(group => group.length > 0);
+    this.currentNewsIndex = 0;
+    this.maxNewsIndex = this.filteredNewsGroups.length - 1 || 0;
   }
 
   previousNews(): void {
@@ -252,30 +292,38 @@ export class AppComponent implements OnInit {
   }
 
   goToNewsSlide(index: number): void {
-    this.currentNewsIndex = index;
+    if (index >= 0 && index <= this.maxNewsIndex) {
+      this.currentNewsIndex = index;
+    }
   }
 
   openNewsDetail(news: NewsItem): void {
     this.selectedNews = news;
-    document.body.style.overflow = 'hidden';
+    if (typeof window !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+    }
   }
 
   closeNewsModal(): void {
     this.selectedNews = null;
-    document.body.style.overflow = 'auto';
+    if (typeof window !== 'undefined') {
+      document.body.style.overflow = 'auto';
+    }
   }
 
-  formatDate(date: Date): { day: string, month: string } {
+  formatDate(date?: Date | null): { day: string, month: string } | null {
+    if (!date) return null;
     const day = date.getDate().toString().padStart(2, '0');
     const months = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
     const month = months[date.getMonth()];
     return { day, month };
   }
 
-  formatFullDate(date: Date): string {
+  formatFullDate(date?: Date | null): string {
+    if (!date) return '';
     const day = date.getDate();
     const months = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 
-                   'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
+                    'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
     const month = months[date.getMonth()];
     const year = date.getFullYear() + 543; // Convert to Buddhist year
     return `${day} ${month} ${year}`;
@@ -283,7 +331,7 @@ export class AppComponent implements OnInit {
 
   // Social sharing methods
   shareToFacebook(news: NewsItem): void {
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(news.title)}`;
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&t=${encodeURIComponent(news.title)}`;
     this.openShareWindow(url);
   }
 
@@ -300,7 +348,9 @@ export class AppComponent implements OnInit {
   }
 
   private openShareWindow(url: string): void {
-    window.open(url, 'share', 'width=600,height=400,scrollbars=no,resizable=no');
+    if (typeof window !== 'undefined') {
+      window.open(url, 'share', 'width=600,height=400,scrollbars=no,resizable=no');
+    }
   }
 
   private observeElements(): void {
@@ -320,10 +370,8 @@ export class AppComponent implements OnInit {
       { threshold: 0.1 }
     );
 
-    setTimeout(() => {
-      const elementsToObserve = document.querySelectorAll('.mission-card, .research-card, .team-card, .detail-card');
-      elementsToObserve.forEach(el => observer.observe(el));
-    }, 100);
+    const elementsToObserve = document.querySelectorAll('.mission-card, .research-card, .team-card, .detail-card');
+    elementsToObserve.forEach(el => observer.observe(el));
   }
 
   private initScrollAnimations(): void {
@@ -341,5 +389,10 @@ export class AppComponent implements OnInit {
         element.style.transform = `translateY(${rate}px)`;
       });
     });
+  }
+
+  // Sanitize SVG icon
+  sanitizeSvg(icon: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(icon);
   }
 }

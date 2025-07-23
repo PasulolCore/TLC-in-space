@@ -1,0 +1,46 @@
+<!-- News Search & Filter Controls -->
+<div class="news-controls">
+  <input type="text" 
+         [(ngModel)]="searchQuery" 
+         (ngModelChange)="onSearchChange()"
+         placeholder="ค้นหาข่าว..." />
+  <label for="categorySelect" class="visually-hidden">เลือกหมวดหมู่ข่าว</label>
+  <select id="categorySelect" 
+          title="เลือกหมวดหมู่ข่าว" 
+          [(ngModel)]="selectedCategory" 
+          (ngModelChange)="onCategoryChange()">
+    <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+  </select>
+</div>
+
+<!-- News Carousel (Filtered) -->
+<div class="news-carousel">
+  <button (click)="previousFilteredNews()" 
+          [disabled]="filteredCurrentNewsIndex === 0">&lt;</button>
+  <div class="news-group" *ngIf="filteredNewsGroups?.length > 0">
+    <div class="news-item" 
+         *ngFor="let news of filteredNewsGroups[filteredCurrentNewsIndex]">
+      <img [src]="news.image" 
+           alt="{{news.title}}" 
+           (click)="openNewsDetail(news)" />
+      <h3 (click)="openNewsDetail(news)">{{news.title}}</h3>
+      <p>{{news.summary}}</p>
+      <span>{{formatDate(news.date)?.day}} {{formatDate(news.date)?.month}}</span>
+      <span>{{news.category}}</span>
+    </div>
+  </div>
+  <div *ngIf="!filteredNewsGroups?.length">
+    <p>ไม่พบข่าวที่ตรงกับเงื่อนไข</p>
+  </div>
+  <button (click)="nextFilteredNews()" 
+          [disabled]="filteredCurrentNewsIndex === filteredMaxNewsIndex">&gt;</button>
+</div>
+
+<!-- Carousel Dots -->
+<div class="carousel-dots" *ngIf="filteredNewsGroups?.length > 1">
+  <span *ngFor="let group of filteredNewsGroups; let i = index"
+        [class.active]="i === filteredCurrentNewsIndex"
+        (click)="goToFilteredNewsSlide(i)">
+    ●
+  </span>
+</div>

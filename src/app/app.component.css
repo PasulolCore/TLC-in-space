@@ -97,8 +97,8 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3rem;
   font-weight: 900;
   background: var(--gradient-primary);
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: var(--space-md);
 }
@@ -125,6 +125,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   z-index: 1000;
   background-color: rgba(248, 250, 252, 0.95);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
   transition: all var(--transition-normal);
@@ -693,6 +694,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   z-index: 2000;
   display: flex;
@@ -1693,6 +1695,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Form */
 .contact-form {
   background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
