@@ -18,6 +18,7 @@
     </div>
     <div class="nav-links">
       <a href="#home" class="nav-link" (click)="scrollToSection('home')">Home</a>
+<<<<<<< HEAD
       <button class="nav-link" (click)="openModal('news')">News</button>
       <button class="nav-link" (click)="openModal('project')">Project</button>
       <button class="nav-link" (click)="openModal('science')">Science</button>
@@ -25,6 +26,15 @@
       <button class="nav-link" (click)="openModal('team')">Team</button>
       <button class="nav-link" (click)="openModal('partners')">Partners</button>
       <button class="nav-link" (click)="openModal('contact')">Contact</button>
+=======
+      <a href="#news" class="nav-link" (click)="scrollToSection('news')">News</a>
+      <a href="#project" class="nav-link" (click)="scrollToSection('project')">Project</a>
+      <a href="#science" class="nav-link" (click)="scrollToSection('science')">Science</a>
+      <a href="#research" class="nav-link" (click)="scrollToSection('research')">Research</a>
+      <a href="#team" class="nav-link" (click)="scrollToSection('team')">Team</a>
+      <a href="#collaboration" class="nav-link" (click)="scrollToSection('collaboration')">Partners</a>
+      <a href="#contact" class="nav-link" (click)="scrollToSection('contact')">Contact</a>
+>>>>>>> dfa124b3f402e1f28f0d8ee691db4aa37a315932
     </div>
     <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle mobile menu">
       <span></span>
@@ -34,6 +44,7 @@
   </div>
 </nav>
 
+<<<<<<< HEAD
 <!-- Popup Modal Template -->
 <ng-container *ngIf="activeModal">
   <div class="modal-overlay">
@@ -111,6 +122,36 @@
           <span class="stat-number">ISS</span>
           <span class="stat-label">Research Platform</span>
         </div>
+=======
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+  <div class="hero-background">
+    <div class="space-particles"></div>
+    <div class="orbital-grid"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-main">
+      <div class="mission-badge">
+        <span class="badge-text">NASA • Kasetsart University Collaboration</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-primary">Thai Liquid Crystal</span>
+        <span class="title-accent">in Space</span>
+      </h1>
+      <p class="hero-description">
+        Pioneering microgravity research to unlock the fundamental properties of liquid crystals,
+        advancing materials science and space technology through international collaboration.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Partner Institutions</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">ISS</span>
+          <span class="stat-label">Research Platform</span>
+        </div>
+>>>>>>> dfa124b3f402e1f28f0d8ee691db4aa37a315932
         <div class="stat-item">
           <span class="stat-number">2025</span>
           <span class="stat-label">Mission Year</span>
