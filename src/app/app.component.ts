@@ -37,9 +37,7 @@ interface NewsItem {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterOutlet]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'TLCS - Thai Liquid Crystal in Space Research Platform';
@@ -395,29 +393,19 @@ export class AppComponent implements OnInit, AfterViewInit {
   sanitizeSvg(icon: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(icon);
   }
-}
 
-export class AppComponent {
-  title = 'TLCS - Thai Liquid Crystal in Space Research Platform';
+  activeModal: string | null = null;
 
-  missionCards = [
-    {
-      icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z', // ตัวอย่าง path SVG
-      title: 'Microgravity Research',
-      description: 'ศึกษาผลึกเหลวในสภาวะไร้น้ำหนักบนสถานีอวกาศ',
-      highlight: 'ISS Platform'
-    },
-    {
-      icon: 'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z',
-      title: 'International Collaboration',
-      description: 'ความร่วมมือกับ NASA, GISTDA และมหาวิทยาลัยเกษตรศาสตร์',
-      highlight: 'Global Partners'
-    },
-    {
-      icon: 'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c2.54 0 4.71 1.61 5.5 4.09C13.79 4.61 15.96 3 18.5 3 21.58 3 24 5.42 24 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z',
-      title: 'Education & Outreach',
-      description: 'เผยแพร่ความรู้และสร้างแรงบันดาลใจให้เยาวชนไทย',
-      highlight: 'STEM Education'
-    }
-  ];
+  openModal(section: string) {
+    this.activeModal = section;
+  }
+
+  closeModal() {
+    this.activeModal = null;
+  }
+
+  goToPage(section: string) {
+    this.closeModal();
+    this.scrollToSection(section); // หรือใช้ router.navigate ถ้าเป็น route จริง
+  }
 }
