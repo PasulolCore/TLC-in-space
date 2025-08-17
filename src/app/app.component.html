@@ -1,369 +1,599 @@
-<!-- Main Layout Wrapper -->
-<div class="main-layout">
-
-  <!-- Header/Navbar -->
-  <header class="main-header">
-    <div class="container header-container">
-      <div class="header-brand">
-        <img src="/assets/TLC LOGO_1753195321475.jpg" alt="TLC Project" class="header-logo">
-        <div class="brand-info">
-          <span class="brand-title">TLCS</span>
-          <span class="brand-subtitle">Liquid Crystal Research</span>
+<!-- Navigation Header -->
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="nav-container">
+    <div class="institutional-logos">
+      <div class="logo-group primary">
+        <img src="/assets/TLC LOGO_1753195321475.jpg" alt="TLC Project" class="institution-logo">
+        <div class="project-identity">
+          <span class="project-name">TLCS</span>
+          <span class="project-subtitle">Liquid Crystal Research</span>
         </div>
       </div>
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="#home" (click)="scrollToSection('home')">หน้าหลัก</a></li>
-          <li><a href="#news" (click)="scrollToSection('news')">ข่าวสาร</a></li>
-          <li><a href="#project" (click)="scrollToSection('project')">โครงการ</a></li>
-          <li><a href="#science" (click)="scrollToSection('science')">วิทยาศาสตร์</a></li>
-          <li><a href="#research" (click)="scrollToSection('research')">งานวิจัย</a></li>
-          <li><a href="#team" (click)="scrollToSection('team')">ทีมงาน</a></li>
-          <li><a href="#collaboration" (click)="scrollToSection('collaboration')">พันธมิตร</a></li>
-          <li><a href="#contact" (click)="scrollToSection('contact')">ติดต่อ</a></li>
-        </ul>
-      </nav>
-      <div class="header-partners">
+      <div class="partner-logos">
         <img src="/assets/Kasetsart_University_Logo_1753195321474.png" alt="Kasetsart University" class="partner-logo">
         <img src="/assets/NASA logo_1753195321475.png" alt="NASA" class="partner-logo">
         <img src="/assets/gistda emblem_1753195321473.png" alt="GISTDA" class="partner-logo">
         <img src="/assets/MHESI emblem_1753195321474.png" alt="MHESI" class="partner-logo">
       </div>
     </div>
-  </header>
+    <div class="nav-links">
+      <a href="#home" class="nav-link" (click)="scrollToSection('home')">Home</a>
+      <a href="#news" class="nav-link" (click)="scrollToSection('news')">News</a>
+      <a href="#project" class="nav-link" (click)="scrollToSection('project')">Project</a>
+      <a href="#science" class="nav-link" (click)="scrollToSection('science')">Science</a>
+      <a href="#research" class="nav-link" (click)="scrollToSection('research')">Research</a>
+      <a href="#team" class="nav-link" (click)="scrollToSection('team')">Team</a>
+      <a href="#collaboration" class="nav-link" (click)="scrollToSection('collaboration')">Partners</a>
+      <a href="#contact" class="nav-link" (click)="scrollToSection('contact')">Contact</a>
+    </div>
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle mobile menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="section hero-section">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-info">
-          <span class="hero-badge">NASA • Kasetsart University Collaboration</span>
-          <h1 class="hero-title">Thai Liquid Crystal <span class="accent">in Space</span></h1>
-          <p class="hero-desc">
-            Pioneering microgravity research to unlock the fundamental properties of liquid crystals,
-            advancing materials science and space technology through international collaboration.
-          </p>
-          <div class="hero-stats">
-            <div class="stat-card">
-              <span class="stat-value">4</span>
-              <span class="stat-label">Partner Institutions</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-value">ISS</span>
-              <span class="stat-label">Research Platform</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-value">2025</span>
-              <span class="stat-label">Mission Year</span>
-            </div>
-          </div>
-          <div class="hero-actions">
-            <button class="btn-primary" (click)="scrollToSection('project')">Explore Mission</button>
-            <button class="btn-secondary" (click)="scrollToSection('science')">Learn the Science</button>
-          </div>
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+  <div class="hero-background">
+    <div class="space-particles"></div>
+    <div class="orbital-grid"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-main">
+      <div class="mission-badge">
+        <span class="badge-text">NASA • Kasetsart University Collaboration</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-primary">Thai Liquid Crystal</span>
+        <span class="title-accent">in Space</span>
+      </h1>
+      <p class="hero-description">
+        Pioneering microgravity research to unlock the fundamental properties of liquid crystals,
+        advancing materials science and space technology through international collaboration.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Partner Institutions</span>
         </div>
-        <div class="hero-image">
-          <img src="/assets/TCL Background_1753195321475.jpg" alt="TCL Background">
+        <div class="stat-item">
+          <span class="stat-number">ISS</span>
+          <span class="stat-label">Research Platform</span>
         </div>
+        <div class="stat-item">
+          <span class="stat-number">2025</span>
+          <span class="stat-label">Mission Year</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <button class="cta-primary" (click)="scrollToSection('project')">
+          Explore Mission
+          <svg class="button-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+          </svg>
+        </button>
+        <button class="cta-secondary" (click)="scrollToSection('science')">
+          Learn the Science
+        </button>
       </div>
     </div>
-  </section>
+    <div class="hero-visual">
+      <div class="tcl-background-container">
+        <img src="/assets/TCL Background_1753195321475.jpg" alt="TCL Background" class="tcl-background-image">
+        <div class="background-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- News Section -->
-  <section id="news" class="section news-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>ข่าวสารและกิจกรรม</h2>
-        <p>อัปเดตความเคลื่อนไหวและความก้าวหน้าของโครงการ TLCS</p>
-      </div>
-      <div class="news-controls">
-        <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()" placeholder="ค้นหาข่าว..." />
-        <select [(ngModel)]="selectedCategory" (ngModelChange)="onCategoryChange()">
-          <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
-        </select>
-      </div>
-      <div class="news-list-grid">
-        <div class="news-card" *ngFor="let newsGroup of filteredNewsGroups">
-          <div class="news-item" *ngFor="let news of newsGroup" (click)="openNewsDetail(news)">
-            <img [src]="news.image" [alt]="news.title" class="news-img">
-            <div class="news-content">
-              <span class="news-category">{{ news.category }}</span>
-              <h3>{{ news.title }}</h3>
-              <p>{{ news.summary }}</p>
-              <div class="news-meta">
-                <span>{{ news.author }}</span>
-                <span>{{ news.readTime }} นาที</span>
+<!-- News Section -->
+<section id="news" class="news-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">News & Events</h2>
+      <p class="section-subtitle">Updates and progress of the TLCS project</p>
+    </div>
+    <div class="news-controls">
+      <input type="text"
+              [(ngModel)]="searchQuery"
+              (ngModelChange)="onSearchChange()"
+              placeholder="News Search..."
+              aria-label="NewsSearch"/>
+      <label for="categorySelect" class="visually-hidden">News Categories</label>
+      <select id="categorySelect"
+              [(ngModel)]="selectedCategory"
+              (ngModelChange)="onCategoryChange()"
+              aria-label="NewsCategories">
+        <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+      </select>
+    </div>
+    <div class="news-slider-container">
+      <button class="news-nav-btn prev-btn"
+              (click)="previousNews()"
+              [disabled]="currentNewsIndex === 0"
+              aria-label="Previous news">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+        </svg>
+      </button>
+      <div class="news-slider" #newsSlider>
+        <div class="news-grid" [style.transform]="'translateX(-' + (currentNewsIndex * 100) + '%)'">
+          <div class="news-slide" *ngFor="let newsGroup of filteredNewsGroups; let i = index">
+            <div class="news-item" *ngFor="let news of newsGroup" (click)="openNewsDetail(news)">
+              <div class="news-image">
+                <img [src]="news.image" [alt]="news.title" loading="lazy">
+                <div class="news-date-badge">
+                  <span class="day">{{ formatDate(news.date)?.day }}</span>
+                  <span class="month">{{ formatDate(news.date)?.month }}</span>
+                </div>
+              </div>
+              <div class="news-content">
+                <div class="news-category">{{ news.category }}</div>
+                <h3 class="news-title">{{ news.title }}</h3>
+                <p class="news-summary">{{ news.summary }}</p>
+                <div class="news-meta">
+                  <span class="news-author">{{ news.author }}</span>
+                  <span class="news-read-time">{{ news.readTime }} นาที</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <button class="btn-link" (click)="scrollToSection('news-archive')">ดูข่าวทั้งหมด</button>
+      <button class="news-nav-btn next-btn"
+              (click)="nextNews()"
+              [disabled]="currentNewsIndex === maxNewsIndex"
+              aria-label="Next news">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
+      </button>
     </div>
-  </section>
+    <div class="news-indicators">
+      <button *ngFor="let group of filteredNewsGroups; let i = index"
+              class="indicator"
+              [class.active]="i === currentNewsIndex"
+              (click)="goToNewsSlide(i)"
+              [attr.aria-label]="'Go to news slide ' + (i + 1)">
+      </button>
+    </div>
+    <div class="news-actions">
+      <button class="view-all-news" (click)="scrollToSection('news-archive')">
+        ดูข่าวทั้งหมด
+        <svg class="button-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
 
-  <!-- Modal News Detail (คงโค้ด Angular เดิม) -->
-  <ng-container *ngIf="selectedNews">
-    <div class="modal-overlay">
-      <div class="modal">
-        <button class="modal-close" (click)="closeNewsModal()" aria-label="Close modal"></button>
-        <img [src]="selectedNews!.image" [alt]="selectedNews!.title" class="modal-image">
-        <div class="modal-header">
-          <span class="modal-category">{{ selectedNews!.category }}</span>
-          <h2>{{ selectedNews!.title }}</h2>
-          <div class="modal-meta">
-            <span>{{ selectedNews!.author }}</span>
-            <span>{{ selectedNews!.date ? formatFullDate(selectedNews.date) : '' }}</span>
-            <span>{{ selectedNews!.readTime }} นาที</span>
-          </div>
+<!-- News Detail Modal -->
+<ng-container *ngIf="selectedNews">
+  <div class="modal-overlay">
+    <div class="modal">
+      <button class="modal-close" (click)="closeNewsModal()" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </button>
+      <img [src]="selectedNews!.image" [alt]="selectedNews!.title" class="modal-image">
+      <div class="modal-header">
+        <div class="modal-category">{{ selectedNews!.category }}</div>
+        <h2 class="modal-title">{{ selectedNews!.title }}</h2>
+        <div class="modal-meta">
+          <span>{{ selectedNews!.author }}</span>
+          <span>{{ selectedNews!.date ? formatFullDate(selectedNews.date) : '' }}</span>
+          <span>{{ selectedNews!.readTime }} นาที</span>
         </div>
-        <div class="modal-summary">{{ selectedNews!.summary }}</div>
-        <div class="modal-content-text" [innerHTML]="selectedNews!.content"></div>
-        <div class="modal-tags">
-          <span class="tag" *ngFor="let tag of selectedNews?.tags">#{{ tag }}</span>
-        </div>
-        <div class="modal-social">
-          <button class="social-btn facebook" (click)="shareToFacebook(selectedNews)" [disabled]="!selectedNews">Facebook</button>
-          <button class="social-btn twitter" (click)="shareToTwitter(selectedNews)" [disabled]="!selectedNews">Twitter</button>
-          <button class="social-btn line" (click)="shareToLine(selectedNews)" [disabled]="!selectedNews">Line</button>
-        </div>
+      </div>
+      <div class="modal-summary">{{ selectedNews!.summary }}</div>
+      <div class="modal-content-text" [innerHTML]="selectedNews!.content"></div>
+      <div class="modal-tags">
+        <span class="tag" *ngFor="let tag of selectedNews?.tags">#{{ tag }}</span>
+      </div>
+      <div class="modal-social">
+        <button class="social-btn facebook" (click)="shareToFacebook(selectedNews)" [disabled]="!selectedNews" aria-label="Share to Facebook">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </button>
+        <button class="social-btn twitter" (click)="shareToTwitter(selectedNews)" [disabled]="!selectedNews" aria-label="Share to Twitter">
+          <i class="fab fa-twitter"></i> Twitter
+        </button>
+        <button class="social-btn line" (click)="shareToLine(selectedNews)" [disabled]="!selectedNews" aria-label="Share to Line">
+          <i class="fab fa-line"></i> Line
+        </button>
       </div>
     </div>
-  </ng-container>
+  </div>
+</ng-container>
 
-  <!-- Project Overview Section -->
-  <section id="project" class="section project-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>ภาพรวมโครงการ</h2>
-        <p>ขับเคลื่อนวิทยาศาสตร์ผลึกเหลวผ่านงานวิจัยในอวกาศ</p>
-      </div>
-      <div class="project-grid">
-        <div class="project-card" *ngFor="let card of missionCards">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path [attr.d]="card.icon"/></svg></div>
-          <h3>{{ card.title }}</h3>
-          <p>{{ card.description }}</p>
-          <div *ngIf="card.highlight" class="card-highlight">{{ card.highlight }}</div>
+<!-- Project Overview Section -->
+<section id="project" class="project-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Mission Overview</h2>
+      <p class="section-subtitle">Advancing liquid crystal science through microgravity research</p>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card primary">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3 class="card-title">International Collaboration</h3>
+        <p class="card-description">
+          Official MOU between Kasetsart University and NASA, with support from GISTDA and MHESI,
+          creating a unique platform for Thai scientists to conduct cutting-edge space research.
+        </p>
+        <div class="card-highlight">
+          Led by Assoc. Prof. Dr. Nattaporn Chattam
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Science Education Section -->
-  <section id="science" class="section science-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>ความรู้เกี่ยวกับผลึกเหลว</h2>
-        <p>วิทยาศาสตร์เบื้องหลังงานวิจัยของเรา</p>
+      <div class="mission-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+          </svg>
+        </div>
+        <h3 class="card-title">ISS Research Platform</h3>
+        <p class="card-description">
+          Utilizing the International Space Station's unique microgravity environment to study
+          liquid crystal behavior without gravitational interference.
+        </p>
       </div>
-      <div class="science-grid">
-        <div class="science-intro">
-          <h3>ผลึกเหลวคืออะไร?</h3>
+      <div class="mission-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.30-.61-.22l-2.49 1c-.52-.40-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c.04.32.07.65.07.98s-.03.66-.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.30.61.22l2.49-1c.52.40 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l-.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Advanced Materials</h3>
+        <p class="card-description">
+          Developing next-generation materials and technologies with applications in displays,
+          sensors, and space technology.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Science Education Section -->
+<section id="science" class="science-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Understanding Liquid Crystals</h2>
+      <p class="section-subtitle">The fascinating science behind our research</p>
+    </div>
+    <div class="science-content">
+      <div class="science-intro">
+        <div class="intro-text">
+          <h3>What are Liquid Crystals?</h3>
           <p>
-            ผลึกเหลวเป็นสถานะของสสารที่มีคุณสมบัติทั้งของเหลวและผลึก
-            สามารถไหลได้เหมือนของเหลวแต่มีการจัดเรียงตัวของโมเลกุลบางส่วนเหมือนผลึก
-            จึงถูกนำไปใช้ในเทคโนโลยีสมัยใหม่มากมาย
+            Liquid crystals represent a unique state of matter that combines properties of both liquids and solid crystals.
+            These remarkable materials flow like liquids while maintaining some degree of molecular order like crystals,
+            making them essential for modern technology from smartphone displays to advanced optical devices.
           </p>
         </div>
-        <div class="science-details">
-          <div class="detail-card">
-            <h4>โครงสร้างโมเลกุล</h4>
-            <p>โมเลกุลของผลึกเหลวมีรูปร่างยาวหรือแบน สามารถจัดเรียงตัวได้หลายแบบ เกิดเฟสที่มีสมบัติแตกต่างกัน</p>
-          </div>
-          <div class="detail-card">
-            <h4>การเปลี่ยนเฟส</h4>
-            <p>เมื่ออุณหภูมิเปลี่ยน ผลึกเหลวจะเปลี่ยนเฟสและสมบัติทางแสง/ไฟฟ้า</p>
-          </div>
-          <div class="detail-card">
-            <h4>ผลกระทบจากสภาวะไร้น้ำหนัก</h4>
-            <p>ในอวกาศ ผลึกเหลวมีพฤติกรรมต่างจากบนโลก เปิดโอกาสให้ศึกษาสมบัติพื้นฐานที่ไม่สามารถทำได้บนโลก</p>
-          </div>
-        </div>
-        <div class="research-applications">
-          <h3>การประยุกต์ใช้งาน</h3>
-          <div class="application-grid">
-            <div class="app-item"><span>📱</span> เทคโนโลยีจอภาพ</div>
-            <div class="app-item"><span>🔬</span> เซนเซอร์แสง</div>
-            <div class="app-item"><span>🛰️</span> วัสดุอวกาศ</div>
-            <div class="app-item"><span>⚡</span> วัสดุอัจฉริยะ</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Research Section -->
-  <section id="research" class="section research-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>หัวข้องานวิจัย</h2>
-        <p>สำรวจขอบเขตใหม่ของวิทยาศาสตร์ผลึกเหลว</p>
-      </div>
-      <div class="research-grid">
-        <div class="research-card" *ngFor="let project of researchProjects">
-          <div class="card-header">
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path [attr.d]="project.icon"/></svg></div>
-            <h3>{{ project.title }}</h3>
-          </div>
-          <p>{{ project.description }}</p>
-          <div class="card-metrics">
-            <div class="metric">
-              <span class="metric-value">{{ project.impact }}</span>
-              <span class="metric-label">Impact Score</span>
+        <div class="crystal-visualization">
+          <div class="molecular-diagram">
+            <div class="molecule-row">
+              <div class="molecule"></div>
+              <div class="molecule"></div>
+              <div class="molecule"></div>
             </div>
-            <div class="metric">
-              <span class="metric-value">{{ project.publications }}</span>
-              <span class="metric-label">Publications</span>
+            <div class="molecule-row">
+              <div class="molecule"></div>
+              <div class="molecule"></div>
+              <div class="molecule"></div>
+            </div>
+            <div class="molecule-row">
+              <div class="molecule"></div>
+              <div class="molecule"></div>
+              <div class="molecule"></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Team Section -->
-  <section id="team" class="section team-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>ทีมวิจัย</h2>
-        <p>นักวิทยาศาสตร์ชั้นนำด้านผลึกเหลว</p>
+      <div class="science-details">
+        <div class="detail-card">
+          <h4>Molecular Structure</h4>
+          <p>
+            Liquid crystal molecules are typically elongated (rod-like) or disc-like shapes.
+            These molecules can align in various orientations, creating different phases with unique optical and electrical properties.
+          </p>
+        </div>
+        <div class="detail-card">
+          <h4>Phase Transitions</h4>
+          <p>
+            As temperature changes, liquid crystals undergo phase transitions between different ordered states,
+            each with distinct properties that can be exploited for technological applications.
+          </p>
+        </div>
+        <div class="detail-card">
+          <h4>Microgravity Effects</h4>
+          <p>
+            In space's microgravity environment, liquid crystals behave differently due to the absence of gravitational forces,
+            allowing scientists to study fundamental properties impossible to observe on Earth.
+          </p>
+        </div>
       </div>
-      <div class="team-leader">
-        <div class="leader-card">
+      <div class="research-applications">
+        <h3>Research Applications</h3>
+        <div class="application-grid">
+          <div class="app-item">
+            <div class="app-icon">📱</div>
+            <span>Display Technology</span>
+          </div>
+          <div class="app-item">
+            <div class="app-icon">🔬</div>
+            <span>Optical Sensors</span>
+          </div>
+          <div class="app-item">
+            <div class="app-icon">� satellite️</div>
+            <span>Space Materials</span>
+          </div>
+          <div class="app-item">
+            <div class="app-icon">⚡</div>
+            <span>Smart Materials</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research Section -->
+<section id="research" class="research-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Research Focus</h2>
+      <p class="section-subtitle">Exploring the frontiers of liquid crystal science</p>
+    </div>
+    <div class="research-grid">
+      <div class="research-card" *ngFor="let project of researchProjects; let i = index">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <!-- <path [attr.d]="project.icon | safeSvg"/> -->
+              <path [attr.d]="project.icon"/>
+            </svg>
+          </div>
+          <h3 class="card-title">{{ project.title }}</h3>
+        </div>
+        <p class="card-description">{{ project.description }}</p>
+        <div class="card-metrics">
+          <div class="metric">
+            <span class="metric-value">{{ project.impact }}</span>
+            <span class="metric-label">Impact Score</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">{{ project.publications }}</span>
+            <span class="metric-label">Publications</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="team-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Research Team</h2>
+      <p class="section-subtitle">Leading scientists advancing liquid crystal research</p>
+    </div>
+    <div class="team-leader">
+      <div class="leader-card">
+        <div class="leader-photo">
           <img src="https://via.placeholder.com/200x200/1e3a8a/ffffff?text=Dr.NC" alt="Dr. Nattaporn Chattam">
-          <div class="leader-info">
-            <h3>Assoc. Prof. Dr. Nattaporn Chattam</h3>
-            <p>Principal Investigator & Project Director</p>
-            <p>Department of Physics, Faculty of Science, Kasetsart University</p>
-            <p>ผู้เชี่ยวชาญด้านฟิสิกส์ผลึกเหลว ประสบการณ์มากกว่า 15 ปี</p>
-          </div>
         </div>
-      </div>
-      <div class="team-grid">
-        <div class="team-member" *ngFor="let member of teamMembers">
-          <img [src]="member.photo" [alt]="member.name">
-          <div class="member-info">
-            <h4>{{ member.name }}</h4>
-            <p>{{ member.title }}</p>
-            <p>{{ member.expertise }}</p>
-          </div>
+        <div class="leader-info">
+          <h3 class="leader-name">Assoc. Prof. Dr. Nattaporn Chattam</h3>
+          <p class="leader-title">Principal Investigator & Project Director</p>
+          <p class="leader-affiliation">Department of Physics, Faculty of Science, Kasetsart University</p>
+          <p class="leader-expertise">
+            Leading expert in liquid crystal physics with over 15 years of research experience.
+            Specializes in liquid crystal phase transitions, molecular dynamics, and space-based materials research.
+          </p>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Collaboration Section -->
-  <section id="collaboration" class="section collaboration-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>พันธมิตรระหว่างประเทศ</h2>
-        <p>ความร่วมมือด้านวิทยาศาสตร์อวกาศ</p>
+    <div class="team-grid">
+      <div class="team-member" *ngFor="let member of teamMembers">
+        <div class="member-photo">
+          <img [src]="member.photo" [alt]="member.name" [attr.title]="member.name">
+        </div>
+        <div class="member-info">
+          <h4 class="member-name">{{ member.name }}</h4>
+          <p class="member-title">{{ member.title }}</p>
+          <p class="member-expertise">{{ member.expertise }}</p>
+        </div>
       </div>
-      <div class="collab-grid">
-        <div class="collab-card">
-          <img src="/assets/Kasetsart_University_Logo_1753195321474.png" alt="Kasetsart University">
+    </div>
+  </div>
+</section>
+
+<!-- Collaboration Section -->
+<section id="collaboration" class="collaboration-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">International Partnership</h2>
+      <p class="section-subtitle">Collaborative excellence in space science research</p>
+    </div>
+    <div class="partnership-showcase">
+      <div class="primary-partners">
+        <div class="partner-card primary">
+          <img src="/assets/Kasetsart_University_Logo_1753195321474.png" alt="Kasetsart University" class="partner-logo-large">
           <h3>Kasetsart University</h3>
-          <p>Lead Institution - Research & Development</p>
+          <p>Faculty of Science</p>
+          <p class="partner-role">Lead Institution - Research & Development</p>
         </div>
-        <div class="collab-card">
-          <img src="/assets/NASA logo_1753195321475.png" alt="NASA">
+        <div class="partnership-connector">
+          <div class="connector-line"></div>
+          <div class="connector-mou">Official MOU</div>
+        </div>
+        <div class="partner-card primary">
+          <img src="/assets/NASA logo_1753195321475.png" alt="NASA" class="partner-logo-large">
           <h3>NASA</h3>
-          <p>Space Platform & Technical Support</p>
+          <p>National Aeronautics and Space Administration</p>
+          <p class="partner-role">Space Platform & Technical Support</p>
         </div>
-        <div class="collab-card">
-          <img src="/assets/gistda emblem_1753195321473.png" alt="GISTDA">
-          <h3>GISTDA</h3>
+      </div>
+      <div class="supporting-partners">
+        <div class="partner-card supporting">
+          <img src="/assets/gistda emblem_1753195321473.png" alt="GISTDA" class="partner-logo-medium">
+          <h4>GISTDA</h4>
           <p>Geo-Informatics and Space Technology Development Agency</p>
         </div>
-        <div class="collab-card">
-          <img src="/assets/MHESI emblem_1753195321474.png" alt="MHESI">
-          <h3>MHESI</h3>
+        <div class="partner-card supporting">
+          <img src="/assets/MHESI emblem_1753195321474.png" alt="MHESI" class="partner-logo-medium">
+          <h4>MHESI</h4>
           <p>Ministry of Higher Education, Science, Research and Innovation</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section contact-section">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h2>ติดต่อ TLCS</h2>
-          <p>ร่วมภารกิจผลักดันวิทยาศาสตร์ผลึกเหลว</p>
-          <div class="contact-methods">
-            <div class="contact-method">
-              <h3>ศูนย์วิจัย</h3>
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="contact-content">
+      <div class="contact-info">
+        <h2 class="section-title">Connect with TLCS</h2>
+        <p class="section-subtitle">Join our mission to advance liquid crystal science</p>
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+            </div>
+            <div class="method-content">
+              <h3>Research Center</h3>
               <p>Faculty of Science<br>Kasetsart University<br>Bangkok 10900, Thailand</p>
             </div>
-            <div class="contact-method">
-              <h3>สอบถามงานวิจัย</h3>
+          </div>
+          <div class="contact-method">
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+              </svg>
+            </div>
+            <div class="method-content">
+              <h3>Research Inquiries</h3>
               <p>tlcs&#64;science.ku.ac.th<br>research&#64;ku.ac.th</p>
             </div>
           </div>
         </div>
-        <div class="contact-form">
-          <form class="form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
-            <h3>ร่วมงานวิจัย</h3>
-            <input type="text" [(ngModel)]="formData.name" name="name" placeholder="ชื่อ-นามสกุล" required>
-            <input type="email" [(ngModel)]="formData.email" name="email" placeholder="อีเมล" required>
-            <select [(ngModel)]="formData.areaOfInterest" name="areaOfInterest" required>
-              <option value="">เลือกความสนใจ</option>
-              <option value="research">งานวิจัย</option>
-              <option value="partnership">ความร่วมมือ</option>
-              <option value="funding">ทุนวิจัย</option>
-              <option value="student">นักศึกษา</option>
-              <option value="media">สื่อ/ประชาสัมพันธ์</option>
+      </div>
+      <div class="contact-form">
+        <form class="form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <h3>Research Collaboration</h3>
+          <div class="form-group">
+            <input type="text"
+                    class="form-input"
+                    [(ngModel)]="formData.name"
+                    name="name"
+                    placeholder="Full Name"
+                    required>
+          </div>
+          <div class="form-group">
+            <input type="email"
+                    class="form-input"
+                    [(ngModel)]="formData.email"
+                    name="email"
+                    placeholder="Email Address"
+                    required>
+          </div>
+          <div class="form-group">
+            <label for="areaOfInterest" class="visually-hidden">Area of Interest</label>
+            <select id="areaOfInterest"
+                    class="form-input"
+                    [(ngModel)]="formData.areaOfInterest"
+                    name="areaOfInterest"
+                    required>
+              <option value="">Area of Interest</option>
+              <option value="research">Research Collaboration</option>
+              <option value="partnership">Academic Partnership</option>
+              <option value="funding">Funding & Grants</option>
+              <option value="student">Student Programs</option>
+              <option value="media">Media & Press</option>
             </select>
-            <textarea rows="4" [(ngModel)]="formData.message" name="message" placeholder="ข้อความ" required></textarea>
-            <button type="submit" [disabled]="contactForm.invalid">ส่งข้อความ</button>
-          </form>
-        </div>
+          </div>
+          <div class="form-group">
+            <textarea class="form-input"
+                      rows="4"
+                      [(ngModel)]="formData.message"
+                      name="message"
+                      placeholder="Message"
+                      required></textarea>
+          </div>
+          <button type="submit"
+                  class="form-submit"
+                  [disabled]="contactForm.invalid">
+            Send Message
+            <svg class="button-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </button>
+        </form>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="main-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="/assets/Kasetsart_University_Logo_1753195321474.png" alt="Kasetsart University" class="footer-logo">
-          <h5>Thai Liquid Crystal in Space</h5>
-          <p>Kasetsart University - NASA Collaboration</p>
-        </div>
-        <div class="footer-links">
-          <div>
-            <h4>งานวิจัย</h4>
-            <ul>
-              <li><a href="#science">ผลึกเหลว</a></li>
-              <li><a href="#research">โครงการปัจจุบัน</a></li>
-              <li><a href="#publications">สิ่งพิมพ์</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>ความร่วมมือ</h4>
-            <ul>
-              <li><a href="#team">ทีมวิจัย</a></li>
-              <li><a href="#collaboration">พันธมิตร</a></li>
-              <li><a href="#opportunities">โอกาส</a></li>
-            </ul>
-          </div>
-        </div>
+<!-- Footer -->
+<footer class="footer frontiers-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand & Contact -->
+      <div class="footer-brand-contact">
+        <img src="/assets/Kasetsart_University_Logo_1753195321474.png" alt="Kasetsart University" class="footer-logo">
+        <h5 class="footer-title">Thai Liquid Crystal in Space</h5>
+        <p class="footer-desc">Kasetsart University - NASA Collaboration</p>
         <div class="footer-contact">
-          <h4>ติดต่อ</h4>
-          <p>tlcs&#64;science.ku.ac.th</p>
-          <p>Bangkok 10900, Thailand</p>
+          <p><strong>Email:</strong> tlcs&#64;science.ku.ac.th</p>
+          <p><strong>Location:</strong> Bangkok 10900, Thailand</p>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 TLCS Project. Supported by GISTDA & MHESI</p>
-        <div>
-          <a href="#privacy">นโยบายความเป็นส่วนตัว</a> | <a href="#terms">ข้อกำหนดการใช้งาน</a>
+      <!-- Quick Links -->
+      <div class="footer-links-group">
+        <h4>Quick Links</h4>
+        <ul class="footer-links-list">
+          <li><a href="#science">Liquid Crystal Science</a></li>
+          <li><a href="#research">Current Projects</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#team">Research Team</a></li>
+          <li><a href="#collaboration">Partners</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Partners Logos -->
+      <div class="footer-partners">
+        <h4>Partners</h4>
+        <div class="footer-partner-logos">
+          <img src="/assets/NASA logo_1753195321475.png" alt="NASA" title="NASA">
+          <img src="/assets/gistda emblem_1753195321473.png" alt="GISTDA" title="GISTDA">
+          <img src="/assets/MHESI emblem_1753195321474.png" alt="MHESI" title="MHESI">
         </div>
       </div>
     </div>
-  </footer>
-
-  <router-outlet></router-outlet>
-</div>
+    <div class="footer-bottom frontiers-footer-bottom">
+      <div class="footer-legal">
+        <p>© 2025 Thai Liquid Crystal in Space (TLCS) Project. Kasetsart University - NASA Collaboration.</p>
+        <p>Supported by GISTDA and Ministry of Higher Education, Science, Research and Innovation (MHESI)</p>
+      </div>
+      <div class="footer-credits">
+        <a href="#privacy">Privacy Policy</a>
+        <span>|</span>
+        <a href="#terms">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<router-outlet></router-outlet>
