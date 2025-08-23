@@ -136,7 +136,7 @@
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
-  transition: all var(--transition-normal);
+  transition: all var(--transition-slow);
 }
 /* When scrolled, restore background */
 .tlcs-frontiers-theme .frontiers-nav.scrolled {
@@ -1619,7 +1619,7 @@
 .tlcs-frontiers-theme .frontiers-textarea {
   width: 100%;
   padding: var(--space-lg);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   color: #374151;
@@ -1999,7 +1999,7 @@
 }
 
 /* ===== ACCESSIBILITY ===== */
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   .tlcs-frontiers-theme *,
   .tlcs-frontiers-theme *::before,
   .tlcs-frontiers-theme *::after {
@@ -2007,7 +2007,7 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
+} */
 
 .tlcs-frontiers-theme button:focus,
 .tlcs-frontiers-theme input:focus,
