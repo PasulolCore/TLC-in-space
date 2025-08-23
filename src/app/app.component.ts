@@ -37,7 +37,9 @@ interface NewsItem {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterOutlet]
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'TLCS - Thai Liquid Crystal in Space Research Platform';
@@ -320,7 +322,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   formatFullDate(date?: Date | null): string {
     if (!date) return '';
     const day = date.getDate();
-    const months = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 
+    const months = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน',
                     'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
     const month = months[date.getMonth()];
     const year = date.getFullYear() + 543; // Convert to Buddhist year

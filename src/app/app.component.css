@@ -16,20 +16,20 @@
   --space-gray-100: #F9FAFB;
   --space-gray-50: #F8FAFC;
   --white: #FFFFFF;
-  
+
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--ku-blue) 0%, var(--ku-light-blue) 100%);
   --gradient-institutional: linear-gradient(90deg, var(--ku-blue) 0%, #DC2626 50%, var(--accent-cyan) 100%);
   --gradient-space: linear-gradient(135deg, #0EA5E9 0%, var(--accent-cyan) 50%, #8B5CF6 100%);
   --gradient-hero: linear-gradient(135deg, rgba(30, 58, 138, 0.03) 0%, rgba(59, 130, 246, 0.02) 100%);
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
-  
+
   /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
@@ -39,23 +39,23 @@
   --space-2xl: 3rem;
   --space-3xl: 4rem;
   --space-4xl: 6rem;
-  
+
   /* Typography */
   --font-sans: 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'SF Mono', Monaco, Inconsolata, monospace;
-  
+
   /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
-  
+
   /* Border Radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
-  
+
   /* Z-index */
   --z-dropdown: 1000;
   --z-sticky: 1020;
@@ -71,6 +71,11 @@
   line-height: 1.6;
   color: var(--space-gray-700);
   background-color: var(--white);
+  /* background-image: url('/assets/space_star.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
 }
 
 .tlcs-frontiers-theme *,
@@ -126,12 +131,17 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: var(--z-fixed);
-  background-color: rgba(248, 250, 252, 0.95);
+  z-index: 9999;
+  background-color: transparent;
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
   transition: all var(--transition-normal);
+}
+/* When scrolled, restore background */
+.tlcs-frontiers-theme .frontiers-nav.scrolled {
+  background-color: rgba(248, 250, 252, 0.95);
+  box-shadow: var(--shadow-lg);
 }
 
 .tlcs-frontiers-theme .frontiers-nav.scrolled {
@@ -529,6 +539,11 @@
 
 .tlcs-frontiers-theme .frontiers-section.alt {
   background: var(--space-gray-50);
+  /* background-image: url('/assets/space_star_2.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
 }
 
 .tlcs-frontiers-theme .frontiers-header {
@@ -1476,6 +1491,7 @@
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -1573,7 +1589,7 @@
 }
 
 .tlcs-frontiers-theme .method-content h3 {
-  color: white;
+  color: var(--ku-blue);
   margin-bottom: var(--space-sm);
 }
 
@@ -1590,7 +1606,7 @@
 }
 
 .tlcs-frontiers-theme .frontiers-form h3 {
-  color: white;
+  color: var(--ku-blue);
   margin-bottom: var(--space-xl);
   text-align: center;
 }
@@ -1606,7 +1622,7 @@
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
-  color: white;
+  color: #374151;
   font-size: 1rem;
   transition: all var(--transition-normal);
 }
