@@ -273,9 +273,16 @@
   transition: all var(--transition-normal);
 }
 
+.top-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding-top: 5.4rem;
+}
+
 /* ===== HERO SECTION ===== */
 .tlcs-frontiers-theme .frontiers-hero {
-  padding-top: 120px;
+  padding-top: 5.9rem;
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -1870,8 +1877,16 @@
 }
 
 @media (max-width: 768px) {
+  .tlcs-frontiers-theme .partner-logos {
+    display: none;
+  }
+
   .tlcs-frontiers-theme .frontiers-hero {
-    padding-top: 160px;
+    padding-top: 1.9rem;
+  }
+
+  .top-image {
+    padding-top: 5.4rem;
   }
 
   .tlcs-frontiers-theme .nav-links {
