@@ -1568,8 +1568,10 @@
 
 .tlcs-frontiers-theme .contact-methods {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
+  gap: 2rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 
 .tlcs-frontiers-theme .contact-method {
@@ -1596,13 +1598,18 @@
 }
 
 .tlcs-frontiers-theme .method-content h3 {
-  color: var(--ku-blue);
-  margin-bottom: var(--space-sm);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
 }
 
 .tlcs-frontiers-theme .method-content p {
-  color: var(--space-gray-300);
+  font-size: 1rem;
+  color: #374151;
   line-height: 1.6;
+  margin: 0;
 }
 
 /* ===== FORM STYLES ===== */
