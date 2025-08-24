@@ -2059,6 +2059,7 @@
     color: black !important;
   }
 }
+
 .partner-grid-3x3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
