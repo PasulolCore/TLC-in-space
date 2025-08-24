@@ -2059,3 +2059,25 @@
     color: black !important;
   }
 }
+.partner-grid-3x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  align-items: center;
+  justify-items: center;
+  margin-top: 1rem;
+}
+.partner-grid-3x3 img {
+  width: 80px;
+  height: 60px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(30,58,138,0.07);
+  padding: 8px;
+  transition: transform 0.2s;
+}
+.partner-grid-3x3 img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px rgba(30,58,138,0.15);
+}
