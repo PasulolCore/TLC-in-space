@@ -554,6 +554,150 @@
 }
 
 .tlcs-frontiers-theme .frontiers-header {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(30,58,138,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  gap: 2rem;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.institution-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 2px 8px rgba(30,58,138,0.08);
+}
+
+.project-identity {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  letter-spacing: 1px;
+}
+
+.project-subtitle {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.main-nav .nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav .nav-link {
+  color: #1e293b;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.main-nav .nav-link:hover,
+.main-nav .nav-link.active {
+  color: #2563eb;
+}
+
+.header-partners {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.partner-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: contain;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(30,58,138,0.08);
+  transition: transform 0.2s;
+}
+
+.partner-logo:hover {
+  transform: scale(1.1);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #2563eb;
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .header-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .main-nav .nav-list {
+    gap: 1rem;
+  }
+  .header-partners {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .main-nav .nav-list {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .header-partners {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+}
+.tlcs-frontiers-theme .frontiers-header {
   text-align: center;
   margin-bottom: var(--space-4xl);
 }
