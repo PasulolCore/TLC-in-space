@@ -630,23 +630,25 @@
   display: flex;
   gap: 0.7rem;
   align-items: center;
-  justify-content: center;
-  padding: 0.5rem 0 0.5rem 0;
+  justify-content: flex-end;
   flex-wrap: wrap;
+  min-width: 340px;
 }
 
-.partner-logo {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  object-fit: contain;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(30,58,138,0.08);
-  transition: transform 0.2s;
-}
-
-.partner-logo:hover {
-  transform: scale(1.1);
+/* Responsive: ซ่อน header-partners ในจอเล็ก */
+@media (max-width: 1024px) {
+  .symmetric-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  .main-nav {
+    justify-content: flex-start;
+  }
+  .header-partners {
+    justify-content: flex-start;
+    min-width: unset;
+  }
 }
 
 .mobile-menu-toggle {
@@ -2352,12 +2354,13 @@
 
 .main-nav {
   flex: 1;
-  margin-left: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-list {
   display: flex;
-  gap: 1.2rem;
+  gap: 2rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -2394,41 +2397,49 @@
   display: flex;
   gap: 0.7rem;
   align-items: center;
-  justify-content: center;
-  padding: 0.5rem 0 0.5rem 0;
+  justify-content: flex-end;
   flex-wrap: wrap;
+  min-width: 340px;
 }
 
-.partner-logo {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  object-fit: contain;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(30,58,138,0.08);
-  transition: transform 0.2s;
-}
-
-.partner-logo:hover {
-  transform: scale(1.1);
-}
-
-/* Responsive */
+/* Responsive: ซ่อน header-partners ในจอเล็ก */
 @media (max-width: 1024px) {
-  .tlcs-header {
-    max-width: 99vw;
-    width: 99vw;
-    margin: 0.5rem auto 0 auto;
-    border-radius: 10px;
-  }
-  .header-bar {
-    padding: 0.5rem 0.7rem;
+  .symmetric-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
   }
   .main-nav {
-    margin-left: 1rem;
+    justify-content: flex-start;
   }
-  .nav-list {
-    gap: 0.7rem;
+  .header-partners {
+    justify-content: flex-start;
+    min-width: unset;
+  }
+}
+
+.header-partners {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  min-width: 340px;
+}
+
+/* Responsive: ซ่อน header-partners ในจอเล็ก */
+@media (max-width: 1024px) {
+  .symmetric-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  .main-nav {
+    justify-content: flex-start;
+  }
+  .header-partners {
+    justify-content: flex-start;
+    min-width: unset;
   }
 }
 
