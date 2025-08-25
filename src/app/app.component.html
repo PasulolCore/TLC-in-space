@@ -7,6 +7,15 @@
       <div class="project-identity">
         <span class="project-name">TLCS</span>
         <span class="project-subtitle">Liquid Crystal Research</span>
+  <header class="">
+    <div class="header-container">
+      <!-- โลโก้หลักและชื่อโปรเจกต์ -->
+      <div class="header-brand">
+        <img src="/assets/TLC LOGO_1753195321475.jpg" alt="TLC Project" class="institution-logo">
+        <div class="project-identity">
+          <span class="project-name">TLCS</span>
+          <span class="project-subtitle">Liquid Crystal Research</span>
+        </div>
       </div>
     </div>
     <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle mobile menu">
@@ -40,85 +49,57 @@
 
   <img src="/assets/TCL Background_1753195321475.jpg" alt="" class="top-image">
 
-<!-- Hero Section (Carousel Version) -->
+<!-- Hero Section (No Carousel) -->
 <section id="home" class="hero-section frontiers-hero">
   <div class="hero-background">
     <div class="space-particles"></div>
     <div class="orbital-grid"></div>
   </div>
-  <div class="hero-carousel-container">
-    <div class="hero-carousel" [style.transform]="'translateX(-' + (currentHeroIndex * 100) + '%)'">
-      <!-- Slide 1: Mission Overview -->
-      <div class="hero-slide">
-        <div class="hero-content centered">
-          <div class="hero-main">
-            <div class="mission-badge">
-              <span class="badge-text">NASA • Kasetsart University Collaboration</span>
-            </div>
-            <h1 class="hero-title">
-              <span class="title-primary">Thai Liquid Crystal</span>
-              <span class="title-accent">in Space</span>
-            </h1>
-            <p class="hero-description">
-              Pioneering microgravity research to unlock the fundamental properties of liquid crystals,
-              advancing materials science and space technology through international collaboration.
-            </p>
-            <div class="hero-stats">
-              <div class="stat-item">
-                <span class="stat-number">10</span>
-                <span class="stat-label">Partner Institutions</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number">ISS</span>
-                <span class="stat-label">Research Platform</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number">2025</span>
-                <span class="stat-label">Mission Year</span>
-              </div>
-            </div>
-            <div class="hero-actions">
-              <button class="cta-primary frontiers-btn" (click)="scrollToSection('project')">
-                Explore Mission
-                <svg class="button-icon" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
-                </svg>
-              </button>
-              <button class="cta-secondary frontiers-btn secondary" (click)="scrollToSection('science')">
-                Learn the Science
-              </button>
-            </div>
-          </div>
+  <div class="hero-content centered">
+    <div class="hero-main">
+      <div class="mission-badge">
+        <span class="badge-text">NASA • Kasetsart University Collaboration</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-primary">Thai Liquid Crystal</span>
+        <span class="title-accent">in Space</span>
+      </h1>
+      <p class="hero-description">
+        Pioneering microgravity research to unlock the fundamental properties of liquid crystals,
+        advancing materials science and space technology through international collaboration.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">10</span>
+          <span class="stat-label">Partner Institutions</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">ISS</span>
+          <span class="stat-label">Research Platform</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2025</span>
+          <span class="stat-label">Mission Year</span>
         </div>
       </div>
-      <!-- Slide 2: Example Image/Content -->
-      <div class="hero-slide">
-        <div class="hero-content centered">
-          <div class="hero-image-preview">
-            <img src="/assets/TCL Background_1753195321475.jpg" alt="TCL Example" class="carousel-image">
-            <div class="carousel-caption">
-              <h2>Liquid Crystal Experiment</h2>
-              <p>Example image or future content goes here.</p>
-            </div>
-          </div>
-        </div>
+      <div class="hero-actions">
+        <button class="cta-primary frontiers-btn" (click)="scrollToSection('project')">
+          Explore Mission
+          <svg class="button-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+          </svg>
+        </button>
+        <button class="cta-secondary frontiers-btn secondary" (click)="scrollToSection('science')">
+          Learn the Science
+        </button>
       </div>
-      <!-- Add more slides here as needed -->
     </div>
-    <!-- Carousel Controls -->
-    <button class="carousel-nav prev" (click)="previousHeroSlide()" [disabled]="currentHeroIndex === 0" aria-label="Previous slide">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-    </button>
-    <button class="carousel-nav next" (click)="nextHeroSlide()" [disabled]="currentHeroIndex === maxHeroIndex" aria-label="Next slide">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </button>
-    <div class="carousel-indicators">
-      <button *ngFor="let slide of heroSlides; let i = index"
-              class="indicator"
-              [class.active]="i === currentHeroIndex"
-              (click)="goToHeroSlide(i)"
-              [attr.aria-label]="'Go to slide ' + (i + 1)">
-      </button>
+    <div class="hero-image-preview">
+      <img src="/assets/TCL Background_1753195321475.jpg" alt="TCL Example" class="carousel-image">
+      <div class="carousel-caption">
+        <h2>Liquid Crystal Experiment</h2>
+        <p>Example image or future content goes here.</p>
+      </div>
     </div>
   </div>
 </section>

@@ -398,23 +398,4 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.closeModal();
     this.scrollToSection(section); // หรือใช้ router.navigate ถ้าเป็น route จริง
   }
-
-  // Hero carousel logic
-  heroSlides = [
-    { type: 'main' },
-    { type: 'image', image: '/assets/TCL Background_1753195321475.jpg', caption: 'Liquid Crystal Experiment' }
-    // เพิ่ม slide อื่น ๆ ได้
-  ];
-  currentHeroIndex = 0;
-  maxHeroIndex = this.heroSlides.length - 1;
-
-  previousHeroSlide() {
-    if (this.currentHeroIndex > 0) this.currentHeroIndex--;
-  }
-  nextHeroSlide() {
-    if (this.currentHeroIndex < this.maxHeroIndex) this.currentHeroIndex++;
-  }
-  goToHeroSlide(index: number) {
-    this.currentHeroIndex = index;
-  }
 }
