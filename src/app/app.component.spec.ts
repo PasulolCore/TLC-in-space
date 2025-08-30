@@ -14,10 +14,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'TLCS - Thai Liquid Crystal in Space Research Platform' title`, () => {
+  it(`should have the 'TLC - Thai Liquid Crystal in Space Research Platform' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('TLCS - Thai Liquid Crystal in Space Research Platform');
+    expect(app.title).toEqual('TLC - Thai Liquid Crystal in Space Research Platform');
   });
 
   it('should render title', () => {

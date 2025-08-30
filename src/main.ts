@@ -6,6 +6,6 @@ bootstrapApplication(AppComponent, appConfig)
   .catch((err) => {
     console.error('Application bootstrap error:', err);
     if (typeof window !== 'undefined') {
-      document.body.innerHTML = '<div style="padding: 20px; font-family: Arial;">ไม่สามารถโหลดแอปพลิเคชัน TLCS ได้ กรุณารีเฟรชหน้าหรือแจ้งผู้ดูแลระบบ</div>';
+      document.body.innerHTML = '<div style="padding: 20px; font-family: Arial;">ไม่สามารถโหลดแอปพลิเคชัน TLC ได้ กรุณารีเฟรชหน้าหรือแจ้งผู้ดูแลระบบ</div>';
     }
   });

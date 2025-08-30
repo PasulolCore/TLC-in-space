@@ -42,7 +42,7 @@ interface NewsItem {
   imports: [CommonModule, FormsModule, RouterOutlet]
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'TLCS - Thai Liquid Crystal in Space Research Platform';
+  title = 'TLC - Thai Liquid Crystal in Space Research Platform';
   isScrolled = false;
   isVisible = false;
   isMobileMenuOpen = false;
@@ -104,28 +104,16 @@ export class AppComponent implements OnInit, AfterViewInit {
       title: 'Space Systems Engineer',
       expertise: 'Microgravity Experiments, ISS Operations',
       photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=WS'
-    },
-    {
-      name: 'Dr. Thana Chotpantarat',
-      title: 'Data Analysis Lead',
-      expertise: 'Computational Physics, Space Environment Modeling',
-      photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=TC'
-    },
-    {
-      name: 'Dr. Piyapong Janphuang',
-      title: 'Materials Specialist',
-      expertise: 'Advanced Materials, Crystallography',
-      photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=PJ'
     }
   ];
 
   newsItems: NewsItem[] = [
     {
       id: '1',
-      title: 'TLCS ทีมไทยเตรียมความพร้อมสำหรับการทดลองบนสถานีอวกาศ ISS',
+      title: 'TLC ทีมไทยเตรียมความพร้อมสำหรับการทดลองบนสถานีอวกาศ ISS',
       summary: 'ทีมนักวิจัยจากมหาวิทยาลัยเกษตรศาสตร์เตรียมส่งการทดลองผลึกเหลวไปยังสถานีอวกาศนานาชาติในปี 2024',
       content: `
-        <p>โครงการ Thai Liquid Crystal in Space (TLCS) กำลังเข้าสู่ช่วงเวลาสำคัญ เมื่อทีมนักวิจัยจากคณะวิทยาศาสตร์ มหาวิทยาลัยเกษตรศาสตร์ ภายใต้การนำของ รศ.ดร.ณัฐพร ฉัตรธรรม เตรียมความพร้อมสำหรับการส่งการทดลองไปยังสถานีอวกาศนานาชาติ (ISS)</p>
+        <p>โครงการ Thai Liquid Crystal in Space (TLC) กำลังเข้าสู่ช่วงเวลาสำคัญ เมื่อทีมนักวิจัยจากคณะวิทยาศาสตร์ มหาวิทยาลัยเกษตรศาสตร์ ภายใต้การนำของ รศ.ดร.ณัฐพร ฉัตรธรรม เตรียมความพร้อมสำหรับการส่งการทดลองไปยังสถานีอวกาศนานาชาติ (ISS)</p>
 
         <p>การทดลองนี้จะศึกษาพฤติกรรมของผลึกเหลวในสภาวะไร้น้ำหนัก ซึ่งจะช่วยให้เราเข้าใจคุณสมบัติพื้นฐานของวัสดุนี้ได้ดียิ่งขึ้น และนำไปสู่การพัฒนาเทคโนโลยีใหม่ๆ ในอนาคต</p>
 
@@ -135,7 +123,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         <p>• เปิดโอกาสความร่วมมือระหว่างประเทศด้านการวิจัยอวกาศ</p>
       `,
       image: '/assets/NASA logo_1753195321475.png',
-      author: 'ทีมข่าว TLCS',
+      author: 'ทีมข่าว TLC',
       date: new Date('2024-01-15'),
       readTime: 5,
       category: 'การวิจัย',
@@ -161,10 +149,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     },
     {
       id: '3',
-      title: 'GISTDA สนับสนุนโครงการ TLCS ด้วยเทคโนโลยีขั้นสูง',
+      title: 'GISTDA สนับสนุนโครงการ TLC ด้วยเทคโนโลยีขั้นสูง',
       summary: 'สำนักงานพัฒนาเทคโนโลยีอวกาศและภูมิสารสนเทศ (GISTDA) เข้าร่วมสนับสนุนโครงการวิจัยผลึกเหลวในอวกาศ',
       content: `
-        <p>สำนักงานพัฒนาเทคโนโลยีอวกาศและภูมิสารสนเทศ (GISTDA) ได้เข้าร่วมเป็นพาร์ทเนอร์สำคัญในโครงการ TLCS โดยให้การสนับสนุนด้านเทคโนโลยีและความเชี่ยวชาญด้านการวิจัยอวกาศ</p>
+        <p>สำนักงานพัฒนาเทคโนโลยีอวกาศและภูมิสารสนเทศ (GISTDA) ได้เข้าร่วมเป็นพาร์ทเนอร์สำคัญในโครงการ TLC โดยให้การสนับสนุนด้านเทคโนโลยีและความเชี่ยวชาญด้านการวิจัยอวกาศ</p>
 
         <p>การสนับสนุนจาก GISTDA จะช่วยเสริมความแข็งแกร่งให้กับโครงการในด้านการวิเคราะห์ข้อมูลและการพัฒนาเครื่องมือวิจัย</p>
       `,
@@ -178,10 +166,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     },
     {
       id: '4',
-      title: 'กระทรวงอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม หนุน TLCS',
+      title: 'กระทรวงอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม หนุน TLC',
       summary: 'กระทรวงอุดมศึกษาฯ ให้การสนับสนุนงบประมาณและนโยบายสำหรับโครงการวิจัยผลึกเหลวในอวกาศ',
       content: `
-        <p>กระทรวงอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม (อว.) ได้ให้การสนับสนุนโครงการ TLCS ในด้านงบประมาณและการกำหนดนโยบายเพื่อส่งเสริมการวิจัยวิทยาศาสตร์และเทคโนโลยีอวกาศของประเทศ</p>
+        <p>กระทรวงอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม (อว.) ได้ให้การสนับสนุนโครงการ TLC ในด้านงบประมาณและการกำหนดนโยบายเพื่อส่งเสริมการวิจัยวิทยาศาสตร์และเทคโนโลยีอวกาศของประเทศ</p>
 
         <p>การสนับสนุนนี้แสดงให้เห็นถึงความมุ่งมั่นของรัฐบาลในการพัฒนาศักยภาพด้านวิทยาศาสตร์และเทคโนโลยีของประเทศไทย</p>
       `,
@@ -336,13 +324,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   shareToTwitter(news: NewsItem): void {
-    const text = `${news.title} - TLCS Project`;
+    const text = `${news.title} - TLC Project`;
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
     this.openShareWindow(url);
   }
 
   shareToLine(news: NewsItem): void {
-    const text = `${news.title} - TLCS Project ${window.location.href}`;
+    const text = `${news.title} - TLC Project ${window.location.href}`;
     const url = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(text)}`;
     this.openShareWindow(url);
   }
