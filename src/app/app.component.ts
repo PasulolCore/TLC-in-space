@@ -94,15 +94,15 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   teamMembers: TeamMember[] = [
     {
-      name: 'Dr. Siriporn Kiatkirakajorn',
-      title: 'Senior Research Scientist',
+      name: 'Dr. Apichart Pattanapokratana',
+      title: 'Co-Principal Investigator',
       expertise: 'Liquid Crystal Physics, Molecular Dynamics',
       photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=SK'
     },
     {
-      name: 'Dr. Waraporn Suvanvej',
-      title: 'Space Systems Engineer',
-      expertise: 'Microgravity Experiments, ISS Operations',
+      name: 'Dr. Natthawat Hongkarnjanakul',
+      title: 'Director of Space Technology Development office, GISTDA',
+      expertise: 'Gistda, Space Technology',
       photo: 'https://via.placeholder.com/300x300/1e3a8a/ffffff?text=WS'
     }
   ];
