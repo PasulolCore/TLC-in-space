@@ -274,7 +274,6 @@
 }
 
 .top-image-slider {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -283,11 +282,10 @@
   margin: 0 auto 1.5rem auto;
 }
 
-.top-image-slider a {
-  display: block;
+.top-image-container {
+  position: relative;
   width: 100%;
   max-width: 900px;
-  position: relative;
 }
 
 .top-image {
@@ -298,16 +296,12 @@
   border-radius: 18px;
   box-shadow: 0 4px 24px rgba(30,58,138,0.10);
   cursor: pointer;
-  transition: box-shadow 0.2s;
   display: block;
 }
 
-/* ปุ่มเลื่อนอยู่ล่างตรงกลาง ซ้อนบนภาพ */
 .top-image-nav {
   position: absolute;
   bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
   background: #2563eb;
   border: none;
   border-radius: 50%;
@@ -318,32 +312,26 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s;
   z-index: 2;
   opacity: 0.92;
-  margin: 0 12px;
+  transition: background 0.2s;
 }
 
 .top-image-nav.prev {
-  left: calc(50% - 30px);
-  right: auto;
-  transform: translateX(-100%);
+  left: 42%;
+  /* ปรับค่าตามขนาดภาพและปุ่ม */
 }
 
 .top-image-nav.next {
-  left: calc(50% + 30px);
-  right: auto;
-  transform: translateX(0%);
-}
-
-.top-image-nav:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  right: 42%;
+  /* ปรับค่าตามขนาดภาพและปุ่ม */
 }
 
 @media (max-width: 1024px) {
-  .top-image {
+  .top-image-container {
     max-width: 98vw;
+  }
+  .top-image {
     height: 160px;
     border-radius: 12px;
   }
@@ -353,16 +341,18 @@
     bottom: 10px;
   }
   .top-image-nav.prev {
-    left: calc(50% - 24px);
+    left: 38%;
   }
   .top-image-nav.next {
-    left: calc(50% + 24px);
+    right: 38%;
   }
 }
 
 @media (max-width: 768px) {
-  .top-image {
+  .top-image-container {
     max-width: 99vw;
+  }
+  .top-image {
     height: 110px;
     border-radius: 8px;
   }
@@ -372,10 +362,10 @@
     bottom: 6px;
   }
   .top-image-nav.prev {
-    left: calc(50% - 18px);
+    left: 34%;
   }
   .top-image-nav.next {
-    left: calc(50% + 18px);
+    right: 34%;
   }
 }
 
