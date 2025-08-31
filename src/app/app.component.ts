@@ -42,7 +42,7 @@ interface NewsItem {
   imports: [CommonModule, FormsModule, RouterOutlet]
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'TLC - Thai Liquid Crystal in Space Research Platform';
+  title = 'TLC - Thailand Liquid Crystal in Space Research Platform';
   isScrolled = false;
   isVisible = false;
   isMobileMenuOpen = false;
@@ -85,7 +85,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     },
     {
       title: 'International Research Collaboration',
-      description: 'Building comprehensive partnerships between Thai institutions and international space agencies to advance liquid crystal science and space technology.',
+      description: 'Building comprehensive partnerships between Thailand institutions and international space agencies to advance liquid crystal science and space technology.',
       impact: '9.6',
       publications: 12,
       icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'
@@ -113,7 +113,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       title: 'TLC ทีมไทยเตรียมความพร้อมสำหรับการทดลองบนสถานีอวกาศ ISS',
       summary: 'ทีมนักวิจัยจากมหาวิทยาลัยเกษตรศาสตร์เตรียมส่งการทดลองผลึกเหลวไปยังสถานีอวกาศนานาชาติในปี 2024',
       content: `
-        <p>โครงการ Thai Liquid Crystal in Space (TLC) กำลังเข้าสู่ช่วงเวลาสำคัญ เมื่อทีมนักวิจัยจากคณะวิทยาศาสตร์ มหาวิทยาลัยเกษตรศาสตร์ ภายใต้การนำของ รศ.ดร.ณัฐพร ฉัตรธรรม เตรียมความพร้อมสำหรับการส่งการทดลองไปยังสถานีอวกาศนานาชาติ (ISS)</p>
+        <p>โครงการ Thailand Liquid Crystal in Space (TLC) กำลังเข้าสู่ช่วงเวลาสำคัญ เมื่อทีมนักวิจัยจากคณะวิทยาศาสตร์ มหาวิทยาลัยเกษตรศาสตร์ ภายใต้การนำของ รศ.ดร.ณัฐพร ฉัตรธรรม เตรียมความพร้อมสำหรับการส่งการทดลองไปยังสถานีอวกาศนานาชาติ (ISS)</p>
 
         <p>การทดลองนี้จะศึกษาพฤติกรรมของผลึกเหลวในสภาวะไร้น้ำหนัก ซึ่งจะช่วยให้เราเข้าใจคุณสมบัติพื้นฐานของวัสดุนี้ได้ดียิ่งขึ้น และนำไปสู่การพัฒนาเทคโนโลยีใหม่ๆ ในอนาคต</p>
 

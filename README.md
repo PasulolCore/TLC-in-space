@@ -1,4 +1,4 @@
-# TLC - Thai Liquid Crystal in Space Research Platform
+# TLC - Thailand Liquid Crystal in Space Research Platform
 
 This project is a collaborative research platform between Kasetsart University and NASA, focusing on liquid crystal science in microgravity.
 
