@@ -423,4 +423,21 @@ export class AppComponent implements OnInit, AfterViewInit {
   goToHighlight(i: number) {
     this.highlightIndex = i;
   }
+
+  topImages = [
+    { src: '/assets/TLCBackground.png', link: 'https://tlc-in-space.example.com' },
+    { src: '/assets/TLCBackground2.png', link: 'https://partner.example.com' },
+    // เพิ่มภาพและลิ้งค์อื่นๆ ได้
+  ];
+  topImageIndex = 0;
+
+  prevTopImage() {
+    if (this.topImageIndex > 0) this.topImageIndex--;
+  }
+  nextTopImage() {
+    if (this.topImageIndex < this.topImages.length - 1) this.topImageIndex++;
+  }
+  onTopImageClick(image: {src: string, link: string}) {
+    // สามารถเพิ่ม event log หรือ analytics ได้ถ้าต้องการ
+  }
 }

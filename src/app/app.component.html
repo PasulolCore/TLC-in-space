@@ -39,7 +39,20 @@
     </div>
   </nav>
 
-  <img src="/assets/TLCBackground.png" alt="" class="top-image">
+  <div class="top-image-slider">
+  <button class="top-image-nav prev" (click)="prevTopImage()" [disabled]="topImageIndex === 0" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+  </button>
+  <a [href]="topImages[topImageIndex].link" target="_blank" rel="noopener">
+    <img [src]="topImages[topImageIndex].src"
+         alt="Top Image"
+         class="top-image"
+         (click)="onTopImageClick(topImages[topImageIndex])">
+  </a>
+  <button class="top-image-nav next" (click)="nextTopImage()" [disabled]="topImageIndex === topImages.length - 1" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+  </button>
+</div>
 
   <!-- Hero Section -->
     <section id="home" class="hero-section frontiers-hero">
