@@ -505,6 +505,120 @@
 
 .tlcs-frontiers-theme .hero-visual {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.highlight-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+}
+
+.highlight-image-container {
+  position: relative;
+  width: 340px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(30,58,138,0.10);
+  background: #f3f4f6;
+  display: flex;
+  align-items: flex-end;
+}
+
+.highlight-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crop ให้เต็ม container */
+  display: block;
+}
+
+.highlight-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.85);
+  padding: 0.7rem 1rem;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 2px 8px rgba(30,58,138,0.08);
+}
+
+.highlight-nav {
+  background: #2563eb;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.highlight-nav:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.highlight-indicators {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0.7rem 0 0 0;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e0e7ff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.indicator.active {
+  background: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .highlight-image-container {
+    width: 90vw;
+    max-width: 340px;
+    height: 160px;
+  }
+  .highlight-caption {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .highlight-image-container {
+    width: 98vw;
+    max-width: 98vw;
+    height: 120px;
+    border-radius: 10px;
+  }
+  .highlight-caption {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+.tlcs-frontiers-theme .hero-visual {
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 500px;

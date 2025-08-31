@@ -398,4 +398,29 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.closeModal();
     this.scrollToSection(section); // หรือใช้ router.navigate ถ้าเป็น route จริง
   }
+
+  highlights = [
+    {
+      image: '/assets/news1.jpg',
+      title: 'TLC Project Launches!',
+      summary: 'The Thailand Liquid Crystal in Space project officially launches with international partners.'
+    },
+    {
+      image: '/assets/news2.jpg',
+      title: 'Experiment Arrives at ISS',
+      summary: 'Liquid crystal experiment hardware successfully delivered to the International Space Station.'
+    },
+    // เพิ่ม highlight อื่นๆ ได้
+  ];
+  highlightIndex = 0;
+
+  prevHighlight() {
+    if (this.highlightIndex > 0) this.highlightIndex--;
+  }
+  nextHighlight() {
+    if (this.highlightIndex < this.highlights.length - 1) this.highlightIndex++;
+  }
+  goToHighlight(i: number) {
+    this.highlightIndex = i;
+  }
 }
