@@ -274,20 +274,20 @@
 }
 
 .top-image-slider {
+  position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 100vw;
   max-width: 100%;
   margin: 0 auto 1.5rem auto;
-  position: relative;
-  gap: 0.5rem;
 }
 
 .top-image-slider a {
   display: block;
   width: 100%;
   max-width: 900px;
+  position: relative;
 }
 
 .top-image {
@@ -299,13 +299,15 @@
   box-shadow: 0 4px 24px rgba(30,58,138,0.10);
   cursor: pointer;
   transition: box-shadow 0.2s;
+  display: block;
 }
 
-.top-image:hover {
-  box-shadow: 0 8px 32px rgba(30,58,138,0.18);
-}
-
+/* ปุ่มเลื่อนอยู่ล่างตรงกลาง ซ้อนบนภาพ */
 .top-image-nav {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
   background: #2563eb;
   border: none;
   border-radius: 50%;
@@ -318,6 +320,20 @@
   cursor: pointer;
   transition: background 0.2s;
   z-index: 2;
+  opacity: 0.92;
+  margin: 0 12px;
+}
+
+.top-image-nav.prev {
+  left: calc(50% - 30px);
+  right: auto;
+  transform: translateX(-100%);
+}
+
+.top-image-nav.next {
+  left: calc(50% + 30px);
+  right: auto;
+  transform: translateX(0%);
 }
 
 .top-image-nav:disabled {
@@ -331,28 +347,36 @@
     height: 160px;
     border-radius: 12px;
   }
+  .top-image-nav {
+    width: 32px;
+    height: 32px;
+    bottom: 10px;
+  }
+  .top-image-nav.prev {
+    left: calc(50% - 24px);
+  }
+  .top-image-nav.next {
+    left: calc(50% + 24px);
+  }
 }
 
 @media (max-width: 768px) {
-  .top-image-slider {
-    gap: 0.2rem;
-  }
   .top-image {
     max-width: 99vw;
     height: 110px;
     border-radius: 8px;
   }
   .top-image-nav {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+    bottom: 6px;
   }
-}
-
-.top-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  padding-top: 5.4rem;
+  .top-image-nav.prev {
+    left: calc(50% - 18px);
+  }
+  .top-image-nav.next {
+    left: calc(50% + 18px);
+  }
 }
 
 /* ===== HERO SECTION ===== */
