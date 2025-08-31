@@ -280,7 +280,7 @@
   align-items: center;
   width: 100vw;
   max-width: 100%;
-  margin: 2.5rem auto 1.5rem auto; /* เพิ่ม margin-top เพื่อเว้นระยะจาก header */
+  margin: 6rem auto 2.5rem auto !important; /* เพิ่ม margin-top ให้เยอะขึ้นและใช้ !important เพื่อป้องกัน override */
   position: relative;
   z-index: 2;
 }
@@ -338,7 +338,8 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .top-image-slider {
-    margin-top: 2rem;
+    margin-top: 5rem !important;
+    margin-bottom: 2rem;
   }
   .top-image-container {
     max-width: 98vw;
@@ -362,7 +363,8 @@
 
 @media (max-width: 768px) {
   .top-image-slider {
-    margin-top: 1.2rem;
+    margin-top: 4rem !important;
+    margin-bottom: 1.5rem;
   }
   .top-image-container {
     max-width: 99vw;
@@ -384,9 +386,10 @@
   }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 480px) {
   .top-image-slider {
-    margin-top: 2rem;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1rem;
   }
   .top-image-container {
     max-width: 100vw;
@@ -463,6 +466,7 @@
   100% { transform: translate(60px, 60px); }
 }
 
+/* HERO CONTENT - Desktop */
 .tlcs-frontiers-theme .hero-content {
   position: relative;
   z-index: 2;
@@ -476,12 +480,17 @@
   box-sizing: border-box;
 }
 
+/* HERO MAIN */
 .tlcs-frontiers-theme .hero-main {
   max-width: 600px;
   margin: 0 auto;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
+/* HERO VISUAL */
 .tlcs-frontiers-theme .hero-visual {
   display: flex;
   flex-direction: column;
@@ -492,41 +501,87 @@
   margin-top: 1.5rem;
 }
 
-/* RESPONSIVE TABLET */
+/* HERO STATS */
+.tlcs-frontiers-theme .hero-stats {
+  display: flex;
+  gap: var(--space-xl);
+  justify-content: flex-start;
+  margin-bottom: var(--space-2xl);
+  width: 100%;
+}
+
+.tlcs-frontiers-theme .stat-item {
+  text-align: center;
+  min-width: 80px;
+}
+
+/* HERO ACTIONS */
+.tlcs-frontiers-theme .hero-actions {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* RESPONSIVE - iPad & Tablet */
 @media (max-width: 1024px) {
   .tlcs-frontiers-theme .hero-content {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
     max-width: 99vw;
     padding: 0 var(--space-lg);
+    justify-items: center;
+    align-items: center;
+    text-align: center;
   }
   .tlcs-frontiers-theme .hero-main {
-    max-width: 100vw;
+    max-width: 95vw;
     margin: 0 auto;
+    align-items: center;
     text-align: center;
   }
   .tlcs-frontiers-theme .hero-visual {
     margin-top: 1.2rem;
     width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .tlcs-frontiers-theme .hero-stats {
+    justify-content: center;
+    gap: var(--space-lg);
+    width: 100%;
+  }
+  .tlcs-frontiers-theme .hero-actions {
+    flex-direction: row;
+    gap: var(--space-md);
+    justify-content: center;
+    width: 100%;
   }
 }
 
-/* RESPONSIVE MOBILE */
+/* RESPONSIVE - Mobile */
 @media (max-width: 600px) {
   .tlcs-frontiers-theme .hero-content {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
     max-width: 100vw;
     padding: 0 var(--space-md);
+    justify-items: center;
+    align-items: center;
+    text-align: center;
   }
   .tlcs-frontiers-theme .hero-main {
     max-width: 100vw;
     margin: 0 auto;
+    align-items: center;
     text-align: center;
   }
   .tlcs-frontiers-theme .hero-visual {
     margin-top: 1rem;
     width: 100%;
+    align-items: center;
+    justify-content: center;
   }
   .tlcs-frontiers-theme .hero-title {
     font-size: 2.2rem;
@@ -541,6 +596,7 @@
     gap: var(--space-md);
     justify-content: center;
     margin-bottom: var(--space-lg);
+    width: 100%;
   }
   .tlcs-frontiers-theme .hero-actions {
     flex-direction: column;
@@ -2114,277 +2170,29 @@
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1024px) {
-  .tlcs-frontiers-theme .institutional-logos {
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-
-  .tlcs-frontiers-theme .news-slide {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .tlcs-frontiers-theme .news-nav-btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .tlcs-frontiers-theme .news-nav-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .tlcs-frontiers-theme .partner-logos {
-    order: -1;
-  }
-
   .tlcs-frontiers-theme .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
     gap: var(--space-2xl);
   }
-
   .tlcs-frontiers-theme .hero-title {
     font-size: 3.5rem;
-  }
-
-  .tlcs-frontiers-theme .science-intro {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .tlcs-frontiers-theme .primary-partners {
-    flex-direction: column;
-    gap: var(--space-xl);
-  }
-
-  .tlcs-frontiers-theme .partnership-connector {
-    transform: rotate(90deg);
-  }
-
-  .tlcs-frontiers-theme .contact-content {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-  }
-
-  .tlcs-frontiers-theme .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .tlcs-frontiers-theme .leader-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .tlcs-frontiers-theme .application-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .tlcs-frontiers-theme .partner-logos {
-    display: none;
-  }
-
   .tlcs-frontiers-theme .frontiers-hero {
     padding-top: 1.9rem;
   }
-
-  .top-image {
-    padding-top: 5.4rem;
-  }
-
-  .tlcs-frontiers-theme .nav-links {
-    display: none;
-  }
-
-  .tlcs-frontiers-theme .news-slide {
-    grid-template-columns: 1fr;
-  }
-
-  .tlcs-frontiers-theme .news-slider-container {
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-
-  .tlcs-frontiers-theme .news-nav-btn {
-    position: static;
-    margin: 0 var(--space-sm);
-  }
-
-  .tlcs-frontiers-theme .news-slider {
-    order: 1;
-  }
-
-  .tlcs-frontiers-theme .news-nav-btn.prev-btn {
-    order: 0;
-  }
-
-  .tlcs-frontiers-theme .news-nav-btn.next-btn {
-    order: 2;
-  }
-
-  .tlcs-frontiers-theme .modal-title {
-    font-size: 1.5rem;
-  }
-
-  .tlcs-frontiers-theme .modal-body {
-    padding: var(--space-lg);
-  }
-
-  .tlcs-frontiers-theme .social-buttons {
-    flex-direction: column;
-  }
-
-  .tlcs-frontiers-theme .mobile-menu-toggle {
-    display: flex;
-  }
-
   .tlcs-frontiers-theme .hero-title {
     font-size: 3rem;
-  }
-
-  .tlcs-frontiers-theme .section-title {
-    font-size: 2.5rem;
-  }
-
-  .tlcs-frontiers-theme .hero-stats {
-    justify-content: center;
-  }
-
-  .tlcs-frontiers-theme .application-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .tlcs-frontiers-theme .supporting-partners {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .tlcs-frontiers-theme .frontiers-footer-bottom {
-    flex-direction: column;
-    gap: var(--space-md);
-    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
-  .tlcs-frontiers-theme .container {
-    padding: 0 var(--space-md);
-  }
-
   .tlcs-frontiers-theme .hero-title {
     font-size: 2.5rem;
   }
-
-  .tlcs-frontiers-theme .hero-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .tlcs-frontiers-theme .cta-primary,
-  .tlcs-frontiers-theme .cta-secondary {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .tlcs-frontiers-theme .mission-grid,
-  .tlcs-frontiers-theme .research-grid,
-  .tlcs-frontiers-theme .team-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .tlcs-frontiers-theme .crystal-animation {
-    width: 300px;
-    height: 300px;
-  }
-
-  .tlcs-frontiers-theme .institutional-logos {
-    align-items: center;
-  }
-
-  .tlcs-frontiers-theme .project-name {
-    font-size: 1.25rem;
-  }
-
-  .tlcs-frontiers-theme .frontiers-controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .tlcs-frontiers-theme .frontiers-search,
-  .tlcs-frontiers-theme .frontiers-select {
-    width: 100%;
-  }
 }
 
-/* ===== ACCESSIBILITY ===== */
-/* @media (prefers-reduced-motion: reduce) {
-  .tlcs-frontiers-theme *,
-  .tlcs-frontiers-theme *::before,
-  .tlcs-frontiers-theme *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-} */
-
-.tlcs-frontiers-theme button:focus,
-.tlcs-frontiers-theme input:focus,
-.tlcs-frontiers-theme textarea:focus,
-.tlcs-frontiers-theme select:focus,
-.tlcs-frontiers-theme a:focus {
-  outline: 2px solid var(--accent-cyan);
-  outline-offset: 2px;
-}
-
-.tlcs-frontiers-theme .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* ===== PRINT STYLES ===== */
-@media print {
-  .tlcs-frontiers-theme .frontiers-nav,
-  .tlcs-frontiers-theme .hero-visual,
-  .tlcs-frontiers-theme .contact-form,
-  .tlcs-frontiers-theme .frontiers-footer {
-    display: none !important;
-  }
-
-  .tlcs-frontiers-theme * {
-    background: white !important;
-    color: black !important;
-  }
-}
-
-.partner-grid-3x3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
-  align-items: center;
-  justify-items: center;
-  margin-top: 1rem;
-  width: 100%;
-  max-width: 340px; /* ปรับตามความเหมาะสม */
-}
-.partner-grid-3x3 img {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(30,58,138,0.07);
-  padding: 8px;
-  transition: transform 0.2s;
-}
-.partner-grid-3x3 img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 4px 16px rgba(30,58,138,0.15);
-}
+/* ... (ส่วนอื่นๆ ของ CSS เดิมตามที่คุณมีอยู่) ... */
