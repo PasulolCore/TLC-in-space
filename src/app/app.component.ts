@@ -370,14 +370,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   highlights = [
     {
-      image: '/assets/news1.jpg',
-      title: 'TLC Project Launches!',
-      summary: 'The Thailand Liquid Crystal in Space project officially launches with international partners.'
-    },
-    {
-      image: '/assets/news2.jpg',
-      title: 'Experiment Arrives at ISS',
-      summary: 'Liquid crystal experiment hardware successfully delivered to the International Space Station.'
+      image: '/assets/20250616_170948-1024x577.jpg',
+      title: 'โครงการ Thailand Liquid Crystals in Space (TLC) พร้อมขึ้นสู่อวกาศในเดือนกันยายน 2568 นี้',
+      summary: 'โครงการ Thailand Liquid Crystal in Space (TLC) จะเริ่มต้นขึ้นในเดือนกันยายน 2568 นี้ โดยมีพันธมิตรจากนานาชาติร่วมมือกัน.'
     },
     // เพิ่ม highlight อื่นๆ ได้
   ];
@@ -393,9 +388,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.highlightIndex = i;
   }
 
-  topImages = [
-    { src: '/assets/TLCBackground.png', link: 'https://tlc-in-space.example.com' },
-    { src: '/assets/TLCBackground2.png', link: 'https://partner.example.com' },
+  topImages = [https://www.facebook.com/TLCinspace
+    { src: '/assets/TLCBackground.png', link: 'https://www.facebook.com/TLCinspace' },
+    { src: '/assets/20250616_170948-1024x577.jpg', link: 'https://www.facebook.com/photo/?fbid=122268560354069639&set=a.122101870682069639' },
     // เพิ่มภาพและลิ้งค์อื่นๆ ได้
   ];
   topImageIndex = 0;

@@ -280,7 +280,7 @@
   align-items: center;
   width: 100vw;
   max-width: 100%;
-  margin: 25rem auto 15rem auto; /* เพิ่ม margin-top เพื่อเว้นระยะจาก header */
+  margin: 10rem auto 8rem auto; /* เพิ่ม margin-top เพื่อเว้นระยะจาก header */
   position: relative;
   z-index: 2;
 }
@@ -338,7 +338,7 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .top-image-slider {
-    margin-top: 20rem;
+    margin-top: 10rem;
   }
   .top-image-container {
     max-width: 98vw;
@@ -362,7 +362,7 @@
 
 @media (max-width: 768px) {
   .top-image-slider {
-    margin-top: 12rem;
+    margin-top: 6rem;
   }
   .top-image-container {
     max-width: 99vw;
@@ -386,7 +386,7 @@
 
 @media (max-width: 1080px) {
   .top-image-slider {
-    margin-top: 20rem;
+    margin-top: 10rem;
   }
   .top-image-container {
     max-width: 100vw;
