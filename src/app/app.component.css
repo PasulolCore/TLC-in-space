@@ -279,25 +279,27 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  max-width: 100%;
-  margin: 10rem auto 8rem auto; /* เพิ่ม margin-top เพื่อเว้นระยะจาก header */
+  max-width: 100vw;
+  margin: 6rem auto 4.8rem auto; /* ลดระยะห่างลงประมาณ 40% */
   position: relative;
   z-index: 2;
+  overflow-x: hidden;
 }
 
 .top-image-container {
   position: relative;
   width: 100%;
-  max-width: 1920px;
+  max-width: 1152px; /* ลดขนาด container ลง 40% จาก 1920px */
+  margin: 0 auto;
 }
 
 .top-image {
   width: 100%;
-  max-width: 1920px;
-  height: 1080px;
+  height: auto;
+  max-width: 60vw; /* ลดขนาดภาพลง */
+  border-radius: 11px; /* ลดความมนขอบลง */
   object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(30,58,138,0.10);
+  box-shadow: 0 2px 14px rgba(30,58,138,0.10); /* ลดความหนาเงา */
   cursor: pointer;
   display: block;
 }
@@ -305,13 +307,13 @@
 /* ปุ่มเลื่อนอยู่ล่างตรงกลางบนภาพ */
 .top-image-nav {
   position: absolute;
-  bottom: 18px;
+  bottom: 11px; /* ลดระยะห่างจากขอบล่าง */
   z-index: 3;
   background: #2563eb;
   border: none;
   border-radius: 50%;
-  width: 38px;
-  height: 38px;
+  width: 23px; /* ลดขนาดปุ่ม */
+  height: 23px;
   color: #fff;
   display: flex;
   align-items: center;
@@ -322,12 +324,12 @@
 
 .top-image-nav.prev {
   left: 50%;
-  transform: translateX(-60px);
+  transform: translateX(-36px); /* ลดระยะห่างจากจุดกึ่งกลาง */
 }
 
 .top-image-nav.next {
   left: 50%;
-  transform: translateX(20px);
+  transform: translateX(12px);
 }
 
 .top-image-nav:disabled {
@@ -336,75 +338,85 @@
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .top-image-slider {
-    margin-top: 10rem;
-  }
+@media (max-width: 1200px) {
   .top-image-container {
-    max-width: 98vw;
+    max-width: 60vw;
   }
   .top-image {
-    height: 1920px;
-    border-radius: 12px;
-  }
-  .top-image-nav {
-    width: 32px;
-    height: 32px;
-    bottom: 10px;
-  }
-  .top-image-nav.prev {
-    transform: translateX(-44px);
-  }
-  .top-image-nav.next {
-    transform: translateX(12px);
+    border-radius: 9px;
+    max-width: 60vw;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .top-image-slider {
-    margin-top: 6rem;
+    margin-top: 4.2rem;
+    margin-bottom: 1.2rem;
   }
   .top-image-container {
-    max-width: 99vw;
+    max-width: 80vw;
   }
   .top-image {
-    height: 110px;
+    max-width: 80vw;
     border-radius: 8px;
   }
   .top-image-nav {
-    width: 28px;
-    height: 28px;
+    width: 18px;
+    height: 18px;
     bottom: 6px;
   }
   .top-image-nav.prev {
-    transform: translateX(-32px);
+    transform: translateX(-22px);
   }
   .top-image-nav.next {
     transform: translateX(6px);
   }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 768px) {
   .top-image-slider {
-    margin-top: 10rem;
+    margin-top: 2.4rem;
+    margin-bottom: 0.9rem;
   }
   .top-image-container {
-    max-width: 100vw;
+    max-width: 98vw;
   }
   .top-image {
-    height: 70px;
+    max-width: 98vw;
     border-radius: 6px;
   }
   .top-image-nav {
-    width: 22px;
-    height: 22px;
-    bottom: 2px;
+    width: 14px;
+    height: 14px;
+    bottom: 3px;
   }
   .top-image-nav.prev {
-    transform: translateX(-20px);
+    transform: translateX(-10px);
   }
   .top-image-nav.next {
     transform: translateX(2px);
+  }
+}
+
+@media (max-width: 480px) {
+  .top-image-slider {
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  .top-image {
+    max-width: 99vw;
+    border-radius: 4px;
+  }
+  .top-image-nav {
+    width: 10px;
+    height: 10px;
+    bottom: 1px;
+  }
+  .top-image-nav.prev {
+    transform: translateX(-5px);
+  }
+  .top-image-nav.next {
+    transform: translateX(1px);
   }
 }
 
