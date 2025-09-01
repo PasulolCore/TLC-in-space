@@ -1873,46 +1873,74 @@
 }
 
 .tlcs-frontiers-theme .supporting-partners {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-xl);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .tlcs-frontiers-theme .partner-card.supporting {
-  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 220px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 1.5rem 1rem 1.2rem 1rem;
+  background: #fff;
   border-radius: 16px;
-  padding: var(--space-lg);
-  text-align: center;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--space-gray-200);
-  transition: all var(--transition-normal);
-  min-width: 200px;
-}
-
-.tlcs-frontiers-theme .partner-card.supporting:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 2px 14px rgba(30,58,138,0.10);
+  transition: box-shadow 0.2s;
 }
 
 .tlcs-frontiers-theme .partner-logo-medium {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto var(--space-md);
-  border-radius: 8px;
-  box-shadow: var(--shadow-sm);
+  width: 64px;
+  height: 64px;
   object-fit: contain;
-  background: white;
-  padding: 4px;
+  margin-bottom: 0.8rem;
+  display: block;
 }
 
-.tlcs-frontiers-theme .partner-card.supporting h4 {
-  color: var(--ku-blue);
-  margin-bottom: var(--space-sm);
+/* Responsive: ปรับขนาดการ์ดและโลโก้ให้เท่ากันบนมือถือ */
+@media (max-width: 768px) {
+  .supporting-partners {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .partner-card.supporting {
+    min-height: 180px;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    border-radius: 12px;
+  }
+  .partner-logo-medium {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.5rem;
+  }
 }
 
-.tlcs-frontiers-theme .partner-card.supporting p {
-  color: var(--space-gray-600);
-  font-size: 0.875rem;
+/* ป้องกันข้อความล้นและจัดให้เท่ากัน */
+.partner-card.supporting h4,
+.partner-card.supporting p {
+  text-align: center;
+  word-break: break-word;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+}
+
+.partner-card.supporting h4 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.2rem;
+}
+
+.partner-card.supporting p {
+  font-size: 0.95rem;
+  color: #222e;
+  margin-bottom: 0;
 }
 
 /* ===== CONTACT SECTION ===== */
@@ -2431,6 +2459,7 @@
 
 .partner-grid-3x3 {
   display: grid;
+ 
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
   align-items: center;
