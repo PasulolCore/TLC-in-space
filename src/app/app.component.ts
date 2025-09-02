@@ -398,7 +398,7 @@ highlightIndex = 0;
 
   topImages = [
     { src: '/assets/topimagepng.png', link: 'https://www.facebook.com/TLCinspace' },
-    { src: '/assets/20250616_170948-1024x577.jpg', link: 'https://www.spacemanthailand.com/tlc-launch-to-space-sep-2025/' },
+    { src: '/assets/ปกข่าว eng .png', link: 'https://www.spacemanthailand.com/tlc-launch-to-space-sep-2025/' },
     // เพิ่มภาพและลิ้งค์อื่นๆ ได้
   ];
   topImageIndex = 0;
