@@ -389,7 +389,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   topImages = [
-    { src: '/assets/tlc-top-image.jpg', link: 'https://www.facebook.com/TLCinspace' },
+    { src: '/assets/topimagepng.png', link: 'https://www.facebook.com/TLCinspace' },
     { src: '/assets/20250616_170948-1024x577.jpg', link: 'https://www.facebook.com/photo/?fbid=122268560354069639&set=a.122101870682069639' },
     // เพิ่มภาพและลิ้งค์อื่นๆ ได้
   ];
