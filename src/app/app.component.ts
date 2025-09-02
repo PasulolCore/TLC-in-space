@@ -390,7 +390,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   topImages = [
     { src: '/assets/topimagepng.png', link: 'https://www.facebook.com/TLCinspace' },
-    { src: '/assets/20250616_170948-1024x577.jpg', link: 'https://www.facebook.com/photo/?fbid=122268560354069639&set=a.122101870682069639' },
+    { src: '/assets/20250616_170948-1024x577.jpg', link: 'https://www.spacemanthailand.com/tlc-launch-to-space-sep-2025/' },
     // เพิ่มภาพและลิ้งค์อื่นๆ ได้
   ];
   topImageIndex = 0;

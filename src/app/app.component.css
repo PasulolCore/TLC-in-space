@@ -765,44 +765,41 @@
   margin-top: 1.5rem;
 }
 
+/* ปรับ container ให้ใหญ่ขึ้นเท่าตัว */
 .highlight-slider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 480px;
-  position: relative;
+  max-width: 960px; /* จาก 480px -> 960px */
 }
 
 .highlight-image-container {
-  position: relative;
-  width: 340px;
-  height: 200px;
+  width: 680px;   /* จาก 340px -> 680px */
+  height: auto;   /* ให้สูงตามสัดส่วนภาพ */
+  flex-direction: column; /* เรียงแนวตั้ง */
+  align-items: center;
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(30,58,138,0.10);
   background: #f3f4f6;
-  display: flex;
-  align-items: flex-end;
 }
 
+/* รูปใหญ่เต็ม container */
 .highlight-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* crop ให้เต็ม container */
+  height: auto;
+  object-fit: cover;
   display: block;
+  border-radius: 16px 16px 0 0; /* มุมบนโค้ง */
 }
 
+/* ข้อความ caption แยกออกมา ไม่ทับ */
 .highlight-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255,255,255,0.85);
-  padding: 0.7rem 1rem;
-  border-radius: 0 0 16px 16px;
+  position: relative; /* ยกเลิก absolute */
+  background: rgba(255,255,255,0.95);
+  padding: 1rem 1.5rem;
+  border-radius: 0 0 16px 16px; /* มุมล่างโค้ง */
   box-shadow: 0 2px 8px rgba(30,58,138,0.08);
+  width: 100%;
 }
+
 
 .highlight-nav {
   background: #2563eb;
