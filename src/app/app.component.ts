@@ -63,7 +63,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   teamMembers: TeamMember[] = [
     {
-      name: 'Dr. Apichart Pattanapokratana',
+      name: 'Asst. Prof. Dr. Apichart Pattanapokratana',
       title: 'Co-Principal Investigator',
       expertise: 'Liquid Crystal Physics, Molecular Dynamics',
       photo: '/assets/dr-apichart.jpg'
@@ -367,16 +367,24 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.closeModal();
     this.scrollToSection(section); // หรือใช้ router.navigate ถ้าเป็น route จริง
   }
+highlights = [
+  {
+    image: '/assets/ปกข่าว eng .png',
+    title: 'โครงการ Thailand Liquid Crystals in Space (TLC) พร้อมขึ้นสู่อวกาศในเดือนกันยายน 2568 นี้',
+    summary: 'โครงการ Thailand Liquid Crystal in Space (TLC) จะเริ่มต้นขึ้นในเดือนกันยายน 2568 นี้ โดยมีพันธมิตรจากนานาชาติร่วมมือกัน.',
+    link: 'https://www.thailcinspace.com/'  // 🔗 เพิ่มลิงก์ตรงนี้
+  },
+  // ✅ เพิ่ม highlight อื่นๆ ได้
+  {
+    image: '/assets/another-highlight.jpg',
+    title: 'ตัวอย่าง Highlight ที่ 2',
+    summary: 'รายละเอียดเพิ่มเติมของ Highlight ที่ 2',
+    link: 'https://example.com/highlight2'
+  }
+];
 
-  highlights = [
-    {
-      image: '/assets/20250616_170948-1024x577.jpg',
-      title: 'โครงการ Thailand Liquid Crystals in Space (TLC) พร้อมขึ้นสู่อวกาศในเดือนกันยายน 2568 นี้',
-      summary: 'โครงการ Thailand Liquid Crystal in Space (TLC) จะเริ่มต้นขึ้นในเดือนกันยายน 2568 นี้ โดยมีพันธมิตรจากนานาชาติร่วมมือกัน.'
-    },
-    // เพิ่ม highlight อื่นๆ ได้
-  ];
-  highlightIndex = 0;
+highlightIndex = 0;
+
 
   prevHighlight() {
     if (this.highlightIndex > 0) this.highlightIndex--;
