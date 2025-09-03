@@ -103,9 +103,6 @@
       </div>
       <div class="hero-visual">
         <div class="highlight-slider">
-          <button class="highlight-nav prev" (click)="prevHighlight()" [disabled]="highlightIndex === 0" aria-label="Previous highlight">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-          </button>
           <div class="highlight-image-container">
             <img [src]="highlights[highlightIndex].image"
                  [alt]="highlights[highlightIndex].title"
@@ -116,17 +113,25 @@
               <p>{{ highlights[highlightIndex].summary }}</p>
             </div>
           </div>
-          <button class="highlight-nav next" (click)="nextHighlight()" [disabled]="highlightIndex === highlights.length - 1" aria-label="Next highlight">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-          </button>
-        </div>
-        <div class="highlight-indicators">
-          <button *ngFor="let h of highlights; let i = index"
-                  class="indicator"
-                  [class.active]="i === highlightIndex"
-                  (click)="goToHighlight(i)"
-                  [attr.aria-label]="'Go to highlight ' + (i + 1)">
-          </button>
+          
+          <div class="highlight-slider-controls">
+            <button class="highlight-nav prev" (click)="prevHighlight()" [disabled]="highlightIndex === 0" aria-label="Previous highlight">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            
+            <div class="highlight-indicators">
+              <button *ngFor="let h of highlights; let i = index"
+                      class="indicator"
+                      [class.active]="i === highlightIndex"
+                      (click)="goToHighlight(i)"
+                      [attr.aria-label]="'Go to highlight ' + (i + 1)">
+              </button>
+            </div>
+            
+            <button class="highlight-nav next" (click)="nextHighlight()" [disabled]="highlightIndex === highlights.length - 1" aria-label="Next highlight">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -771,107 +771,252 @@
   margin-top: 1.5rem;
 }
 
-/* ปรับ container ให้ใหญ่ขึ้นเท่าตัว */
+/* ===== HIGHLIGHT SLIDER ===== */
 .highlight-slider {
-  max-width: 960px; /* จาก 480px -> 960px */
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .highlight-image-container {
-  width: 680px;   /* จาก 340px -> 680px */
-  height: auto;   /* ให้สูงตามสัดส่วนภาพ */
-  flex-direction: column; /* เรียงแนวตั้ง */
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   overflow: hidden;
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(30,58,138,0.10);
-  background: #f3f4f6;
+  box-shadow: 0 8px 32px rgba(30,58,138,0.12);
+  background: var(--white);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* รูปใหญ่เต็ม container */
+.highlight-image-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(30,58,138,0.18);
+}
+
 .highlight-image {
   width: 100%;
   height: auto;
   object-fit: cover;
   display: block;
-  border-radius: 16px 16px 0 0; /* มุมบนโค้ง */
+  border-radius: 16px 16px 0 0;
 }
 
-/* ข้อความ caption แยกออกมา ไม่ทับ */
 .highlight-caption {
-  position: relative; /* ยกเลิก absolute */
-  background: rgba(255,255,255,0.95);
-  padding: 1rem 1.5rem;
-  border-radius: 0 0 16px 16px; /* มุมล่างโค้ง */
-  box-shadow: 0 2px 8px rgba(30,58,138,0.08);
+  position: relative;
+  background: var(--white);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 0 16px 16px;
+  width: 100%;
+  text-align: center;
+}
+
+.highlight-caption h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--space-gray-900);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.highlight-caption p {
+  font-size: 0.9rem;
+  color: var(--space-gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ===== HIGHLIGHT NAVIGATION ===== */
+.highlight-slider-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
   width: 100%;
 }
 
-
 .highlight-nav {
-  background: #2563eb;
+  background: var(--ku-blue);
   border: none;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  color: #fff;
+  width: 40px;
+  height: 40px;
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 0.5rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+}
+
+.highlight-nav:hover:not(:disabled) {
+  background: var(--ku-light-blue);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
 }
 
 .highlight-nav:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
+  transform: none;
+}
+
+.highlight-nav svg {
+  width: 18px;
+  height: 18px;
 }
 
 .highlight-indicators {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
-  margin: 0.7rem 0 0 0;
+  margin-top: 1rem;
 }
 
 .indicator {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: #e0e7ff;
+  background: var(--space-gray-300);
   border: none;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all var(--transition-normal);
+}
+
+.indicator:hover {
+  background: var(--space-gray-400);
+  transform: scale(1.1);
 }
 
 .indicator.active {
-  background: #2563eb;
+  background: var(--ku-blue);
+  transform: scale(1.2);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .highlight-image-container {
-    width: 90vw;
-    max-width: 340px;
-    height: 160px;
+/* ===== RESPONSIVE HIGHLIGHT SLIDER ===== */
+@media (max-width: 1024px) {
+  .highlight-slider {
+    max-width: 450px;
   }
+  
+  .highlight-image-container {
+    max-width: 450px;
+  }
+  
+  .highlight-nav {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .highlight-nav svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .highlight-slider {
+    max-width: 400px;
+  }
+  
+  .highlight-image-container {
+    max-width: 400px;
+    border-radius: 12px;
+  }
+  
+  .highlight-image {
+    border-radius: 12px 12px 0 0;
+  }
+  
   .highlight-caption {
-    font-size: 0.95rem;
-    padding: 0.5rem 0.7rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0 0 12px 12px;
+  }
+  
+  .highlight-caption h3 {
+    font-size: 1rem;
+  }
+  
+  .highlight-caption p {
+    font-size: 0.85rem;
+  }
+  
+  .highlight-slider-controls {
+    margin-top: 1.25rem;
+    gap: 0.75rem;
+  }
+  
+  .highlight-nav {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .highlight-nav svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
   }
 }
 
 @media (max-width: 480px) {
+  .highlight-slider {
+    max-width: 90vw;
+  }
+  
   .highlight-image-container {
-    width: 98vw;
-    max-width: 98vw;
-    height: 120px;
+    max-width: 90vw;
     border-radius: 10px;
   }
+  
+  .highlight-image {
+    border-radius: 10px 10px 0 0;
+  }
+  
   .highlight-caption {
-    font-size: 0.85rem;
-    padding: 0.3rem 0.5rem;
+    padding: 0.75rem 1rem;
     border-radius: 0 0 10px 10px;
+  }
+  
+  .highlight-caption h3 {
+    font-size: 0.95rem;
+  }
+  
+  .highlight-caption p {
+    font-size: 0.8rem;
+  }
+  
+  .highlight-slider-controls {
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .highlight-nav {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .highlight-nav svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .indicator {
+    width: 8px;
+    height: 8px;
   }
 }
 
