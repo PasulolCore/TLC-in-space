@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'TLC - Thailand Liquid Crystal in Space Research Platform' title`, () => {
+  it(`should have the 'TLC - Thailand Liquid Crystals in Space Research Platform' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('TLC - Thailand Liquid Crystal in Space Research Platform');
+    expect(app.title).toEqual('TLC - Thailand Liquid Crystals in Space Research Platform');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Thailand Liquid Crystal');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Thailand Liquid Crystals');
   });
 });
