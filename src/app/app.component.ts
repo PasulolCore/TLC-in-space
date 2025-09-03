@@ -187,24 +187,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
 
-  scrollToTop(): void {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
-
-  navigateToSection(sectionId: string): void {
-    this.closeMobileMenu();
-    setTimeout(() => {
-      this.scrollToSection(sectionId);
-    }, 300);
-  }
-
-  closeMobileMenu(): void {
-    this.isMobileMenuOpen = false;
-  }
-
   onSubmit(): void {
     console.log('Form submitted:', this.formData);
     // Reset form after submission
