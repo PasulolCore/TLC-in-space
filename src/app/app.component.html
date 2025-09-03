@@ -1,132 +1,188 @@
 <div class="tlcs-frontiers-theme">
-  <!-- Navigation Header -->
-  <nav class="navbar frontiers-nav" [class.scrolled]="isScrolled">
-    <div class="nav-container">
-      <div class="institutional-logos">
-        <div class="logo-group primary">
-          <img src="/assets/TLC LOGO_1753195321475.jpg" alt="TLC Project" class="institution-logo">
-          <div class="project-identity">
-            <span class="project-name">TLC</span>
-            <span class="project-subtitle">Liquid Crystals Research</span>
+  <!-- Modern Responsive Header -->
+  <header class="modern-header" [class.scrolled]="isScrolled">
+    <div class="header-container">
+      <!-- Brand Section -->
+      <div class="brand-section">
+        <div class="main-brand">
+          <img src="/assets/TLC LOGO_1753195321475.jpg" alt="TLC Project" class="brand-logo">
+          <div class="brand-info">
+            <h1 class="brand-title">TLC</h1>
+            <span class="brand-subtitle">Liquid Crystals Research</span>
           </div>
         </div>
-        <div class="partner-logos">
-      <img src="/assets/MHESI emblem_1753195321474.png" alt="MHESI" class="partner-logo">
-      <img src="/assets/TSRI_Logo_300x363.png" alt="TSRI" class="partner-logo">
-      <img src="/assets/PMUB-PNGLOGO.png" alt="PMUB" class="partner-logo">
-     <img src="/assets/logo_ku_en.png" alt="Kasetsart University" class="partner-logo">
-      <img src="/assets/gistda emblem_1753195321473.png" alt="GISTDA" class="partner-logo">
-      <img src="/assets/NASA logo_1753195321475.png" alt="NASA" class="partner-logo">
-      <img src="/assets/ISSNL_Logo.jpg" alt="ISS LAB" class="partner-logo">
-      <img src="/assets/Logo_Voya.png" alt="Nanoracks-Voyager" class="partner-logo">
-
+        <div class="partner-badges">
+          <img src="/assets/logo_ku_en.png" alt="Kasetsart University" class="key-partner">
+          <img src="/assets/NASA logo_1753195321475.png" alt="NASA" class="key-partner">
+          <img src="/assets/gistda emblem_1753195321473.png" alt="GISTDA" class="key-partner">
         </div>
       </div>
-      <div class="nav-links">
-        <a href="#home" class="nav-link" (click)="scrollToSection('home')">Home</a>
-        <a href="#news" class="nav-link" (click)="scrollToSection('news')">News</a>
-        <a href="#project" class="nav-link" (click)="scrollToSection('project')">Project</a>
-        <a href="#science" class="nav-link" (click)="scrollToSection('science')">Science</a>
-        <a href="#team" class="nav-link" (click)="scrollToSection('team')">Team</a>
-        <a href="#collaboration" class="nav-link" (click)="scrollToSection('collaboration')">Partners</a>
-        <a href="#contact" class="nav-link" (click)="scrollToSection('contact')">Contact</a>
-      </div>
-      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle mobile menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      
+      <!-- Navigation -->
+      <nav class="main-navigation">
+        <a href="#home" class="nav-item" (click)="scrollToSection('home')">Home</a>
+        <a href="#news" class="nav-item" (click)="scrollToSection('news')">News</a>
+        <a href="#project" class="nav-item" (click)="scrollToSection('project')">Mission</a>
+        <a href="#science" class="nav-item" (click)="scrollToSection('science')">Science</a>
+        <a href="#team" class="nav-item" (click)="scrollToSection('team')">Team</a>
+        <a href="#contact" class="nav-item" (click)="scrollToSection('contact')">Contact</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-toggle" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen" aria-label="Toggle menu">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
       </button>
     </div>
-  </nav>
-
-  <div class="top-image-slider">
-  <div class="top-image-container">
-    <a [href]="topImages[topImageIndex].link" target="_blank" rel="noopener">
-      <img [src]="topImages[topImageIndex].src"
-           alt="Top Image"
-           class="top-image"
-           (click)="onTopImageClick(topImages[topImageIndex])">
-    </a>
-    <button class="top-image-nav prev" (click)="prevTopImage()" [disabled]="topImageIndex === 0" aria-label="Previous image">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-    </button>
-    <button class="top-image-nav next" (click)="nextTopImage()" [disabled]="topImageIndex === topImages.length - 1" aria-label="Next image">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </button>
-  </div>
-</div>
-
-  <!-- Hero Section -->
-    <section id="home" class="hero-section frontiers-hero">
-    <div class="hero-background">
-      <div class="space-particles"></div>
-      <div class="orbital-grid"></div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" [class.open]="isMobileMenuOpen">
+      <nav class="mobile-navigation">
+        <a href="#home" class="mobile-nav-item" (click)="scrollToSection('home'); toggleMobileMenu()">Home</a>
+        <a href="#news" class="mobile-nav-item" (click)="scrollToSection('news'); toggleMobileMenu()">News</a>
+        <a href="#project" class="mobile-nav-item" (click)="scrollToSection('project'); toggleMobileMenu()">Mission</a>
+        <a href="#science" class="mobile-nav-item" (click)="scrollToSection('science'); toggleMobileMenu()">Science</a>
+        <a href="#team" class="mobile-nav-item" (click)="scrollToSection('team'); toggleMobileMenu()">Team</a>
+        <a href="#contact" class="mobile-nav-item" (click)="scrollToSection('contact'); toggleMobileMenu()">Contact</a>
+      </nav>
+      <div class="mobile-partners">
+        <div class="partners-title">Partners</div>
+        <div class="partners-grid">
+          <img src="/assets/MHESI emblem_1753195321474.png" alt="MHESI" class="partner-thumb">
+          <img src="/assets/TSRI_Logo_300x363.png" alt="TSRI" class="partner-thumb">
+          <img src="/assets/PMUB-PNGLOGO.png" alt="PMUB" class="partner-thumb">
+          <img src="/assets/ISSNL_Logo.jpg" alt="ISS LAB" class="partner-thumb">
+          <img src="/assets/Logo_Voya.png" alt="Nanoracks-Voyager" class="partner-thumb">
+        </div>
+      </div>
     </div>
-    <div class="hero-content">
-      <div class="hero-main">
+  </header>
+
+  <!-- Modern Unified Hero Section -->
+  <section id="home" class="modern-hero">
+    <!-- Cosmic Background -->
+    <div class="hero-background">
+      <div class="cosmic-particles"></div>
+      <div class="stellar-grid"></div>
+      <div class="nebula-overlay"></div>
+    </div>
+    
+    <!-- Hero Content Grid -->
+    <div class="hero-container">
+      <!-- Content Section -->
+      <div class="hero-content">
         <div class="mission-badge">
+          <span class="badge-icon">🚀</span>
           <span class="badge-text">Thailand Liquid Crystals in Space</span>
         </div>
-        <h1 class="hero-title">
-          <span class="title-primary">Thailand Liquid Crystals</span>
-          <span class="title-accent">in Space</span>
+        
+        <h1 class="hero-heading">
+          <span class="heading-primary">Thailand Liquid Crystals</span>
+          <span class="heading-accent">in Space</span>
         </h1>
-        <p class="hero-description">
-          Pioneering microgravity research to unlock the fundamental properties of liquid crystals,
+        
+        <p class="hero-subtitle">
+          Pioneering microgravity research to unlock the fundamental properties of liquid crystals, 
           advancing materials science and space technology through international collaboration.
         </p>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-number">8</span>
-            <span class="stat-label">Partner Institutions</span>
+        
+        <!-- Key Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">8+</div>
+            <div class="stat-label">Partner Institutions</div>
           </div>
-          <div class="stat-item">
-            <span class="stat-number">ISS</span>
-            <span class="stat-label">Research Platform</span>
+          <div class="stat-card">
+            <div class="stat-value">ISS</div>
+            <div class="stat-label">Research Platform</div>
           </div>
-          <div class="stat-item">
-            <span class="stat-number">2025</span>
-            <span class="stat-label">Mission Year</span>
+          <div class="stat-card">
+            <div class="stat-value">2025</div>
+            <div class="stat-label">Launch Year</div>
           </div>
         </div>
-        <div class="hero-actions">
-          <button class="cta-primary frontiers-btn" (click)="scrollToSection('project')">
-            Explore Mission
-            <svg class="button-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+        
+        <!-- Call to Action -->
+        <div class="cta-section">
+          <button class="btn-primary" (click)="scrollToSection('project')">
+            <span class="btn-text">Explore Mission</span>
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
             </svg>
           </button>
-          <button class="cta-secondary frontiers-btn secondary" (click)="scrollToSection('science')">
-            Learn the Science
+          <button class="btn-secondary" (click)="scrollToSection('science')">
+            <span class="btn-text">Learn the Science</span>
           </button>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="highlight-slider">
-          <button class="highlight-nav prev" (click)="prevHighlight()" [disabled]="highlightIndex === 0" aria-label="Previous highlight">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-          </button>
-          <div class="highlight-image-container">
-            <img [src]="highlights[highlightIndex].image"
-                 [alt]="highlights[highlightIndex].title"
-                 class="highlight-image"
-                 loading="lazy">
-            <div class="highlight-caption">
-              <h3>{{ highlights[highlightIndex].title }}</h3>
-              <p>{{ highlights[highlightIndex].summary }}</p>
+      
+      <!-- Visual Section with Team Image -->
+      <div class="hero-visuals">
+        <!-- Team Image Carousel -->
+        <div class="visual-carousel">
+          <div class="carousel-container">
+            <!-- Featured Team Image -->
+            <div class="featured-image">
+              <img src="/assets/image_1756891109686.png" alt="TLC Research Team" class="team-image">
+              <div class="image-overlay">
+                <div class="overlay-content">
+                  <h3 class="overlay-title">TLC Research Team</h3>
+                  <p class="overlay-description">International collaboration between Kasetsart University and NASA</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Carousel Navigation -->
+            <div class="carousel-nav">
+              <button class="nav-btn prev-btn" (click)="prevTopImage()" [disabled]="topImageIndex === 0">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+              </button>
+              
+              <!-- Carousel Slides -->
+              <div class="slides-container">
+                <div class="slide active">
+                  <img [src]="topImages[topImageIndex].src" alt="Project Image" class="slide-image">
+                  <div class="slide-info">
+                    <h4 class="slide-title">Research Highlights</h4>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="nav-btn next-btn" (click)="nextTopImage()" [disabled]="topImageIndex === topImages.length - 1">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                </svg>
+              </button>
+            </div>
+            
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+              <button *ngFor="let image of topImages; let i = index" 
+                      class="indicator" 
+                      [class.active]="i === topImageIndex"
+                      (click)="topImageIndex = i"
+                      [attr.aria-label]="'View image ' + (i + 1)">
+              </button>
             </div>
           </div>
-          <button class="highlight-nav next" (click)="nextHighlight()" [disabled]="highlightIndex === highlights.length - 1" aria-label="Next highlight">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-          </button>
         </div>
-        <div class="highlight-indicators">
-          <button *ngFor="let h of highlights; let i = index"
-                  class="indicator"
-                  [class.active]="i === highlightIndex"
-                  (click)="goToHighlight(i)"
-                  [attr.aria-label]="'Go to highlight ' + (i + 1)">
-          </button>
+        
+        <!-- Quick Highlights -->
+        <div class="quick-highlights">
+          <div class="highlight-item" *ngFor="let highlight of highlights.slice(0,3); let i = index">
+            <div class="highlight-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div class="highlight-content">
+              <h5 class="highlight-title">{{ highlight.title }}</h5>
+              <p class="highlight-summary">{{ highlight.summary }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
