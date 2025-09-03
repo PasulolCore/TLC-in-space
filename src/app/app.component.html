@@ -101,56 +101,22 @@
     </div>
   </nav>
 
-  <!-- Modern Top Image Carousel -->
-  <section class="hero-carousel">
-    <div class="carousel-container">
-      <div class="carousel-wrapper">
-        <div class="carousel-track">
-          <a [href]="topImages[topImageIndex].link" target="_blank" rel="noopener" class="carousel-slide">
-            <img [src]="topImages[topImageIndex].src"
-                 alt="Featured News"
-                 class="carousel-image"
-                 (click)="onTopImageClick(topImages[topImageIndex])">
-            <div class="image-overlay">
-              <div class="overlay-content">
-                <span class="overlay-tag">Latest News</span>
-                <h3 class="overlay-title">Featured Announcement</h3>
-              </div>
-            </div>
-          </a>
-        </div>
-        
-        <!-- Navigation Controls -->
-        <button class="carousel-nav carousel-prev" 
-                (click)="prevTopImage()" 
-                [disabled]="topImageIndex === 0" 
-                aria-label="Previous image">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-          </svg>
-        </button>
-        
-        <button class="carousel-nav carousel-next" 
-                (click)="nextTopImage()" 
-                [disabled]="topImageIndex === topImages.length - 1" 
-                aria-label="Next image">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-          </svg>
-        </button>
-      </div>
-      
-      <!-- Indicator Dots -->
-      <div class="carousel-indicators">
-        <button *ngFor="let image of topImages; let i = index"
-                class="indicator-dot"
-                [class.active]="i === topImageIndex"
-                (click)="goToTopImage(i)"
-                [attr.aria-label]="'Go to slide ' + (i + 1)">
-        </button>
-      </div>
-    </div>
-  </section>
+  <div class="top-image-slider">
+  <div class="top-image-container">
+    <a [href]="topImages[topImageIndex].link" target="_blank" rel="noopener">
+      <img [src]="topImages[topImageIndex].src"
+           alt="Top Image"
+           class="top-image"
+           (click)="onTopImageClick(topImages[topImageIndex])">
+    </a>
+    <button class="top-image-nav prev" (click)="prevTopImage()" [disabled]="topImageIndex === 0" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    <button class="top-image-nav next" (click)="nextTopImage()" [disabled]="topImageIndex === topImages.length - 1" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </button>
+  </div>
+</div>
 
   <!-- Hero Section -->
     <section id="home" class="hero-section frontiers-hero">
