@@ -430,4 +430,10 @@ highlightIndex = 0;
   onTopImageClick(image: {src: string, link: string}) {
     // สามารถเพิ่ม event log หรือ analytics ได้ถ้าต้องการ
   }
+
+  goToTopImage(index: number) {
+    if (index >= 0 && index < this.topImages.length) {
+      this.topImageIndex = index;
+    }
+  }
 }
