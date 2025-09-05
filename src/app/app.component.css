@@ -271,22 +271,7 @@
   width: 100%;
 }
 
-.tlcs-frontiers-theme .mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--space-sm);
-}
-
-.tlcs-frontiers-theme .mobile-menu-toggle span {
-  width: 24px;
-  height: 2px;
-  background: var(--space-gray-700);
-  transition: all var(--transition-normal);
-}
+/* ลบ style เก่าที่ไม่ใช้แล้ว */
 
 /* ===== TOP IMAGE SLIDER FIX ===== */
 .top-image-slider {
@@ -1054,24 +1039,12 @@
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
-  position: fixed;
-  right: var(--space-md);
-  top: var(--space-md);
   z-index: var(--z-sticky);
-  /* ป้องกันการเคลื่อนไหวใน mobile */
-  transform: translateZ(0);
-  will-change: transform;
+  /* ลบอนิเมชั่นทั้งหมด */
 }
 
-/* ปิด hover effects สำหรับ touch devices เพื่อป้องกันการเคลื่อนไหวแปลกๆ */
-@media (hover: hover) and (pointer: fine) {
-  .mobile-menu-toggle:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
-  }
-}
+/* ลบ hover effects ทั้งหมด เพื่อป้องกันการเคลื่อนไหว */
 
 .mobile-menu-toggle .menu-bar {
   width: 22px;
@@ -1079,21 +1052,20 @@
   background: white;
   border-radius: 2px;
   margin: 2px 0;
-  transition: all var(--transition-normal);
-  transform-origin: center;
+  /* ลบ transition และ transform-origin */
 }
 
+/* ลบอนิเมชั่นของ menu bar ทั้งหมด เก็บแค่การเปลี่ยนสี */
 .mobile-menu-toggle.active .menu-bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  background: #ff4444;
 }
 
 .mobile-menu-toggle.active .menu-bar:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
+  background: #ff4444;
 }
 
 .mobile-menu-toggle.active .menu-bar:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  background: #ff4444;
 }
 
 .mobile-menu-overlay {
@@ -1260,8 +1232,8 @@
     display: flex;
     position: absolute;
     right: var(--space-md);
-    top: 50%;
-    transform: translateY(-50%) translateZ(0);
+    top: var(--space-md);
+    /* ลบ transform ทั้งหมด */
   }
   
   .tlcs-frontiers-theme .partner-logos {
@@ -1278,17 +1250,14 @@
   .tlcs-frontiers-theme .nav-container {
     padding: var(--space-sm) var(--space-md);
     position: relative;
-    /* ป้องกันการ shift */
     min-height: 60px;
   }
   
   .mobile-menu-toggle {
     position: absolute;
     right: var(--space-md);
-    top: 50%;
-    transform: translateY(-50%) translateZ(0);
-    /* ลด transition สำหรับ mobile */
-    transition: none;
+    top: var(--space-md);
+    /* ลบ transform และ transition ทั้งหมด */
   }
   
   .tlcs-frontiers-theme .institutional-logos {
