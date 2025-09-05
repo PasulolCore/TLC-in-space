@@ -31,11 +31,6 @@
         <a href="#collaboration" class="nav-link" (click)="scrollToSection('collaboration')">Partners</a>
         <a href="#contact" class="nav-link" (click)="scrollToSection('contact')">Contact</a>
       </div>
-      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen" aria-label="Toggle mobile menu">
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-      </button>
     </div>
     
     <!-- Mobile Menu Overlay -->
@@ -100,6 +95,15 @@
       </nav>
     </div>
   </nav>
+
+  <!-- Mobile Menu Button - อยู่นอก nav structure เพื่อไม่ให้ถูกรบกวน -->
+  <div class="mobile-menu-wrapper">
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen" aria-label="Toggle mobile menu">
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+    </button>
+  </div>
 
   <div class="top-image-slider">
   <div class="top-image-container">
