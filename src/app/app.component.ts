@@ -74,9 +74,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   formData = {
     name: '',
     email: '',
+    institution: '',
     areaOfInterest: '',
     message: ''
   };
+  
+  isSubmitting = false;
 
   teamMembers: TeamMember[] = [
     {
@@ -223,9 +226,24 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit(): void {
-    console.log('Form submitted:', this.formData);
-    // Reset form after submission
-    this.formData = { name: '', email: '', areaOfInterest: '', message: '' };
+    if (!this.isSubmitting) {
+      this.isSubmitting = true;
+      console.log('Form submitted:', this.formData);
+      
+      // Simulate form submission
+      setTimeout(() => {
+        this.isSubmitting = false;
+        // Reset form after submission
+        this.formData = { 
+          name: '', 
+          email: '', 
+          institution: '',
+          areaOfInterest: '', 
+          message: '' 
+        };
+        alert('Thank you for your message! We will get back to you soon.');
+      }, 2000);
+    }
   }
 
   // News functionality
