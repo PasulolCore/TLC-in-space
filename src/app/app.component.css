@@ -1049,7 +1049,7 @@
 .mobile-menu-toggle .menu-bar {
   width: 22px;
   height: 3px;
-  background: white;
+  background: var(--ku-blue);
   border-radius: 2px;
   margin: 2px 0;
   transition: all 0.3s ease;
