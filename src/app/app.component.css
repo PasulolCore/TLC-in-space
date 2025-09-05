@@ -1040,13 +1040,35 @@
   border-radius: 12px !important;
   cursor: pointer !important;
   box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3) !important;
-  z-index: 9999 !important;
-  /* ปิดการแทรกแซงจาก global styles */
+  z-index: 999999 !important;
+  /* ป้องกันการแทรกแซงจาก animations ทั้งหมด */
   transform: none !important;
   transition: none !important;
   animation: none !important;
   will-change: auto !important;
-  contain: layout style !important;
+  contain: layout style paint !important;
+  /* แยกจาก stacking context ของ hero section */
+  isolation: isolate !important;
+  /* ป้องกันการรบกวนจาก parent transforms */
+  backface-visibility: hidden !important;
+  /* คงที่ตำแหน่งอย่างถาวร */
+  top: 16px !important;
+  right: 16px !important;
+  position: fixed !important;
+  left: auto !important;
+  bottom: auto !important;
+}
+
+/* สร้าง layer แยกหากจำเป็นเพื่อแยกจาก background animations */
+.mobile-menu-toggle-isolate {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 999998 !important;
+  contain: layout style paint !important;
 }
 
 /* ไม่มี hover effects เพื่อป้องการเคลื่อนไหว */
@@ -1241,16 +1263,8 @@
   
   .mobile-menu-toggle {
     display: flex !important;
-    position: fixed !important;
-    right: var(--space-md) !important;
-    top: var(--space-md) !important;
-    left: auto !important;
-    bottom: auto !important;
-    /* อยู่กับที่ ไม่เคลื่อนไหวเด็ดขาด */
-    transform: none !important;
-    translate: none !important;
-    margin: 0 !important;
-    inset: var(--space-md) var(--space-md) auto auto !important;
+    /* อยู่กับที่ ไม่เคลื่อนไหวเด็ดขาด - ป้องกัน parent animations */
+    pointer-events: auto !important;
   }
   
   .tlcs-frontiers-theme .partner-logos {
@@ -1271,16 +1285,8 @@
   }
   
   .mobile-menu-toggle {
-    position: fixed !important;
-    right: var(--space-md) !important;
-    top: var(--space-md) !important;
-    left: auto !important;
-    bottom: auto !important;
-    /* อยู่กับที่ ไม่เคลื่อนไหวเด็ดขาด */
-    transform: none !important;
-    translate: none !important;
-    margin: 0 !important;
-    inset: var(--space-md) var(--space-md) auto auto !important;
+    /* อยู่กับที่ ไม่เคลื่อนไหวเด็ดขาด - ป้องกัน hero animations */
+    pointer-events: auto !important;
   }
   
   .tlcs-frontiers-theme .institutional-logos {
