@@ -295,7 +295,7 @@
   align-items: center;
   width: 100%;
   max-width: 100vw;
-  margin: 5rem auto 2rem auto; /* ลดระยะห่าง */
+  margin: 8rem auto 2rem auto; /* เพิ่มระยะห่างจาก header */
   position: relative;
   z-index: 2;
   overflow-x: hidden;
@@ -368,7 +368,7 @@
 
 @media (max-width: 1024px) {
   .top-image-slider {
-    margin-top: 4rem;
+    margin-top: 6rem;
     margin-bottom: 1.5rem;
     padding: 0 var(--space-md);
   }
@@ -393,7 +393,7 @@
 
 @media (max-width: 768px) {
   .top-image-slider {
-    margin-top: 3rem;
+    margin-top: 5rem;
     margin-bottom: 1rem;
     padding: 0 var(--space-sm);
   }
@@ -418,7 +418,7 @@
 
 @media (max-width: 480px) {
   .top-image-slider {
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-bottom: 0.8rem;
     padding: 0 var(--space-xs);
   }
