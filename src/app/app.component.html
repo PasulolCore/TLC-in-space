@@ -625,64 +625,172 @@
 
   <!-- Collaboration Section -->
 <section id="collaboration" class="collaboration-section frontiers-section">
+  <!-- Partnership Background Effects -->
+  <div class="partnership-background">
+    <div class="collaboration-particles">
+      <div class="particle" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" [style.animation-delay]="i * 0.5 + 's'"></div>
+    </div>
+  </div>
+  
   <div class="container">
     <div class="section-header frontiers-header">
       <h2 class="section-title">International Partnership</h2>
-      <p class="section-subtitle">Collaborative excellence in space science research</p>
+      <p class="section-subtitle">Strategic collaboration advancing space science research</p>
+      <div class="section-divider"></div>
     </div>
 
-    <div class="partnership-showcase">
-      <div class="primary-partners">
-        <div class="partner-card frontiers-card primary">
-          <img src="/assets/MHESI emblem_1753195321474.png" alt="MHESI" class="partner-logo-large">
-          <h3>MHESI</h3>
-          <p>Ministry of Higher Education, Science, Research and Innovation</p>
-          <p class="partner-role">Policy & Strategic Support</p>
-        </div>
-
-        <div class="partnership-connector">
-          <div class="connector-line"></div>
-          <div class="connector-mou">Official MOU</div>
-        </div>
-
-        <div class="partner-card frontiers-card primary">
-          <img src="/assets/TSRI_Logo_300x363.png" alt="TSRI" class="partner-logo-large">
-          <h3>TSRI</h3>
-          <p>Thailand Science Research and Innovation</p>
-          <p class="partner-role">Research Funding & Development</p>
+    <div class="partnership-network">
+      <!-- Lead Ministry Partner -->
+      <div class="lead-partner-section" data-animate="fade-in-up" [style.animation-delay]="'0.2s'">
+        <div class="partner-card lead-ministry mhesi-card">
+          <div class="partner-logo-container">
+            <div class="logo-effects mhesi-effects">
+              <div class="ministry-crown"></div>
+              <div class="policy-waves">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+              </div>
+            </div>
+            <img src="/assets/MHESI emblem_1753195321474.png" alt="MHESI" class="partner-logo-primary">
+          </div>
+          <div class="partner-info-primary">
+            <h3 class="partner-name-primary">MHESI</h3>
+            <p class="partner-full-name">Ministry of Higher Education, Science, Research and Innovation</p>
+            <p class="partner-role primary-role">Lead Policy & Strategic Support</p>
+            <div class="partner-features">
+              <span class="feature-tag">Policy Framework</span>
+              <span class="feature-tag">Strategic Oversight</span>
+              <span class="feature-tag">Government Support</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="supporting-partners">
-        <div class="partner-card frontiers-card supporting">
-          <img src="/assets/PMUB-PNGLOGO.png" alt="PMUB" class="partner-logo-medium">
-          <h4>PMUB</h4>
-          <p>Program Management Unit for Human Resources & Institutional Development</p>
+      <!-- Key Partners Grid -->
+      <div class="key-partners-section">
+        <h4 class="partners-subheading">Strategic Research Partners</h4>
+        <div class="key-partners-grid">
+          <!-- TSRI -->
+          <div class="partner-card key-partner tsri-card" data-animate="fade-in-up" [style.animation-delay]="'0.4s'">
+            <div class="partner-logo-container">
+              <div class="logo-effects tsri-effects">
+                <div class="research-network"></div>
+                <div class="innovation-sparks">
+                  <div class="spark"></div>
+                  <div class="spark"></div>
+                  <div class="spark"></div>
+                </div>
+              </div>
+              <img src="/assets/TSRI_Logo_300x363.png" alt="TSRI" class="partner-logo-key">
+            </div>
+            <div class="partner-info">
+              <h4 class="partner-name">TSRI</h4>
+              <p class="partner-description">Thailand Science Research and Innovation</p>
+              <p class="partner-role">Research Funding & Development</p>
+            </div>
+          </div>
+
+          <!-- Kasetsart University -->
+          <div class="partner-card key-partner ku-card" data-animate="fade-in-up" [style.animation-delay]="'0.6s'">
+            <div class="partner-logo-container">
+              <div class="logo-effects ku-effects">
+                <div class="academic-rings">
+                  <div class="ring"></div>
+                  <div class="ring"></div>
+                </div>
+                <div class="knowledge-flow"></div>
+              </div>
+              <img src="/assets/logo_ku_en.png" alt="Kasetsart University" class="partner-logo-key">
+            </div>
+            <div class="partner-info">
+              <h4 class="partner-name">Kasetsart University</h4>
+              <p class="partner-description">Faculty of Science</p>
+              <p class="partner-role">Lead Research Institution</p>
+            </div>
+          </div>
+
+          <!-- NASA -->
+          <div class="partner-card key-partner nasa-card" data-animate="fade-in-up" [style.animation-delay]="'0.8s'">
+            <div class="partner-logo-container">
+              <div class="logo-effects nasa-effects">
+                <div class="space-orbit"></div>
+                <div class="rocket-trail">
+                  <div class="trail-segment"></div>
+                  <div class="trail-segment"></div>
+                  <div class="trail-segment"></div>
+                </div>
+              </div>
+              <img src="/assets/NASA logo_1753195321475.png" alt="NASA" class="partner-logo-key">
+            </div>
+            <div class="partner-info">
+              <h4 class="partner-name">NASA</h4>
+              <p class="partner-description">National Aeronautics and Space Administration</p>
+              <p class="partner-role">International Space Partner</p>
+            </div>
+          </div>
         </div>
-        <div class="partner-card frontiers-card supporting">
-          <img src="/assets/logo_ku_en.png" alt="Kasetsart University" class="partner-logo-medium">
-          <h4>Kasetsart University</h4>
-          <p>Faculty of Science - Lead Institution</p>
-        </div>
-        <div class="partner-card frontiers-card supporting">
-          <img src="/assets/gistda emblem_1753195321473.png" alt="GISTDA" class="partner-logo-medium">
-          <h4>GISTDA</h4>
-          <p>Geo-Informatics and Space Technology Development Agency</p>
-        </div>
-        <div class="partner-card frontiers-card supporting">
-          <img src="/assets/NASA logo_1753195321475.png" alt="NASA" class="partner-logo-medium">
-          <h4>NASA</h4>
-          <p>National Aeronautics and Space Administration</p>
-        </div>
-        <div class="partner-card frontiers-card supporting">
-          <img src="/assets/ISSNL_Logo.jpg" alt="ISS LAB" class="partner-logo-medium">
-          <h4>ISS LAB</h4>
-          <p>Global microgravity research platform</p>
-        </div>
-        <div class="partner-card frontiers-card supporting">
-          <img src="/assets/Logo_Voya.png" alt="Nanoracks-Voyager" class="partner-logo-medium">
-          <h4>Nanoracks-Voyager</h4>
-          <p>Commercial space services & R&D solutions</p>
+      </div>
+
+      <!-- Supporting Organizations -->
+      <div class="supporting-partners-section">
+        <h4 class="partners-subheading">Supporting Organizations</h4>
+        <div class="supporting-partners-grid">
+          <!-- GISTDA -->
+          <div class="partner-card supporting-partner gistda-card" data-animate="fade-in-up" [style.animation-delay]="'1.0s'">
+            <div class="partner-logo-container">
+              <div class="logo-effects gistda-effects">
+                <div class="satellite-signal"></div>
+              </div>
+              <img src="/assets/gistda emblem_1753195321473.png" alt="GISTDA" class="partner-logo-supporting">
+            </div>
+            <div class="partner-info">
+              <h5 class="partner-name">GISTDA</h5>
+              <p class="partner-description">Space Technology Development</p>
+            </div>
+          </div>
+
+          <!-- PMUB -->
+          <div class="partner-card supporting-partner pmub-card" data-animate="fade-in-up" [style.animation-delay]="'1.2s'">
+            <div class="partner-logo-container">
+              <div class="logo-effects pmub-effects">
+                <div class="development-grid"></div>
+              </div>
+              <img src="/assets/PMUB-PNGLOGO.png" alt="PMUB" class="partner-logo-supporting">
+            </div>
+            <div class="partner-info">
+              <h5 class="partner-name">PMUB</h5>
+              <p class="partner-description">Human Resources Development</p>
+            </div>
+          </div>
+
+          <!-- ISS LAB -->
+          <div class="partner-card supporting-partner iss-card" data-animate="fade-in-up" [style.animation-delay]="'1.4s'">
+            <div class="partner-logo-container">
+              <div class="logo-effects iss-effects">
+                <div class="station-orbit"></div>
+              </div>
+              <img src="/assets/ISSNL_Logo.jpg" alt="ISS LAB" class="partner-logo-supporting">
+            </div>
+            <div class="partner-info">
+              <h5 class="partner-name">ISS LAB</h5>
+              <p class="partner-description">Microgravity Research Platform</p>
+            </div>
+          </div>
+
+          <!-- Nanoracks-Voyager -->
+          <div class="partner-card supporting-partner voyager-card" data-animate="fade-in-up" [style.animation-delay]="'1.6s'">
+            <div class="partner-logo-container">
+              <div class="logo-effects voyager-effects">
+                <div class="commercial-network"></div>
+              </div>
+              <img src="/assets/Logo_Voya.png" alt="Nanoracks-Voyager" class="partner-logo-supporting">
+            </div>
+            <div class="partner-info">
+              <h5 class="partner-name">Nanoracks-Voyager</h5>
+              <p class="partner-description">Commercial Space Services</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
