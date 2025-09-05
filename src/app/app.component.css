@@ -1054,15 +1054,23 @@
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
-  position: relative;
+  position: fixed;
+  right: var(--space-md);
+  top: var(--space-md);
   z-index: var(--z-sticky);
+  /* ป้องกันการเคลื่อนไหวใน mobile */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-.mobile-menu-toggle:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+/* ปิด hover effects สำหรับ touch devices เพื่อป้องกันการเคลื่อนไหวแปลกๆ */
+@media (hover: hover) and (pointer: fine) {
+  .mobile-menu-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+  }
 }
 
 .mobile-menu-toggle .menu-bar {
@@ -1250,6 +1258,10 @@
   
   .mobile-menu-toggle {
     display: flex;
+    position: absolute;
+    right: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%) translateZ(0);
   }
   
   .tlcs-frontiers-theme .partner-logos {
@@ -1265,6 +1277,18 @@
 @media (max-width: 768px) {
   .tlcs-frontiers-theme .nav-container {
     padding: var(--space-sm) var(--space-md);
+    position: relative;
+    /* ป้องกันการ shift */
+    min-height: 60px;
+  }
+  
+  .mobile-menu-toggle {
+    position: absolute;
+    right: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%) translateZ(0);
+    /* ลด transition สำหรับ mobile */
+    transition: none;
   }
   
   .tlcs-frontiers-theme .institutional-logos {
