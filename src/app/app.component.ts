@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener }
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterModule } from '@angular/router';
 
 
 interface ResearchProject {
@@ -51,7 +51,7 @@ interface NewsItem {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterOutlet]
+  imports: [CommonModule, FormsModule, RouterOutlet, RouterModule]
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'TLC - Thailand Liquid Crystal in Space Research Platform';

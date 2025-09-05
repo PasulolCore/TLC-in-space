@@ -32,6 +32,13 @@ This is an Angular 17 application for the Thailand Liquid Crystal in Space (TLC)
   - Improved responsive design for mobile devices with centered alignment
   - Added proper external link attributes (target="_blank", rel="noopener noreferrer")
   - Maintained existing content structure while upgrading UX/UI design
+- September 5, 2025: Created separate pages for Privacy Policy and Terms of Use
+  - Built standalone Angular components for better page organization
+  - Added proper routing configuration for /privacy-policy and /terms-of-use
+  - Created comprehensive legal content suitable for international research collaboration
+  - Implemented breadcrumb navigation and professional page layouts
+  - Added responsive design with consistent TLC branding
+  - Updated footer links to use Angular routing instead of anchors
 
 ## Project Architecture
 - **Frontend**: Angular 17 with Server-Side Rendering (SSR)
