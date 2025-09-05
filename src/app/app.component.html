@@ -333,17 +333,27 @@
 
   <!-- Project Overview Section -->
   <section id="project" class="project-section frontiers-section">
+    <!-- Floating Background Elements -->
+    <div class="space-particles">
+      <div class="particle" *ngFor="let i of [1,2,3,4,5,6,7,8]" [style.animation-delay]="i * 0.5 + 's'"></div>
+    </div>
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
     <div class="container">
       <div class="section-header frontiers-header">
         <h2 class="section-title">Mission Overview</h2>
         <p class="section-subtitle">Advancing liquid crystal science through microgravity research</p>
       </div>
       <div class="mission-grid">
-        <div class="mission-card frontiers-card primary">
-          <div class="card-icon">
+        <div class="mission-card frontiers-card primary" data-animate="fade-in-up" [style.animation-delay]="'0.2s'">
+          <div class="card-icon animated-icon">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
             </svg>
+            <div class="icon-glow"></div>
           </div>
           <h3 class="card-title">International Collaboration</h3>
           <p class="card-description">
@@ -351,32 +361,44 @@
             creating a unique platform for Thai scientists to conduct cutting-edge space research.
           </p>
           <div class="card-highlight">
+            <span class="highlight-icon">🚀</span>
             Led by Assoc. Prof. Dr. Nattaporn Chattam
           </div>
+          <div class="card-shimmer"></div>
         </div>
-        <div class="mission-card frontiers-card">
-          <div class="card-icon">
+        <div class="mission-card frontiers-card" data-animate="fade-in-up" [style.animation-delay]="'0.4s'">
+          <div class="card-icon animated-icon">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
             </svg>
+            <div class="icon-orbit"></div>
           </div>
           <h3 class="card-title">ISS Research Platform</h3>
           <p class="card-description">
             Utilizing the International Space Station's unique microgravity environment to study
             liquid crystal behavior without gravitational interference.
           </p>
+          <div class="card-badge">
+            <span class="badge-icon">🛰️</span>
+            <span>Zero Gravity</span>
+          </div>
         </div>
-        <div class="mission-card frontiers-card">
-          <div class="card-icon">
+        <div class="mission-card frontiers-card" data-animate="fade-in-up" [style.animation-delay]="'0.6s'">
+          <div class="card-icon animated-icon">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.30-.61-.22l-2.49 1c-.52-.40-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c.04.32.07.65.07.98s-.03.66-.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.30.61.22l2.49-1c.52.40 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l-.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
             </svg>
+            <div class="icon-pulse"></div>
           </div>
           <h3 class="card-title">Advanced Materials</h3>
           <p class="card-description">
             Developing next-generation materials and technologies with applications in displays,
             sensors, and space technology.
           </p>
+          <div class="card-badge">
+            <span class="badge-icon">⚡</span>
+            <span>Next-Gen</span>
+          </div>
         </div>
       </div>
     </div>
