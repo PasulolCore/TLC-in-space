@@ -66,6 +66,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   currentNewsIndex = 0;
   maxNewsIndex = 0;
   selectedNews: NewsItem | null = null;
+  
+  // Science section interactive properties
+  isAligned = false;
+  highlightedApplication = '';
+  transitionPhase = 0;
   formData = {
     name: '',
     email: '',
@@ -394,6 +399,35 @@ export class AppComponent implements OnInit, AfterViewInit {
     if (container) {
       container.classList.add('image-error');
     }
+  }
+
+  // ===== SCIENCE SECTION INTERACTIVE METHODS =====
+  
+  // Trigger molecular phase transition animation
+  triggerMolecularTransition(): void {
+    this.isAligned = !this.isAligned;
+    // Reset after animation completes
+    setTimeout(() => {
+      if (this.isAligned) {
+        this.transitionPhase = (this.transitionPhase + 1) % 3; // Cycle through different phases
+      }
+    }, 1000);
+  }
+
+  // Highlight specific research application
+  highlightApplication(type: string): void {
+    this.highlightedApplication = this.highlightedApplication === type ? '' : type;
+    
+    // Add visual feedback for the selected application
+    setTimeout(() => {
+      const element = document.querySelector(`.${type === 'display' ? 'display-tech' : 
+                                            type === 'optical' ? 'optical-sensors' :
+                                            type === 'space' ? 'space-materials' : 'smart-materials'}`);
+      if (element) {
+        element.classList.add('highlighted');
+        setTimeout(() => element.classList.remove('highlighted'), 2000);
+      }
+    }, 100);
   }
 
   // Social sharing methods

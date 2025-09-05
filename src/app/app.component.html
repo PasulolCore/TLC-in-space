@@ -406,6 +406,12 @@
 
   <!-- Science Education Section -->
   <section id="science" class="science-section frontiers-section alt">
+    <!-- Crystal Background Pattern -->
+    <div class="crystal-background">
+      <div class="crystal-lattice">
+        <div class="lattice-point" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]" [style.animation-delay]="i * 0.3 + 's'"></div>
+      </div>
+    </div>
     <div class="container">
       <div class="section-header frontiers-header">
         <h2 class="section-title">Understanding Liquid Crystals</h2>
@@ -414,74 +420,141 @@
       <div class="science-content">
         <div class="science-intro">
           <div class="intro-text">
-            <h3>What are Liquid Crystals?</h3>
+            <h3>What are Liquid Crystals? <span class="crystal-icon">💎</span></h3>
             <p>
               Liquid crystals represent a unique state of matter that combines properties of both liquids and solid crystals.
               These remarkable materials flow like liquids while maintaining some degree of molecular order like crystals,
               making them essential for modern technology from smartphone displays to advanced optical devices.
             </p>
+            <div class="state-indicator">
+              <div class="state-visual">
+                <span class="state-label">Liquid</span>
+                <div class="state-demo liquid-state"></div>
+              </div>
+              <div class="state-transition">⟷</div>
+              <div class="state-visual">
+                <span class="state-label">Crystal</span>
+                <div class="state-demo crystal-state"></div>
+              </div>
+            </div>
           </div>
           <div class="crystal-visualization">
-            <div class="molecular-diagram">
+            <div class="molecular-diagram interactive-diagram" (click)="triggerMolecularTransition()">
+              <div class="diagram-label">Molecular Arrangement</div>
               <div class="molecule-row">
-                <div class="molecule"></div>
-                <div class="molecule"></div>
-                <div class="molecule"></div>
+                <div class="molecule" [class.aligned]="isAligned" [style.animation-delay]="'0s'"></div>
+                <div class="molecule" [class.aligned]="isAligned" [style.animation-delay]="'0.1s'"></div>
+                <div class="molecule" [class.aligned]="isAligned" [style.animation-delay]="'0.2s'"></div>
               </div>
               <div class="molecule-row">
-                <div class="molecule"></div>
-                <div class="molecule"></div>
-                <div class="molecule"></div>
+                <div class="molecule" [class.aligned]="isAligned" [style.animation-delay]="'0.3s'"></div>
+                <div class="molecule" [class.aligned]="isAligned" [style.animation-delay]="'0.4s'"></div>
+                <div class="molecule" [class.aligned]="isAligned" [style.animation-delay]="'0.5s'"></div>
               </div>
               <div class="molecule-row">
-                <div class="molecule"></div>
-                <div class="molecule"></div>
-                <div class="molecule"></div>
+                <div class="molecule" [class.aligned]="isAligned" [style.animation-delay]="'0.6s'"></div>
+                <div class="molecule" [class.aligned]="isAligned" [style.animation-delay]="'0.7s'"></div>
+                <div class="molecule" [class.aligned]="isAligned" [style.animation-delay]="'0.8s'"></div>
               </div>
+              <div class="interaction-hint">Click to see phase transition!</div>
             </div>
           </div>
         </div>
         <div class="science-details">
-          <div class="detail-card frontiers-card">
-            <h4>Molecular Structure</h4>
+          <div class="detail-card frontiers-card molecular-card" data-animate="fade-in-up" [style.animation-delay]="'0.2s'">
+            <div class="card-icon-science">
+              <div class="molecular-structure-icon">
+                <div class="rod-molecule"></div>
+                <div class="rod-molecule"></div>
+                <div class="rod-molecule"></div>
+              </div>
+            </div>
+            <h4>Molecular Structure <span class="structure-emoji">🧬</span></h4>
             <p>
               Liquid crystal molecules are typically elongated (rod-like) or disc-like shapes.
               These molecules can align in various orientations, creating different phases with unique optical and electrical properties.
             </p>
+            <div class="science-glow"></div>
           </div>
-          <div class="detail-card frontiers-card">
-            <h4>Phase Transitions</h4>
+          <div class="detail-card frontiers-card phase-card" data-animate="fade-in-up" [style.animation-delay]="'0.4s'">
+            <div class="card-icon-science">
+              <div class="temperature-gauge">
+                <div class="gauge-fill"></div>
+                <div class="temperature-indicator"></div>
+              </div>
+            </div>
+            <h4>Phase Transitions <span class="phase-emoji">🌡️</span></h4>
             <p>
               As temperature changes, liquid crystals undergo phase transitions between different ordered states,
               each with distinct properties that can be exploited for technological applications.
             </p>
+            <div class="phase-waves"></div>
           </div>
-          <div class="detail-card frontiers-card">
-            <h4>Microgravity Effects</h4>
+          <div class="detail-card frontiers-card gravity-card" data-animate="fade-in-up" [style.animation-delay]="'0.6s'">
+            <div class="card-icon-science">
+              <div class="gravity-field">
+                <div class="gravity-wave"></div>
+                <div class="gravity-wave"></div>
+                <div class="floating-particle"></div>
+              </div>
+            </div>
+            <h4>Microgravity Effects <span class="gravity-emoji">🌌</span></h4>
             <p>
               In space's microgravity environment, liquid crystals behave differently due to the absence of gravitational forces,
               allowing scientists to study fundamental properties impossible to observe on Earth.
             </p>
+            <div class="zero-g-effect"></div>
           </div>
         </div>
         <div class="research-applications">
-          <h3>Research Applications</h3>
+          <h3>Research Applications <span class="app-icon-title">🚀</span></h3>
           <div class="application-grid">
-            <div class="app-item frontiers-card">
-              <div class="app-icon">📱</div>
-              <span>Display Technology</span>
+            <div class="app-item frontiers-card display-tech" (click)="highlightApplication('display')" data-animate="zoom-in" [style.animation-delay]="'0.2s'">
+              <div class="app-icon-container">
+                <div class="app-icon animated-app-icon">📱</div>
+                <div class="pixel-grid">
+                  <div class="pixel" *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [style.animation-delay]="i * 0.1 + 's'"></div>
+                </div>
+              </div>
+              <span class="app-title">Display Technology</span>
+              <p class="app-description">LCD screens, OLED displays, smart windows</p>
             </div>
-            <div class="app-item frontiers-card">
-              <div class="app-icon">🔬</div>
-              <span>Optical Sensors</span>
+            <div class="app-item frontiers-card optical-sensors" (click)="highlightApplication('optical')" data-animate="zoom-in" [style.animation-delay]="'0.4s'">
+              <div class="app-icon-container">
+                <div class="app-icon animated-app-icon">🔬</div>
+                <div class="light-beam"></div>
+                <div class="sensor-rings">
+                  <div class="ring"></div>
+                  <div class="ring"></div>
+                </div>
+              </div>
+              <span class="app-title">Optical Sensors</span>
+              <p class="app-description">Light detection, optical switches, photonics</p>
             </div>
-            <div class="app-item frontiers-card">
-              <div class="app-icon">🛰️</div>
-              <span>Space Materials</span>
+            <div class="app-item frontiers-card space-materials" (click)="highlightApplication('space')" data-animate="zoom-in" [style.animation-delay]="'0.6s'">
+              <div class="app-icon-container">
+                <div class="app-icon animated-app-icon">🛰️</div>
+                <div class="orbital-path"></div>
+                <div class="space-particles">
+                  <div class="space-dot"></div>
+                  <div class="space-dot"></div>
+                  <div class="space-dot"></div>
+                </div>
+              </div>
+              <span class="app-title">Space Materials</span>
+              <p class="app-description">Zero-gravity synthesis, space-grade materials</p>
             </div>
-            <div class="app-item frontiers-card">
-              <div class="app-icon">⚡</div>
-              <span>Smart Materials</span>
+            <div class="app-item frontiers-card smart-materials" (click)="highlightApplication('smart')" data-animate="zoom-in" [style.animation-delay]="'0.8s'">
+              <div class="app-icon-container">
+                <div class="app-icon animated-app-icon">⚡</div>
+                <div class="energy-field">
+                  <div class="energy-wave"></div>
+                  <div class="energy-wave"></div>
+                  <div class="energy-wave"></div>
+                </div>
+              </div>
+              <span class="app-title">Smart Materials</span>
+              <p class="app-description">Responsive materials, shape-memory effects</p>
             </div>
           </div>
         </div>
