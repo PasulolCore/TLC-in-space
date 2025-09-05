@@ -148,27 +148,28 @@
 .tlcs-frontiers-theme .nav-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: var(--space-md) var(--space-2xl);
+  padding: var(--space-md) var(--space-lg);
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
 .tlcs-frontiers-theme .institutional-logos {
   display: flex;
   align-items: center;
-  gap: var(--space-2xl);
+  gap: var(--space-lg);
   flex: 1;
+  max-width: 65%;
 }
 
 .tlcs-frontiers-theme .logo-group.primary {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-md);
   cursor: pointer;
   transition: all var(--transition-normal);
-  border-radius: 8px;
-  padding: var(--space-xs);
+  border-radius: 12px;
+  padding: 0.5rem;
   position: relative;
 }
 
@@ -183,10 +184,10 @@
 }
 
 .tlcs-frontiers-theme .institution-logo {
-  width: 45px;
-  height: 45px;
-  border-radius: 6px;
-  box-shadow: var(--shadow-sm);
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
   object-fit: contain;
   background: white;
   padding: 4px;
@@ -198,20 +199,18 @@
 }
 
 .tlcs-frontiers-theme .project-name {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  font-weight: 900;
   color: var(--ku-blue);
-  letter-spacing: 1px;
-  line-height: 1.1;
+  letter-spacing: 2px;
 }
 
 .tlcs-frontiers-theme .project-subtitle {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: var(--space-gray-600);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   font-weight: 500;
-  margin-top: -2px;
 }
 
 .tlcs-frontiers-theme .partner-logos {
@@ -238,9 +237,8 @@
 
 .tlcs-frontiers-theme .nav-links {
   display: flex;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   align-items: center;
-  margin-left: auto;
 }
 
 .tlcs-frontiers-theme .nav-link {
@@ -276,8 +274,7 @@
 .tlcs-frontiers-theme .header-actions {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
-  margin-left: var(--space-2xl);
+  gap: var(--space-lg);
 }
 
 .tlcs-frontiers-theme .social-links-nav {
