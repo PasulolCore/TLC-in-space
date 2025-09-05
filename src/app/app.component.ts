@@ -31,7 +31,19 @@ interface NewsItem {
   readTime: number;
   category: string;
   tags: string[];
+  // Facebook Graph API integration fields
   facebookPostId?: string;
+  facebookPageId?: string;
+  facebookCreatedTime?: string;
+  facebookLikes?: number;
+  facebookShares?: number;
+  facebookComments?: number;
+  facebookPermalink?: string;
+  isFromFacebook?: boolean;
+  // Meta data for better content management
+  status?: 'published' | 'draft' | 'archived';
+  featured?: boolean;
+  priority?: number;
 }
 
 @Component({
@@ -304,9 +316,89 @@ export class AppComponent implements OnInit, AfterViewInit {
     return `${day} ${month} ${year}`;
   }
 
+  // ===== FACEBOOK GRAPH API INTEGRATION METHODS =====
+  
+  // Future method for fetching posts from Facebook Page using Graph API
+  async fetchFacebookPosts(pageId: string, accessToken: string): Promise<NewsItem[]> {
+    // This method will be implemented when integrating with Facebook Graph API
+    // For now, returning empty array as placeholder
+    try {
+      // Example of future Facebook API call structure:
+      // const response = await fetch(`https://graph.facebook.com/v18.0/${pageId}/posts?fields=id,message,full_picture,created_time,likes.summary(true),shares,comments.summary(true),permalink_url&access_token=${accessToken}`);
+      // const data = await response.json();
+      // return this.transformFacebookPostsToNewsItems(data.data);
+      return [];
+    } catch (error) {
+      console.error('Error fetching Facebook posts:', error);
+      return [];
+    }
+  }
+
+  // Transform Facebook post data to NewsItem format
+  private transformFacebookPostsToNewsItems(facebookPosts: any[]): NewsItem[] {
+    return facebookPosts.map((post: any) => ({
+      id: post.id,
+      title: this.extractTitleFromFacebookPost(post.message || ''),
+      summary: this.truncateText(post.message || '', 150),
+      content: post.message || '',
+      image: post.full_picture || '/assets/TLC LOGO_1753195321475.jpg',
+      author: 'TLC Facebook Page',
+      date: new Date(post.created_time),
+      readTime: Math.ceil((post.message || '').split(' ').length / 200), // Approximate reading time
+      category: this.categorizePostContent(post.message || ''),
+      tags: this.extractTagsFromContent(post.message || ''),
+      // Facebook specific fields
+      facebookPostId: post.id,
+      facebookCreatedTime: post.created_time,
+      facebookLikes: post.likes?.summary?.total_count || 0,
+      facebookShares: post.shares?.count || 0,
+      facebookComments: post.comments?.summary?.total_count || 0,
+      facebookPermalink: post.permalink_url,
+      isFromFacebook: true,
+      status: 'published' as const,
+      featured: false,
+      priority: 1
+    }));
+  }
+
+  // Helper methods for Facebook data processing
+  private extractTitleFromFacebookPost(content: string): string {
+    const lines = content.split('\n').filter(line => line.trim() !== '');
+    return lines[0]?.substring(0, 100) || 'TLC Update';
+  }
+
+  private truncateText(text: string, maxLength: number): string {
+    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+  }
+
+  private categorizePostContent(content: string): string {
+    const contentLower = content.toLowerCase();
+    if (contentLower.includes('nasa') || contentLower.includes('collaboration')) return 'ความร่วมมือ';
+    if (contentLower.includes('research') || contentLower.includes('science')) return 'การวิจัย';
+    if (contentLower.includes('gistda') || contentLower.includes('partner')) return 'พาร์ทเนอร์';
+    if (contentLower.includes('policy') || contentLower.includes('government')) return 'นโยบาย';
+    return 'การวิจัย';
+  }
+
+  private extractTagsFromContent(content: string): string[] {
+    const hashtagRegex = /#\w+/g;
+    const hashtags = content.match(hashtagRegex) || [];
+    const defaultTags = ['TLC', 'Space', 'Research'];
+    return [...hashtags.map(tag => tag.substring(1)), ...defaultTags].slice(0, 5);
+  }
+
+  // Image error handling
+  onNewsImageError(event: any): void {
+    event.target.style.display = 'none';
+    const container = event.target.parentElement;
+    if (container) {
+      container.classList.add('image-error');
+    }
+  }
+
   // Social sharing methods
   shareToFacebook(news: NewsItem): void {
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&t=${encodeURIComponent(news.title)}`;
+    const url = news.facebookPermalink || `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&t=${encodeURIComponent(news.title)}`;
     this.openShareWindow(url);
   }
 
