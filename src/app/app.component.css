@@ -471,15 +471,17 @@
   animation: gridMove 30s linear infinite;
 }
 
+/* จำกัดการเคลื่อนไหวแค่แกน Y เท่านั้น - ไม่มี rotation หรือ horizontal movement */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-30px) rotate(2deg); }
-  66% { transform: translateY(15px) rotate(-1deg); }
+  0%, 100% { transform: translateY(0px); }
+  33% { transform: translateY(-20px); }
+  66% { transform: translateY(10px); }
 }
 
+/* จำกัด grid movement แค่แกน Y เท่านั้น */
 @keyframes gridMove {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(60px, 60px); }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(30px); }
 }
 
 /* HERO CONTENT - Desktop */
@@ -2330,11 +2332,12 @@
   50% { opacity: 1; transform: scale(1.2); }
 }
 
+/* ลบ rotation ออก - เหลือแค่การเคลื่อนไหวแกน Y */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  25% { transform: translateY(-20px) rotate(5deg); }
-  50% { transform: translateY(-10px) rotate(10deg); }
-  75% { transform: translateY(-15px) rotate(-5deg); }
+  0%, 100% { transform: translateY(0px); }
+  25% { transform: translateY(-15px); }
+  50% { transform: translateY(-8px); }
+  75% { transform: translateY(-12px); }
 }
 
 @keyframes glow-pulse {
@@ -2834,11 +2837,12 @@
   100% { transform: scale(2); opacity: 0; }
 }
 
+/* ลบการเคลื่อนไหวแกน X ออก - เหลือแค่แกน Y */
 @keyframes zero-gravity-float {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  25% { transform: translateY(-8px) translateX(3px); }
-  50% { transform: translateY(-5px) translateX(-3px); }
-  75% { transform: translateY(-10px) translateX(2px); }
+  0%, 100% { transform: translateY(0px); }
+  25% { transform: translateY(-8px); }
+  50% { transform: translateY(-5px); }
+  75% { transform: translateY(-10px); }
 }
 
 @keyframes gravity-wave-emoji {
@@ -3073,9 +3077,10 @@
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+/* เคลื่อนไหวแค่แกน Y และ scale - ไม่มีการเคลื่อนไหวข้าง */
 @keyframes space-float {
   0%, 100% { transform: translateY(0px) scale(1); opacity: 0.8; }
-  50% { transform: translateY(-15px) scale(1.2); opacity: 1; }
+  50% { transform: translateY(-12px) scale(1.1); opacity: 1; }
 }
 
 @keyframes energy-pulse {
