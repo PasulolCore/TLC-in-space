@@ -3041,360 +3041,286 @@
   }
 }
 
-/* ===== TEAM SECTION REDESIGN ===== */
+/* ===== PROFESSIONAL TEAM SECTION ===== */
 
-/* Team Background */
-.tlcs-frontiers-theme .team-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  opacity: 0.05;
+/* Section Styling */
+.tlcs-frontiers-theme .section-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ku-blue), var(--accent-cyan));
+  margin: var(--space-lg) auto var(--space-2xl) auto;
+  border-radius: 2px;
 }
 
-.tlcs-frontiers-theme .expertise-grid {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 2rem;
-  padding: 2rem;
-}
-
-.tlcs-frontiers-theme .expertise-dot {
-  width: 12px;
-  height: 12px;
-  background: var(--ku-blue);
-  border-radius: 50%;
-  animation: expertise-pulse 4s ease-in-out infinite;
-  justify-self: center;
-  align-self: center;
-}
-
-.tlcs-frontiers-theme .team-icon {
-  font-size: 1.2em;
-  margin-left: 0.5rem;
-  animation: team-bounce 3s ease-in-out infinite;
-}
-
-/* Team Showcase Layout */
-.tlcs-frontiers-theme .team-showcase {
+/* Professional Team Container */
+.tlcs-frontiers-theme .research-team-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: var(--space-3xl);
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-/* Team Member Cards */
-.tlcs-frontiers-theme .team-member-card {
+/* Professional Cards */
+.tlcs-frontiers-theme .professional-card {
   background: white;
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: box-shadow var(--transition-normal);
   overflow: hidden;
-  transition: all var(--transition-normal);
-  border: 2px solid transparent;
-  position: relative;
 }
 
-.tlcs-frontiers-theme .team-member-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  border-color: var(--ku-blue);
+.tlcs-frontiers-theme .professional-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* Principal Investigator Card */
-.tlcs-frontiers-theme .principal-investigator {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(6, 182, 212, 0.03));
-  border: 2px solid rgba(59, 130, 246, 0.2);
+/* Team Lead Section */
+.tlcs-frontiers-theme .team-lead-section {
+  margin-bottom: var(--space-2xl);
 }
 
-.tlcs-frontiers-theme .principal-investigator .member-card-header {
-  padding: var(--space-2xl);
-  text-align: center;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(6, 182, 212, 0.05));
-}
-
-/* Co-investigators Grid */
-.tlcs-frontiers-theme .team-members-grid {
+.tlcs-frontiers-theme .lead-member-card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: 300px 1fr;
   gap: var(--space-2xl);
+  padding: var(--space-2xl);
+  align-items: start;
+  border-left: 4px solid var(--ku-blue);
 }
 
-.tlcs-frontiers-theme .co-investigator .member-card-header {
-  padding: var(--space-xl);
+/* Co-Investigators Section */
+.tlcs-frontiers-theme .co-investigators-section {
+  margin-top: var(--space-2xl);
+}
+
+.tlcs-frontiers-theme .section-subheading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--space-gray-800);
+  margin-bottom: var(--space-xl);
   text-align: center;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.03), rgba(59, 130, 246, 0.03));
+  position: relative;
 }
 
-.tlcs-frontiers-theme .future-member {
-  border: 2px dashed rgba(156, 163, 175, 0.5);
-  background: linear-gradient(135deg, rgba(156, 163, 175, 0.02), rgba(209, 213, 219, 0.02));
+.tlcs-frontiers-theme .section-subheading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--accent-cyan);
+  border-radius: 1px;
 }
 
-.tlcs-frontiers-theme .future-member .member-card-header {
+.tlcs-frontiers-theme .co-investigators-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: var(--space-xl);
+}
+
+.tlcs-frontiers-theme .co-member-card {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--space-lg);
   padding: var(--space-xl);
-  text-align: center;
-  background: linear-gradient(135deg, rgba(156, 163, 175, 0.03), rgba(209, 213, 219, 0.03));
-}
-
-/* Photo Containers */
-.tlcs-frontiers-theme .member-photo-container {
-  position: relative;
-  display: inline-block;
-}
-
-.tlcs-frontiers-theme .photo-frame {
-  position: relative;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid white;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transition: all var(--transition-normal);
-}
-
-.tlcs-frontiers-theme .principal-investigator .photo-frame {
-  width: 180px;
-  height: 180px;
-  border: 6px solid var(--ku-blue);
-}
-
-.tlcs-frontiers-theme .co-investigator .photo-frame {
-  width: 140px;
-  height: 140px;
-  border: 4px solid var(--accent-cyan);
-}
-
-.tlcs-frontiers-theme .future-member .photo-frame {
-  width: 140px;
-  height: 140px;
-  border: 4px solid #d1d5db;
-}
-
-.tlcs-frontiers-theme .photo-frame.placeholder {
-  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-  display: flex;
   align-items: center;
-  justify-content: center;
+  border-left: 3px solid var(--accent-cyan);
 }
 
-/* Member Photos */
-.tlcs-frontiers-theme .member-photo-large,
-.tlcs-frontiers-theme .member-photo-medium {
+/* Professional Photo Frames */
+.tlcs-frontiers-theme .member-photo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tlcs-frontiers-theme .professional-photo-frame {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border: 3px solid white;
+  position: relative;
+}
+
+.tlcs-frontiers-theme .professional-photo-frame.lead {
+  width: 240px;
+  height: 280px;
+  border: 4px solid var(--ku-blue);
+}
+
+.tlcs-frontiers-theme .professional-photo-frame.co-investigator {
+  width: 160px;
+  height: 200px;
+  border: 3px solid var(--accent-cyan);
+}
+
+/* Professional Photos */
+.tlcs-frontiers-theme .professional-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  transition: all var(--transition-normal);
+  object-position: center top;
+  filter: grayscale(10%) contrast(1.05);
+  transition: filter var(--transition-normal);
 }
 
-.tlcs-frontiers-theme .photo-placeholder {
+.tlcs-frontiers-theme .professional-card:hover .professional-photo {
+  filter: grayscale(0%) contrast(1.1);
+}
+
+/* Member Information Sections */
+.tlcs-frontiers-theme .member-info-section {
+  flex: 1;
+}
+
+.tlcs-frontiers-theme .member-credentials {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #9ca3af;
-  font-size: 0.875rem;
-  text-align: center;
-  height: 100%;
+  gap: var(--space-sm);
 }
 
-.tlcs-frontiers-theme .placeholder-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.tlcs-frontiers-theme .placeholder-text {
-  font-weight: 600;
-  white-space: nowrap;
-  font-size: 0.75rem;
-}
-
-/* Photo Overlay Effects */
-.tlcs-frontiers-theme .photo-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, transparent 60%, rgba(59, 130, 246, 0.1));
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 1rem;
-}
-
-.tlcs-frontiers-theme .team-member-card:hover .photo-overlay {
-  opacity: 1;
-}
-
-.tlcs-frontiers-theme .expertise-indicator {
+/* Professional Typography */
+.tlcs-frontiers-theme .member-full-name {
   font-size: 1.5rem;
-  animation: expertise-float 3s ease-in-out infinite;
-}
-
-/* Position Badges */
-.tlcs-frontiers-theme .position-badge {
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: var(--space-xs) var(--space-md);
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-}
-
-.tlcs-frontiers-theme .position-badge.principal {
-  background: linear-gradient(135deg, var(--ku-blue), #1e40af);
-}
-
-.tlcs-frontiers-theme .position-badge.co-investigator {
-  background: linear-gradient(135deg, var(--accent-cyan), #0891b2);
-}
-
-.tlcs-frontiers-theme .position-badge.future {
-  background: linear-gradient(135deg, #6b7280, #4b5563);
-}
-
-.tlcs-frontiers-theme .badge-icon {
-  font-size: 0.875rem;
-}
-
-/* Member Details */
-.tlcs-frontiers-theme .member-details {
-  padding: var(--space-2xl);
-  text-align: center;
-}
-
-.tlcs-frontiers-theme .member-name-large {
-  font-size: 1.75rem;
   font-weight: 700;
   color: var(--space-gray-900);
-  margin-bottom: var(--space-sm);
-  line-height: 1.2;
-}
-
-.tlcs-frontiers-theme .member-name-medium {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--space-gray-900);
-  margin-bottom: var(--space-xs);
+  margin: 0 0 var(--space-xs) 0;
   line-height: 1.3;
 }
 
-.tlcs-frontiers-theme .member-title-primary {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--ku-blue);
-  margin-bottom: var(--space-md);
-}
-
-.tlcs-frontiers-theme .member-title-secondary {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--accent-cyan);
+.tlcs-frontiers-theme .lead-member-card .member-full-name {
+  font-size: 2rem;
   margin-bottom: var(--space-sm);
 }
 
-.tlcs-frontiers-theme .member-affiliation {
-  font-size: 0.875rem;
-  color: var(--space-gray-600);
-  margin-bottom: var(--space-lg);
-  font-style: italic;
+.tlcs-frontiers-theme .member-position {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ku-blue);
+  margin: 0 0 var(--space-sm) 0;
 }
 
-.tlcs-frontiers-theme .member-expertise-brief {
+.tlcs-frontiers-theme .co-member-card .member-position {
+  font-size: 1rem;
+  color: var(--accent-cyan);
+}
+
+.tlcs-frontiers-theme .member-institution {
+  font-size: 0.9375rem;
+  color: var(--space-gray-600);
+  line-height: 1.5;
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.tlcs-frontiers-theme .member-expertise {
   font-size: 0.875rem;
   color: var(--space-gray-700);
-  margin-bottom: var(--space-md);
   line-height: 1.5;
+  margin: 0;
 }
 
-.tlcs-frontiers-theme .member-description {
-  font-size: 0.875rem;
-  color: var(--space-gray-600);
-  line-height: 1.6;
-  margin-bottom: var(--space-lg);
+/* Specialization Areas */
+.tlcs-frontiers-theme .specialization-areas {
+  margin-top: var(--space-lg);
 }
 
-/* Expertise Tags */
-.tlcs-frontiers-theme .expertise-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-  justify-content: center;
-  margin-bottom: var(--space-lg);
-}
-
-.tlcs-frontiers-theme .expertise-tag {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
-  color: var(--ku-blue);
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: 16px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  transition: all var(--transition-normal);
-}
-
-.tlcs-frontiers-theme .expertise-tag:hover {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.15));
-  transform: scale(1.05);
-}
-
-/* Research Focus */
-.tlcs-frontiers-theme .research-focus {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-xs);
-  font-size: 0.875rem;
-  color: var(--space-gray-600);
-  background: rgba(59, 130, 246, 0.05);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: 12px;
-  border: 1px solid rgba(59, 130, 246, 0.1);
-}
-
-.tlcs-frontiers-theme .focus-icon {
+.tlcs-frontiers-theme .specialization-title {
   font-size: 1rem;
-  animation: focus-pulse 2s ease-in-out infinite;
+  font-weight: 600;
+  color: var(--space-gray-800);
+  margin: 0 0 var(--space-sm) 0;
 }
 
-/* Team Section Animations */
-@keyframes expertise-pulse {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.3); }
+.tlcs-frontiers-theme .specialization-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-@keyframes team-bounce {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+.tlcs-frontiers-theme .specialization-list li {
+  font-size: 0.875rem;
+  color: var(--space-gray-700);
+  line-height: 1.6;
+  margin-bottom: var(--space-xs);
+  padding-left: var(--space-md);
+  position: relative;
 }
 
-@keyframes expertise-float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-3px); }
+.tlcs-frontiers-theme .specialization-list li::before {
+  content: '▪';
+  color: var(--ku-blue);
+  position: absolute;
+  left: 0;
+  font-weight: 600;
 }
 
-@keyframes focus-pulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
+/* Professional Team Responsive Design */
+@media (max-width: 1024px) {
+  .tlcs-frontiers-theme .lead-member-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-xl);
+  }
+  
+  .tlcs-frontiers-theme .professional-photo-frame.lead {
+    width: 200px;
+    height: 240px;
+    margin: 0 auto;
+  }
+  
+  .tlcs-frontiers-theme .co-investigators-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .tlcs-frontiers-theme .co-member-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-md);
+  }
+  
+  .tlcs-frontiers-theme .professional-photo-frame.co-investigator {
+    width: 140px;
+    height: 180px;
+    margin: 0 auto;
+  }
+  
+  .tlcs-frontiers-theme .lead-member-card .member-full-name {
+    font-size: 1.75rem;
+  }
+  
+  .tlcs-frontiers-theme .member-full-name {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tlcs-frontiers-theme .lead-member-card,
+  .tlcs-frontiers-theme .co-member-card {
+    padding: var(--space-lg);
+  }
+  
+  .tlcs-frontiers-theme .professional-photo-frame.lead {
+    width: 160px;
+    height: 200px;
+  }
+  
+  .tlcs-frontiers-theme .professional-photo-frame.co-investigator {
+    width: 120px;
+    height: 160px;
+  }
+  
+  .tlcs-frontiers-theme .lead-member-card .member-full-name {
+    font-size: 1.5rem;
+  }
+  
+  .tlcs-frontiers-theme .co-investigators-grid {
+    gap: var(--space-lg);
+  }
 }
 
 /* Responsive Design */
