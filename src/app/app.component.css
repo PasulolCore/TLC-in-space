@@ -157,7 +157,9 @@
 .tlcs-frontiers-theme .institutional-logos {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
+  flex: 1;
+  max-width: 65%;
 }
 
 .tlcs-frontiers-theme .logo-group.primary {
@@ -213,15 +215,15 @@
 
 .tlcs-frontiers-theme .partner-logos {
   display: flex;
-  gap: var(--space-sm);
+  gap: var(--space-md);
   align-items: center;
 }
 
 .tlcs-frontiers-theme .partner-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
-  opacity: 0.8;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  opacity: 0.7;
   transition: all var(--transition-normal);
   object-fit: contain;
   background: white;
@@ -277,7 +279,7 @@
 
 .tlcs-frontiers-theme .social-links-nav {
   display: flex;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   align-items: center;
 }
 
@@ -285,8 +287,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   background: rgba(248, 250, 252, 0.8);
   border: 1px solid rgba(226, 232, 240, 0.6);
   border-radius: 6px;
@@ -319,8 +321,8 @@
 }
 
 .tlcs-frontiers-theme .social-icon-nav {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .tlcs-frontiers-theme .mobile-menu-toggle {
