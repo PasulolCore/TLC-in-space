@@ -564,36 +564,105 @@
 
   <!-- Team Section -->
   <section id="team" class="team-section frontiers-section alt">
+    <!-- Team Background Pattern -->
+    <div class="team-background">
+      <div class="expertise-grid">
+        <div class="expertise-dot" *ngFor="let i of [1,2,3,4,5,6,7,8]" [style.animation-delay]="i * 0.4 + 's'"></div>
+      </div>
+    </div>
     <div class="container">
       <div class="section-header frontiers-header">
-        <h2 class="section-title">Research Team</h2>
+        <h2 class="section-title">Research Team <span class="team-icon">🧪</span></h2>
         <p class="section-subtitle">Leading scientists advancing liquid crystal research</p>
       </div>
-      <div class="team-leader">
-        <div class="leader-card frontiers-card">
-          <div class="leader-photo">
-            <img src="/assets/natthaporn-chattam.jpg" alt="Dr. Nattaporn Chattam">
+      <!-- Team Members Grid - Vertical Layout -->
+      <div class="team-showcase">
+        <!-- Principal Investigator -->
+        <div class="team-member-card principal-investigator" data-animate="fade-in-up" [style.animation-delay]="'0.2s'">
+          <div class="member-card-header">
+            <div class="member-photo-container">
+              <div class="photo-frame">
+                <img src="/assets/natthaporn-chattam.jpg" alt="Dr. Nattaporn Chattam" class="member-photo-large">
+                <div class="photo-overlay">
+                  <div class="expertise-indicator principal">🔬</div>
+                </div>
+              </div>
+              <div class="position-badge principal">
+                <span class="badge-icon">⭐</span>
+                <span>Principal Investigator</span>
+              </div>
+            </div>
           </div>
-          <div class="leader-info">
-            <h3 class="leader-name">Assoc. Prof. Dr. Nattaporn Chattam</h3>
-            <p class="leader-title">Principal Investigator & Project Director</p>
-            <p class="leader-affiliation">Department of Physics, Faculty of Science, Kasetsart University</p>
-            <p class="leader-expertise">
-              Leading expert in liquid crystal physics
-              Specializes in liquid crystal phase transitions, molecular dynamics, and materials research.
+          <div class="member-details">
+            <h3 class="member-name-large">Assoc. Prof. Dr. Nattaporn Chattam</h3>
+            <p class="member-title-primary">Principal Investigator & Project Director</p>
+            <p class="member-affiliation">Department of Physics, Faculty of Science, Kasetsart University</p>
+            <div class="expertise-tags">
+              <span class="expertise-tag">🧬 Liquid Crystal Physics</span>
+              <span class="expertise-tag">⚙️ Phase Transitions</span>
+              <span class="expertise-tag">🔬 Materials Research</span>
+            </div>
+            <p class="member-description">
+              Leading expert in liquid crystal physics with extensive research in phase transitions, molecular dynamics, and advanced materials development.
             </p>
           </div>
         </div>
-      </div>
-      <div class="team-grid">
-        <div class="team-member frontiers-card" *ngFor="let member of teamMembers">
-          <div class="member-photo">
-            <img [src]="member.photo" [alt]="member.name" [attr.title]="member.name">
+
+        <!-- Team Members -->
+        <div class="team-members-grid">
+          <div class="team-member-card co-investigator" *ngFor="let member of teamMembers; let i = index" 
+               data-animate="fade-in-up" [style.animation-delay]="(i + 1) * 0.3 + 's'">
+            <div class="member-card-header">
+              <div class="member-photo-container">
+                <div class="photo-frame">
+                  <img [src]="member.photo" [alt]="member.name" class="member-photo-medium">
+                  <div class="photo-overlay">
+                    <div class="expertise-indicator co-investigator">🤝</div>
+                  </div>
+                </div>
+                <div class="position-badge co-investigator">
+                  <span class="badge-icon">🎆</span>
+                  <span>Co-Investigator</span>
+                </div>
+              </div>
+            </div>
+            <div class="member-details">
+              <h4 class="member-name-medium">{{ member.name }}</h4>
+              <p class="member-title-secondary">{{ member.title }}</p>
+              <p class="member-expertise-brief">{{ member.expertise }}</p>
+              <div class="research-focus">
+                <span class="focus-icon">🔍</span>
+                <span>Liquid Crystal Research</span>
+              </div>
+            </div>
           </div>
-          <div class="member-info">
-            <h4 class="member-name">{{ member.name }}</h4>
-            <p class="member-title">{{ member.title }}</p>
-            <p class="member-expertise">{{ member.expertise }}</p>
+
+          <!-- Third Member Placeholder (if needed) -->
+          <div class="team-member-card future-member" *ngIf="teamMembers.length < 3"
+               data-animate="fade-in-up" [style.animation-delay]="'0.9s'">
+            <div class="member-card-header">
+              <div class="member-photo-container">
+                <div class="photo-frame placeholder">
+                  <div class="photo-placeholder">
+                    <span class="placeholder-icon">👥</span>
+                    <span class="placeholder-text">Future Team Member</span>
+                  </div>
+                </div>
+                <div class="position-badge future">
+                  <span class="badge-icon">💼</span>
+                  <span>Expanding Team</span>
+                </div>
+              </div>
+            </div>
+            <div class="member-details">
+              <h4 class="member-name-medium">Recruitment in Progress</h4>
+              <p class="member-title-secondary">Research Specialist Position</p>
+              <p class="member-expertise-brief">Seeking expertise in space materials and microgravity research</p>
+              <div class="research-focus">
+                <span class="focus-icon">🚀</span>
+                <span>Space Research Focus</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
